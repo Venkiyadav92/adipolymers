@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 270" role="img" aria-label="Aditya Polymers – Quality Packaging Solutions">
+  <title>Aditya Polymers</title>
+
+  <!-- White background -->
+  <rect width="280" height="270" fill="#ffffff"/>
+
+  <!-- ═══════════════════════════════════════════
+       A  M A R K  (dark navy, even-odd hole)
+  ═══════════════════════════════════════════ -->
+  <path
+    fill="#1A2F6A"
+    fill-rule="evenodd"
+    d="
+      M 140 22
+      L 46  172
+      L 234 172
+      Z
+      M 140 76
+      L 112 154
+      L 168 154
+      Z
+    "
+  />
+
+  <!-- ═══════════════════════════════════════════
+       G R E E N  S W O O S H
+       Flowing ribbon that sweeps around the base
+  ═══════════════════════════════════════════ -->
+  <path
+    fill="#2D8B32"
+    d="
+      M 28  154
+      C 64  130  108 120  140 126
+      C 172 132  216 148  254 156
+      L 248 172
+      C 212 164  172 158  140 160
+      C 108 158  66  168  38  176
+      Z
+    "
+  />
+
+  <!-- ═══════════════════════════════════════════
+       P L A S T I C  R O L L S
+       Two cylindrical bag/roll shapes inside the A
+  ═══════════════════════════════════════════ -->
+
+  <!-- Left roll body -->
+  <rect x="116" y="96" width="20" height="52" rx="10" fill="#ffffff"/>
+  <!-- Left roll top ellipse (gives 3-D cylinder look) -->
+  <ellipse cx="126" cy="96" rx="10" ry="5" fill="#E2E2E2"/>
+  <!-- Left roll highlight stripe -->
+  <rect x="120" y="101" width="4" height="38" rx="2" fill="rgba(255,255,255,0.6)"/>
+
+  <!-- Right roll body (slightly taller, forward overlap) -->
+  <rect x="138" y="92" width="20" height="56" rx="10" fill="#f7f7f7"/>
+  <!-- Right roll top ellipse -->
+  <ellipse cx="148" cy="92" rx="10" ry="5" fill="#D6D6D6"/>
+  <!-- Right roll highlight stripe -->
+  <rect x="142" y="97" width="4" height="40" rx="2" fill="rgba(255,255,255,0.6)"/>
+
+  <!-- Bag tie / pinch marks at top of rolls -->
+  <path d="M 120 109 Q 126 105 132 109" fill="none" stroke="#BBBBBB" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M 142 105 Q 148 101 154 105" fill="none" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- ═══════════════════════════════════════════
+       T E X T  B L O C K
+  ═══════════════════════════════════════════ -->
+
+  <!-- "ADITYA" — large bold navy -->
+  <text
+    x="140"
+    y="206"
+    font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
+    font-size="33"
+    font-weight="900"
+    fill="#1A2F6A"
+    text-anchor="middle"
+    letter-spacing="7"
+  >ADITYA</text>
+
+  <!-- Decorative green rules flanking "POLYMERS" -->
+  <line x1="34"  y1="218" x2="78"  y2="218" stroke="#2D8B32" stroke-width="1.5"/>
+  <text
+    x="140"
+    y="222"
+    font-family="Arial,Helvetica,sans-serif"
+    font-size="14"
+    font-weight="700"
+    fill="#2D8B32"
+    text-anchor="middle"
+    letter-spacing="4"
+  >POLYMERS</text>
+  <line x1="202" y1="218" x2="246" y2="218" stroke="#2D8B32" stroke-width="1.5"/>
+
+  <!-- Decorative navy rules flanking tagline -->
+  <line x1="22"  y1="240" x2="58"  y2="240" stroke="#1A2F6A" stroke-width="0.75"/>
+  <text
+    x="140"
+    y="244"
+    font-family="Arial,Helvetica,sans-serif"
+    font-size="8.5"
+    fill="#4A5680"
+    text-anchor="middle"
+    letter-spacing="1.5"
+  >QUALITY PACKAGING SOLUTIONS</text>
+  <line x1="222" y1="240" x2="258" y2="240" stroke="#1A2F6A" stroke-width="0.75"/>
+</svg>

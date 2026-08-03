@@ -1,0 +1,372 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+// ── Hero ──────────────────────────────────────────────────────
+.cert-hero {
+  // position: relative;
+  // padding: 140px 0 80px;
+  // background: $gradient-hero;
+  // overflow: hidden;
+  // text-align: center;
+   position: relative;
+  padding: 140px 0 80px;
+  overflow: hidden;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(10, 10, 20, 0.65),
+      rgba(20, 20, 40, 0.65)
+    ),
+    url('/assets/images/certification-bg2.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.18;
+
+      &-1 {
+        width: 500px; height: 500px;
+        background: $color-green;
+        top: -150px; left: -100px;
+      }
+      &-2 {
+        width: 400px; height: 400px;
+        background: $color-purple;
+        bottom: -100px; right: -80px;
+      }
+    }
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-2 $space-4;
+    background: rgba($color-green, 0.15);
+    border: 1px solid rgba($color-green, 0.3);
+    border-radius: $radius-full;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semi;
+    color: $color-green-light;
+    margin-bottom: $space-5;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    svg { flex-shrink: 0; }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: $font-weight-black;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: $space-5;
+
+    .highlight {
+      @include gradient-text($gradient-green);
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-lg;
+    color: rgba(255,255,255,0.72);
+    line-height: $line-height-relaxed;
+    max-width: 680px;
+    margin: 0 auto $space-10;
+  }
+
+  &__stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-6;
+    flex-wrap: wrap;
+
+    @include max-md { gap: $space-4; }
+  }
+}
+
+.cert-stat {
+  text-align: center;
+
+  &__num {
+    display: block;
+    font-family: $font-display;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-black;
+    @include gradient-text($gradient-green);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  &__lbl {
+    display: block;
+    font-size: $font-size-xs;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: $font-weight-medium;
+  }
+
+  &__divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.15);
+
+    @media (max-width: 480px) { display: none; }
+  }
+}
+
+// ── Trust Bar ─────────────────────────────────────────────────
+.trust-bar {
+  background: #fff;
+  border-bottom: 1px solid $color-border;
+  padding: $space-5 0;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $space-4;
+
+    @include max-md { gap: $space-3; }
+  }
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semi;
+  color: $color-dark-3;
+
+  svg { color: $color-green; flex-shrink: 0; }
+}
+
+.trust-divider {
+  width: 1px;
+  height: 24px;
+  background: $color-border;
+
+  @media (max-width: 600px) { display: none; }
+}
+
+// ── Certificate Documents Section ─────────────────────────────
+.cert-docs {
+  background: $color-bg-light;
+  padding: $space-16 0 $space-20;
+}
+
+// ── Three-column uniform grid ──────────────────────────────────
+.cert-docs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+  align-items: start;
+
+  @include max-md {
+    grid-template-columns: 1fr;
+    gap: $space-8;
+  }
+}
+
+// ── Document Block — all share identical dimensions ────────────
+.cert-doc-block {
+  background: #fff;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-card;
+  border: 1px solid $color-border;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+// ── Label / Header ─────────────────────────────────────────────
+.cert-doc-label {
+  padding: $space-4 $space-5 $space-3;
+  border-bottom: 1px solid $color-border;
+  background: $color-bg-soft;
+  flex-shrink: 0;
+}
+
+.cert-doc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  padding: 3px $space-2;
+  border-radius: $radius-full;
+  font-size: 0.65rem;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: $space-2;
+
+  &--green  { background: rgba($color-green, 0.12); color: $color-green-dark; }
+  &--blue   { background: rgba(#3b82f6, 0.12); color: #1d4ed8; }
+  &--orange { background: rgba($color-orange, 0.12); color: $color-orange-dark; }
+}
+
+.cert-doc-title {
+  font-family: $font-display;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $color-dark;
+  margin: 0 0 $space-1;
+  line-height: $line-height-tight;
+}
+
+.cert-doc-issuer {
+  font-size: 0.7rem;
+  color: $color-gray;
+  margin: 0;
+  line-height: $line-height-normal;
+}
+
+// ── PDF iframe — fixed identical height for all three ──────────
+.cert-doc-viewer {
+  width: 100%;
+  background: #f0f0f0;
+  flex: 1;
+}
+
+.cert-iframe {
+  display: block;
+  width: 100%;
+  height: 480px;
+  border: none;
+
+  @include max-md { height: 560px; }
+}
+
+// ── Document footer ────────────────────────────────────────────
+.cert-doc-footer {
+  padding: $space-3 $space-5;
+  border-top: 1px solid $color-border;
+  background: $color-bg-soft;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.cert-open-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  padding: 6px $space-3;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semi;
+  text-decoration: none;
+  transition: all $transition-base;
+  background: rgba($color-green, 0.1);
+  color: $color-green-dark;
+  border: 1px solid rgba($color-green, 0.25);
+
+  &:hover { background: $color-green; color: #fff; border-color: $color-green; transform: translateY(-1px); }
+
+  &--blue {
+    background: rgba(#3b82f6, 0.1);
+    color: #1d4ed8;
+    border-color: rgba(#3b82f6, 0.25);
+    &:hover { background: #1d4ed8; color: #fff; border-color: #1d4ed8; }
+  }
+
+  &--orange {
+    background: rgba($color-orange, 0.1);
+    color: $color-orange-dark;
+    border-color: rgba($color-orange, 0.25);
+    &:hover { background: $color-orange; color: #fff; border-color: $color-orange; }
+  }
+
+  svg { flex-shrink: 0; }
+}
+
+// ── CTA Banner ────────────────────────────────────────────────
+.cert-cta {
+  background: $gradient-hero;
+  padding: $space-16 0;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-8;
+    flex-wrap: wrap;
+  }
+
+  &__content {
+    max-width: 560px;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: #fff;
+    margin-bottom: $space-2;
+
+    @include max-md { font-size: $font-size-2xl; }
+  }
+
+  &__sub {
+    font-size: $font-size-base;
+    color: rgba(255,255,255,0.68);
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $space-3;
+    flex-wrap: wrap;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-3 $space-6;
+    border-radius: $radius-full;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semi;
+    text-decoration: none;
+    transition: all $transition-base;
+    white-space: nowrap;
+
+    &--primary {
+      background: #fff;
+      color: $color-dark;
+      box-shadow: $shadow-md;
+
+      &:hover { background: $color-bg-soft; transform: translateY(-2px); }
+    }
+
+    &--whatsapp {
+      background: #25D366;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(#25D366, 0.4);
+
+      &:hover { background: #20BA5A; transform: translateY(-2px); }
+    }
+  }
+}

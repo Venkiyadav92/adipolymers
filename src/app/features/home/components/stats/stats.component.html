@@ -1,0 +1,25 @@
+<section class="stats section" aria-label="Company statistics">
+  <div class="container">
+    <div class="stats__grid">
+      @for (stat of stats; track stat.label; let i = $index) {
+        <div class="stats__card" [apScrollAnimate]="'fade-up'" [scrollDelay]="i * 100">
+          <div class="stats__icon-wrap">
+            <span class="material-symbols-rounded stats__icon">{{ stat.icon }}</span>
+          </div>
+          <div class="stats__numbers">
+            <span class="stats__value"
+              [apCounter]="stat.value"
+              [counterSuffix]="stat.suffix"
+              [counterDuration]="2000">
+              0
+            </span>
+          </div>
+          <p class="stats__label">{{ stat.label }}</p>
+          @if (stat.description) {
+            <p class="stats__desc">{{ stat.description }}</p>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

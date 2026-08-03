@@ -1,0 +1,329 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.footer {
+  position: relative;
+
+  &__wave {
+    line-height: 0;
+    overflow: hidden;
+    height: 80px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  &__body {
+    background: linear-gradient(180deg, rgba(11, 7, 24, 0.98) 0%, rgba(27, 18, 47, 0.98) 100%);
+    padding: $space-16 0 $space-12;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-10;
+
+    @include md {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include lg {
+      grid-template-columns: 2.2fr 1fr 1.4fr;
+    }
+  }
+
+  // --- Brand ---
+  &__brand { }
+
+  &__logo-link {
+    @include flex(row, center, flex-start, $space-3);
+    text-decoration: none;
+    margin-bottom: $space-5;
+  }
+
+  &__logo-wrap {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  &__logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  &__brand-name {
+    display: block;
+    font-family: $font-display;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-extra;
+    @include gradient-text($gradient-brand);
+  }
+
+  &__brand-tag {
+    display: block;
+    font-size: $font-size-xs;
+    color: $color-gray;
+    margin-top: 2px;
+  }
+
+  &__desc {
+    font-size: $font-size-sm;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: $space-6;
+  }
+
+  &__contact { display: flex; flex-direction: column; gap: $space-3; margin-bottom: $space-6; }
+
+  &__contact-block {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: $radius-lg;
+    padding: $space-3 $space-4;
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+  }
+
+  &__contact-type {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: $color-pink-light;
+  }
+
+  &__contact-item {
+    @include flex(row, flex-start, flex-start, $space-3);
+    font-size: $font-size-sm;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    svg { flex-shrink: 0; margin-top: 2px; color: $color-purple-light; }
+
+    &:hover { color: rgba(255,255,255,0.9); }
+  }
+
+  &__whatsapp {
+    svg { color: #25D366; }
+    &:hover { color: #25D366 !important; }
+  }
+
+  &__contact-block {
+    padding-bottom: $space-4;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: $space-4;
+
+    &:last-of-type { border-bottom: none; }
+  }
+
+  &__contact-type {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: $space-2;
+  }
+
+  &__contact-flag {
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+
+  &__contact-phone,
+  &__contact-email {
+    svg { color: $color-gray-light; }
+  }
+
+  &__contact-email--primary {
+    color: rgba(255,255,255,0.85);
+    font-weight: $font-weight-medium;
+    svg { color: $color-green-light; }
+    &:hover { color: $color-green-light; }
+  }
+
+  &__address {
+    align-items: flex-start;
+    line-height: 1.6;
+  }
+
+  &__social {
+    @include flex(row, center, flex-start, $space-2);
+  }
+
+  &__social-link {
+    width: 38px;
+    height: 38px;
+    @include flex-center;
+    border-radius: $radius-lg;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all $transition-base;
+
+    &:hover {
+      background: $gradient-brand;
+      color: #fff;
+      border-color: transparent;
+      transform: translateY(-2px);
+    }
+
+    &--wa:hover {
+      background: #25D366;
+      border-color: #25D366;
+    }
+  }
+
+  // --- Nav Columns ---
+  &__col { }
+
+  &__col-title {
+    font-family: $font-display;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semi;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: $space-5;
+    position: relative;
+    padding-bottom: $space-3;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 24px;
+      height: 2px;
+      border-radius: $radius-full;
+      background: $gradient-brand;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__link {
+    @include flex(row, center, flex-start, $space-2);
+    font-size: $font-size-sm;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    padding: $space-1 0;
+    transition: all $transition-fast;
+
+    svg { color: $color-purple-light; opacity: 0; transition: opacity $transition-fast; }
+
+    &:hover {
+      color: rgba(255,255,255,0.9);
+      padding-left: $space-2;
+      svg { opacity: 1; }
+    }
+  }
+
+  // --- Certifications ---
+  &__certs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+    margin-bottom: $space-6;
+  }
+
+  &__cert-badge {
+    @include flex(row, center, flex-start, 0.3rem);
+    font-size: $font-size-xs;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 0.25rem 0.625rem;
+    border-radius: $radius-full;
+
+    svg { color: $color-orange; }
+  }
+
+  // --- Cert CTA ---
+  &__cert-cta {
+    margin-top: $space-2;
+    padding: $space-4;
+    background: rgba($color-pink, 0.1);
+    border: 1px solid rgba($color-pink, 0.2);
+    border-radius: $radius-xl;
+  }
+
+  &__cert-cta-text {
+    font-size: $font-size-xs;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: $space-3;
+    line-height: 1.5;
+  }
+
+  &__cert-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-2 $space-4;
+    background: $gradient-green;
+    color: #fff;
+    border-radius: $radius-full;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semi;
+    text-decoration: none;
+    transition: opacity $transition-fast;
+
+    &:hover { opacity: 0.85; }
+  }
+
+  // --- Bottom Bar ---
+  &__bottom {
+    background: rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: $space-5 0;
+  }
+
+  &__bottom-inner {
+    @include flex(row, center, space-between);
+    flex-wrap: wrap;
+    gap: $space-3;
+  }
+
+  &__copyright {
+    font-size: $font-size-xs;
+    color: rgba(255,255,255,0.35);
+    margin: 0;
+  }
+
+  &__legal {
+    @include flex(row, center, center, $space-3);
+  }
+
+  &__legal-link {
+    font-size: $font-size-xs;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover { color: rgba(255,255,255,0.8); }
+  }
+
+  .divider-dot { color: rgba(255,255,255,0.2); }
+}

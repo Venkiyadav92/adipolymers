@@ -1,0 +1,263 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.pd-breadcrumb {
+  background: $color-bg-soft;
+  border-bottom: 1px solid $color-border;
+  padding: $space-3 0;
+
+  &__inner {
+    @include flex(row, center, flex-start, $space-2);
+    font-size: $font-size-xs;
+
+    a { color: $color-gray; text-decoration: none; &:hover { color: $color-purple; } }
+    svg { color: $color-gray-light; }
+    span { color: $color-dark; font-weight: $font-weight-medium; }
+  }
+}
+
+.pd-hero {
+  background: $gradient-hero;
+  @include section-padding;
+  position: relative;
+  overflow: hidden;
+
+  &__bg {
+    @include absolute-fill;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  &__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-10;
+    align-items: center;
+
+    @include lg { grid-template-columns: 380px 1fr; }
+  }
+
+  &__visual { @include flex-center; }
+
+  &__img-wrap {
+    width: 300px;
+    height: 300px;
+    border-radius: $radius-3xl;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    @include flex-center;
+    flex-direction: column;
+    gap: $space-4;
+    position: relative;
+    backdrop-filter: blur(10px);
+  }
+
+  &__icon-bg { @include flex-center; }
+
+  &__cert-float {
+    @include flex(row, center, center);
+    flex-wrap: wrap;
+    gap: $space-2;
+    padding: 0 $space-4;
+  }
+
+  .pd-cert-badge {
+    @include flex(row, center, center, $space-1);
+    font-size: 10px;
+    font-weight: $font-weight-semi;
+    color: $color-orange-light;
+    background: rgba(249,115,22,0.15);
+    border: 1px solid rgba(249,115,22,0.25);
+    padding: 0.2rem 0.5rem;
+    border-radius: $radius-full;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__info { @include flex(column, flex-start, flex-start, $space-4); }
+
+  &__badges { @include flex(row, center, flex-start, $space-2); flex-wrap: wrap; }
+
+  .pd-badge {
+    @include tag;
+
+    &--new { @include tag(rgba(22,163,74,0.15), $color-green); }
+    &--cat { @include tag(rgba(255,255,255,0.1), rgba(255,255,255,0.7)); text-transform: capitalize; }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: $font-weight-extra;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
+
+  &__desc {
+    font-size: $font-size-base;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    max-width: 520px;
+  }
+
+  &__tags { @include flex(row, center, flex-start, $space-2); flex-wrap: wrap; }
+
+  .pd-tag {
+    font-size: 11px;
+    font-weight: $font-weight-medium;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 0.25rem 0.625rem;
+    border-radius: $radius-full;
+  }
+
+  &__actions { @include flex(row, center, flex-start, $space-3); flex-wrap: wrap; }
+
+  .pd-btn-primary { @include flex(row, center, center, $space-2); @include btn-primary; height: 48px; padding: 0 $space-6; font-size: $font-size-sm; }
+  .pd-btn-outline {
+    @include btn-outline;
+    height: 48px;
+    padding: 0 $space-6;
+    font-size: $font-size-sm;
+    border-color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    display: flex; align-items: center; justify-content: center;
+    &:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.08); color: #fff; }
+  }
+  .pd-btn-ghost { @include flex(row, center, center, $space-2); @include btn-ghost; height: 48px; color: rgba(255,255,255,0.5); text-decoration: none; &:hover { color: #fff; background: rgba(255,255,255,0.06); } }
+}
+
+// --- Tabs ---
+.pd-tabs-section { background: $color-bg-white; }
+
+.pd-tabs {
+  @include flex(row, center, flex-start, 0);
+  border-bottom: 2px solid $color-border;
+  margin-bottom: $space-8;
+  overflow-x: auto;
+  @include custom-scrollbar;
+}
+
+.pd-tab {
+  padding: $space-3 $space-6;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-gray;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-bottom: -2px;
+  transition: all $transition-fast;
+
+  &.active { color: $color-purple; border-bottom-color: $color-purple; }
+  &:hover:not(.active) { color: $color-dark; }
+}
+
+.pd-content { min-height: 300px; }
+
+.pd-overview {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-10;
+
+  @include lg { grid-template-columns: 1fr 1fr; }
+
+  h3 { font-size: $font-size-xl; font-weight: $font-weight-bold; color: $color-dark; margin-bottom: $space-6; }
+}
+
+.pd-features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-3;
+
+  @include sm { grid-template-columns: 1fr 1fr; }
+}
+
+.pd-feature-item {
+  @include flex(row, center, flex-start, $space-3);
+  padding: $space-3 $space-4;
+  background: $color-bg-soft;
+  border-radius: $radius-lg;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-dark;
+
+  .pd-feature-icon { width: 28px; height: 28px; border-radius: 50%; background: rgba(22,163,74,0.1); color: $color-green; @include flex-center; flex-shrink: 0; }
+}
+
+.pd-certs-list { display: flex; flex-direction: column; gap: $space-3; }
+
+.pd-cert-item {
+  @include flex(row, center, flex-start, $space-3);
+  padding: $space-3 $space-4;
+  background: $color-bg-soft;
+  border-radius: $radius-lg;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semi;
+  color: $color-dark-3;
+
+  svg { color: $color-orange; flex-shrink: 0; }
+}
+
+// Specs Table
+.pd-specs-table {
+  overflow-x: auto;
+
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: $space-4 $space-5; text-align: left; border-bottom: 1px solid $color-border; font-size: $font-size-sm; }
+  th { background: $color-bg-soft; font-weight: $font-weight-semi; color: $color-dark; }
+  td { color: $color-dark-3; }
+  tr:hover td { background: rgba(107,33,168,0.02); }
+  strong { color: $color-dark; }
+}
+
+.pd-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-4;
+
+  @include md { grid-template-columns: repeat(3, 1fr); }
+  @include lg { grid-template-columns: repeat(4, 1fr); }
+}
+
+.pd-app-card {
+  @include flex(column, center, center, $space-3);
+  @include card;
+  @include card-hover;
+  padding: $space-6 $space-4;
+  text-align: center;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-dark;
+
+  .pd-app-icon { width: 44px; height: 44px; border-radius: $radius-full; background: rgba(107,33,168,0.08); color: $color-purple; @include flex-center; }
+}
+
+// Related
+.pd-related { background: $color-bg-soft; }
+.pd-related__title { font-size: $font-size-2xl; font-weight: $font-weight-bold; color: $color-dark; margin-bottom: $space-6; }
+.pd-related__grid { display: grid; grid-template-columns: 1fr; gap: $space-4; @include md { grid-template-columns: repeat(3, 1fr); } }
+
+.pd-related-card {
+  @include card;
+  @include card-hover;
+  padding: $space-6;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  &__name { font-size: $font-size-lg; font-weight: $font-weight-bold; color: $color-dark; }
+  &__desc { font-size: $font-size-sm; color: $color-gray; line-height: 1.6; flex: 1; }
+  &__link { @include flex(row, center, flex-start, $space-2); font-size: $font-size-sm; font-weight: $font-weight-semi; color: $color-purple; margin-top: auto; }
+}
+
+.pd-not-found { @include flex(column, center, center, $space-4); text-align: center; padding: $space-20 0; }

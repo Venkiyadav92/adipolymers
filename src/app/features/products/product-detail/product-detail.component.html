@@ -1,0 +1,180 @@
+@if (product()) {
+  <!-- Breadcrumb -->
+  <div class="pd-breadcrumb">
+    <div class="container pd-breadcrumb__inner">
+      <a routerLink="/">Home</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      <a routerLink="/products">Products</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      <span>{{ product()!.name }}</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="pd-hero">
+    <div class="pd-hero__bg" aria-hidden="true"></div>
+    <div class="container pd-hero__grid">
+      <!-- Visual -->
+      <div class="pd-hero__visual" [apScrollAnimate]="'fade-left'">
+        <div class="pd-hero__img-wrap">
+          <div class="pd-hero__icon-bg">
+            <svg viewBox="0 0 120 120" fill="none" width="80" height="80">
+              <circle cx="60" cy="60" r="50" stroke="url(#pdGrad)" stroke-width="1" stroke-dasharray="8 4" opacity="0.4"/>
+              <path d="M60 20 C40 34 28 48 28 62 C28 78 42 90 60 90 C78 90 92 78 92 62 C92 48 80 34 60 20Z" fill="url(#pdGrad)" opacity="0.3"/>
+              <circle cx="60" cy="60" r="18" fill="url(#pdGrad)"/>
+              <defs>
+                <linearGradient id="pdGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6B21A8"/>
+                  <stop offset="50%" stop-color="#EC4899"/>
+                  <stop offset="100%" stop-color="#F97316"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <!-- Certifications Float -->
+          <div class="pd-hero__cert-float">
+            @for (cert of product()!.certifications; track cert) {
+              <span class="pd-cert-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                {{ cert }}
+              </span>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="pd-hero__info" [apScrollAnimate]="'fade-right'">
+        <div class="pd-hero__badges">
+          @if (product()!.badge) { <span class="pd-badge pd-badge--main">{{ product()!.badge }}</span> }
+          @if (product()!.isNew) { <span class="pd-badge pd-badge--new">New</span> }
+          <span class="pd-badge pd-badge--cat">{{ product()!.category.split('-').join(' ') }}</span>
+        </div>
+
+        <h1 class="pd-hero__title">{{ product()!.name }}</h1>
+        <p class="pd-hero__desc">{{ product()!.description }}</p>
+
+        <!-- Tags -->
+        <div class="pd-hero__tags">
+          @for (tag of product()!.tags; track tag) {
+            <span class="pd-tag">{{ tag }}</span>
+          }
+        </div>
+
+        <div class="pd-hero__actions">
+          <button class="pd-btn-primary" (click)="requestSample()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            Request Sample
+          </button>
+          <a routerLink="/contact" class="pd-btn-outline">Inquire Now</a>
+          <a routerLink="/products" class="pd-btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Back to Products
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detail Tabs -->
+  <section class="pd-tabs-section section">
+    <div class="container">
+      <div class="pd-tabs">
+        <button class="pd-tab" [class.active]="activeTab() === 'overview'" (click)="activeTab.set('overview')">Overview & Features</button>
+        <button class="pd-tab" [class.active]="activeTab() === 'specs'" (click)="activeTab.set('specs')">Technical Specifications</button>
+        <button class="pd-tab" [class.active]="activeTab() === 'applications'" (click)="activeTab.set('applications')">Applications</button>
+      </div>
+
+      @switch (activeTab()) {
+        @case ('overview') {
+          <div class="pd-content pd-overview">
+            <div class="pd-overview__features">
+              <h3>Key Features</h3>
+              <div class="pd-features-grid">
+                @for (feature of product()!.features; track feature; let i = $index) {
+                  <div class="pd-feature-item" [apScrollAnimate]="'fade-up'" [scrollDelay]="i * 60">
+                    <div class="pd-feature-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                    </div>
+                    {{ feature }}
+                  </div>
+                }
+              </div>
+            </div>
+            <div class="pd-overview__certs">
+              <h3>Certifications & Standards</h3>
+              <div class="pd-certs-list">
+                @for (cert of product()!.certifications; track cert) {
+                  <div class="pd-cert-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    {{ cert }}
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        }
+        @case ('specs') {
+          <div class="pd-content">
+            <div class="pd-specs-table">
+              <table>
+                <thead>
+                  <tr><th>Property</th><th>Value</th><th>Unit</th></tr>
+                </thead>
+                <tbody>
+                  @for (spec of product()!.specifications; track spec.label) {
+                    <tr>
+                      <td>{{ spec.label }}</td>
+                      <td><strong>{{ spec.value }}</strong></td>
+                      <td>{{ spec.unit ?? '—' }}</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        }
+        @case ('applications') {
+          <div class="pd-content">
+            <div class="pd-apps-grid">
+              @for (app of product()!.applications; track app; let i = $index) {
+                <div class="pd-app-card" [apScrollAnimate]="'fade-up'" [scrollDelay]="i * 60">
+                  <div class="pd-app-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  </div>
+                  {{ app }}
+                </div>
+              }
+            </div>
+          </div>
+        }
+      }
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  @if (relatedProducts().length > 0) {
+    <section class="pd-related section">
+      <div class="container">
+        <h2 class="pd-related__title">Related Products</h2>
+        <div class="pd-related__grid">
+          @for (rp of relatedProducts(); track rp.id) {
+            <a [routerLink]="['/products', rp.slug]" class="pd-related-card">
+              <span class="pd-related-card__name">{{ rp.name }}</span>
+              <p class="pd-related-card__desc">{{ rp.shortDescription }}</p>
+              <span class="pd-related-card__link">
+                View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+          }
+        </div>
+      </div>
+    </section>
+  }
+} @else {
+  <div class="pd-not-found container section">
+    <h2>Product Not Found</h2>
+    <p>The product you're looking for doesn't exist or has been removed.</p>
+    <a routerLink="/products" class="btn-primary">Browse All Products</a>
+  </div>
+}

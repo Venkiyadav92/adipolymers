@@ -1,0 +1,131 @@
+<!-- Hero -->
+<section class="products-hero">
+  <div class="products-hero__bg" aria-hidden="true">
+    <div class="orb orb-1"></div><div class="orb orb-2"></div>
+  </div>
+  <div class="container products-hero__inner">
+    <div [apScrollAnimate]="'fade-up'">
+      <span class="products-hero__label">Our Products</span>
+      <h1 class="products-hero__title">Sustainable <span class="highlight">Materials Portfolio</span></h1>
+      <p class="products-hero__subtitle">Explore our complete range of compostable packaging solutions, sustainable materials, and specialty products designed for dependable performance and responsible use.</p>
+    </div>
+  </div>
+</section>
+
+<section class="products-main section">
+  <div class="container">
+
+    <!-- Controls -->
+    <div class="products-controls" [apScrollAnimate]="'fade-up'">
+      <!-- Search -->
+      <div class="products-search">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input
+          type="search"
+          class="search-input"
+          placeholder="Search products, applications, materials..."
+          [ngModel]="searchQuery()"
+          (ngModelChange)="searchQuery.set($event)"
+          aria-label="Search products"
+        />
+      </div>
+
+      <!-- Category Filters -->
+      <div class="products-filters" role="group" aria-label="Product categories">
+        @for (cat of categories; track cat.value) {
+          <button
+            class="filter-btn"
+            [class.active]="activeCategory() === cat.value"
+            (click)="setCategory(cat.value)"
+            [attr.aria-pressed]="activeCategory() === cat.value"
+          >
+            {{ cat.label }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <!-- Results Count -->
+    <p class="products-count" [apScrollAnimate]="'fade-up'">
+      Showing <strong>{{ filteredProducts().length }}</strong> product{{ filteredProducts().length !== 1 ? 's' : '' }}
+      @if (activeCategory() !== 'all') { in <em>{{ activeCategory().split('-').join(' ') | titlecase }}</em> }
+    </p>
+
+    <!-- Products Grid -->
+    @if (filteredProducts().length > 0) {
+      <div class="products-grid">
+        @for (product of filteredProducts(); track product.id; let i = $index) {
+          <article class="product-item" [apScrollAnimate]="'fade-up'" [scrollDelay]="(i % 3) * 100">
+            <!-- Badges -->
+            <div class="product-item__badges">
+              @if (product.badge) {
+                <span class="product-item__badge product-item__badge--main">{{ product.badge }}</span>
+              }
+              @if (product.isNew) {
+                <span class="product-item__badge product-item__badge--new">New</span>
+              }
+            </div>
+
+            <!-- Visual -->
+            <div class="product-item__visual">
+              <div class="product-item__icon-circle">
+                <svg viewBox="0 0 64 64" fill="none" width="40" height="40">
+                  <path d="M32 6C18 14 10 22 10 32C10 44 20 54 32 54C44 54 54 44 54 32C54 22 46 14 32 6Z" fill="url(#pGrad)" opacity="0.4"/>
+                  <circle cx="32" cy="32" r="12" fill="url(#pGrad)"/>
+                  <defs>
+                    <linearGradient id="pGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#6B21A8"/>
+                      <stop offset="100%" stop-color="#F97316"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <span class="product-item__category">{{ product.category.split('-').join(' ') }}</span>
+            </div>
+
+            <!-- Content -->
+            <div class="product-item__body">
+              <h3 class="product-item__name">{{ product.name }}</h3>
+              <p class="product-item__desc">{{ product.shortDescription | truncate:110 }}</p>
+
+              <!-- Quick Specs -->
+              <div class="product-item__specs">
+                @for (spec of product.specifications.slice(0, 2); track spec.label) {
+                  <div class="spec-chip">
+                    <span class="spec-label">{{ spec.label }}</span>
+                    <span class="spec-value">{{ spec.value }} {{ spec.unit }}</span>
+                  </div>
+                }
+              </div>
+
+              <!-- Applications -->
+              <div class="product-item__apps">
+                @for (app of product.applications.slice(0, 3); track app) {
+                  <span class="app-tag">{{ app }}</span>
+                }
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="product-item__footer">
+              <a [routerLink]="['/products', product.slug]" class="product-item__btn-detail">
+                View Details
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a routerLink="/contact" [queryParams]="{ product: product.name }" class="product-item__btn-sample">Get Sample</a>
+            </div>
+          </article>
+        }
+      </div>
+    } @else {
+      <!-- Empty State -->
+      <div class="products-empty" [apScrollAnimate]="'fade-up'">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="empty-icon"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <h3>No Products Found</h3>
+        <p>No products match your current search or filter. Try a different search term or category.</p>
+        <button class="btn-primary" (click)="setCategory('all'); searchQuery.set('')">Clear Filters</button>
+      </div>
+    }
+
+  </div>
+</section>

@@ -1,0 +1,101 @@
+@use '../../../../../styles/variables' as *;
+@use '../../../../../styles/mixins' as *;
+
+.stats {
+  background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(107,33,168,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-4;
+
+    @include md { grid-template-columns: repeat(4, 1fr); gap: $space-6; }
+  }
+
+  &__card {
+    @include flex(column, center, center);
+    padding: $space-8 $space-5;
+    background: #fff;
+    border-radius: $radius-2xl;
+    border: 1px solid $color-border;
+    box-shadow: $shadow-sm;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform $transition-base, box-shadow $transition-base;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: $gradient-brand;
+      opacity: 0;
+      transition: opacity $transition-base;
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: $shadow-xl;
+      &::before { opacity: 1; }
+    }
+  }
+
+  &__icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: $radius-xl;
+    background: rgba(107, 33, 168, 0.08);
+    @include flex-center;
+    margin-bottom: $space-4;
+  }
+
+  &__icon {
+    font-size: 24px;
+    color: #4b0570;
+  }
+
+  &__numbers {
+    margin-bottom: $space-2;
+  }
+
+  &__value {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: $font-weight-black;
+    @include gradient-text($gradient-brand);
+    line-height: 1;
+  }
+
+  &__label {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semi;
+    color: $color-dark;
+    margin-bottom: $space-2;
+  }
+
+  &__desc {
+    font-size: $font-size-xs;
+    color: $color-gray;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+
+// Material Symbols fallback
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded', sans-serif;
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}

@@ -1,0 +1,120 @@
+<!-- Hero -->
+<section class="sus-hero">
+  <div class="sus-hero__bg" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+  <div class="container sus-hero__inner" [apScrollAnimate]="'fade-up'">
+    <span class="sus-hero__label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2-8 2-8 4-4 8-4 8s-4-6 3-8"/></svg>
+      Our Commitment
+    </span>
+    <h1 class="sus-hero__title">Building a <span class="highlight">Greener Planet</span><br>One Polymer at a Time</h1>
+    <p class="sus-hero__subtitle">Sustainability isn't a feature or a marketing claim at Aditya Polymers — it's the foundation of everything we do. From raw material sourcing to product end-of-life, every decision is evaluated against its environmental impact.</p>
+  </div>
+</section>
+
+<!-- Impact Stats -->
+<section class="sus-stats section">
+  <div class="container">
+    <div class="sus-stats__grid">
+      <div class="sus-stat" [apScrollAnimate]="'scale'" [scrollDelay]="0">
+        <span class="sus-stat__value">50K+</span>
+        <p class="sus-stat__label">Tons CO₂ offset since 2019</p>
+      </div>
+      <div class="sus-stat" [apScrollAnimate]="'scale'" [scrollDelay]="80">
+        <span class="sus-stat__value">100%</span>
+        <p class="sus-stat__label">Biodegradable product portfolio</p>
+      </div>
+      <div class="sus-stat" [apScrollAnimate]="'scale'" [scrollDelay]="160">
+        <span class="sus-stat__value">Zero</span>
+        <p class="sus-stat__label">Landfill waste from production</p>
+      </div>
+      <div class="sus-stat" [apScrollAnimate]="'scale'" [scrollDelay]="240">
+        <span class="sus-stat__value">2028</span>
+        <p class="sus-stat__label">Carbon neutrality target year</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Six Pillars -->
+<section class="sus-pillars section">
+  <div class="container">
+    <ap-section-header
+      label="Sustainability Pillars"
+      title='Our Six Commitments to <span class="highlight">the Planet</span>'
+      subtitle="A holistic approach to environmental responsibility — from product design to end-of-life."
+      align="center"
+    />
+    <div class="sus-pillars__grid">
+      @for (pillar of pillars; track pillar.title; let i = $index) {
+        <div class="sus-pillar-card" [apScrollAnimate]="'fade-up'" [scrollDelay]="(i % 3) * 100">
+          <div class="sus-pillar-card__icon">
+            <span class="material-symbols-rounded">{{ pillar.icon }}</span>
+          </div>
+          <h3 class="sus-pillar-card__title">{{ pillar.title }}</h3>
+          <p class="sus-pillar-card__desc">{{ pillar.desc }}</p>
+          <div class="sus-pillar-card__stat">
+            <span class="stat-val">{{ pillar.stat }}</span>
+            <span class="stat-lbl">{{ pillar.statLabel }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- SDGs -->
+<section class="sus-sdg section">
+  <div class="container">
+    <ap-section-header
+      label="Global Goals"
+      title='Contributing to the <span class="highlight">UN SDGs</span>'
+      subtitle="Our work directly supports six United Nations Sustainable Development Goals."
+      align="center"
+    />
+    <div class="sus-sdg__grid">
+      @for (sdg of sdgs; track sdg.number; let i = $index) {
+        <div class="sdg-card" [apScrollAnimate]="'scale'" [scrollDelay]="i * 60" [ngStyle]="{ '--sdg-color': sdg.color }">
+          <span class="sdg-card__number">SDG {{ sdg.number }}</span>
+          <p class="sdg-card__title">{{ sdg.title }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section class="sus-certs section">
+  <div class="container">
+    <ap-section-header
+      label="Certifications"
+      title='Independently Verified <span class="highlight">Sustainability</span>'
+      subtitle="Our environmental claims are backed by internationally recognized third-party certifications."
+      align="center"
+    />
+    <div class="sus-certs__grid">
+      @for (cert of certifications; track cert.name; let i = $index) {
+        <div class="sus-cert-card" [apScrollAnimate]="'fade-up'" [scrollDelay]="i * 80">
+          <div class="sus-cert-card__icon">
+            <span class="material-symbols-rounded">{{ cert.icon }}</span>
+          </div>
+          <h3 class="sus-cert-card__name">{{ cert.name }}</h3>
+          <p class="sus-cert-card__desc">{{ cert.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sus-cta section">
+  <div class="container">
+    <div class="sus-cta__inner" [apScrollAnimate]="'scale'">
+      <h2>Ready to Make the <span class="highlight">Sustainable Switch?</span></h2>
+      <p>Partner with Aditya Polymers to replace conventional plastics with certified biodegradable alternatives — without compromising performance or cost-efficiency.</p>
+      <div class="sus-cta__actions">
+        <a routerLink="/products" class="btn-explore">Browse Products</a>
+        <a routerLink="/contact" class="btn-consult">Get a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>

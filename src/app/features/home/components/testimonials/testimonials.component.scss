@@ -1,0 +1,497 @@
+@use '../../../../../styles/variables' as *;
+@use '../../../../../styles/mixins' as *;
+
+
+// ============================================================
+// TESTIMONIALS
+// ============================================================
+
+.testimonials {
+  // Global Instagram gradient is used from styles.scss
+  background: transparent;
+
+  position: relative;
+  overflow: hidden;
+
+  // No additional background overlay
+  &::before {
+    content: none;
+  }
+
+
+  // ==========================================================
+  // LAYOUT
+  // ==========================================================
+
+  &__layout {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: $space-8;
+
+    margin-bottom: $space-8;
+
+    @include lg {
+      grid-template-columns: 1fr 360px;
+      align-items: start;
+    }
+  }
+
+
+  // ==========================================================
+  // FEATURED TESTIMONIAL
+  // ==========================================================
+
+  &__featured {
+    @include card;
+
+    background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    padding: $space-10;
+
+    position: relative;
+
+    overflow: hidden;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+      0 14px 45px rgba(11, 7, 24, 0.28);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow:
+        0 18px 55px rgba(11, 7, 24, 0.34);
+    }
+
+    // Remove old purple overlay
+    &::before {
+      content: none;
+    }
+  }
+
+
+  // ==========================================================
+  // QUOTE ICON
+  // ==========================================================
+
+  &__quote-icon {
+    margin-bottom: $space-5;
+
+    color: #ffffff;
+
+    filter:
+      drop-shadow(
+        0 4px 12px rgba(0, 0, 0, 0.2)
+      );
+  }
+
+
+  // ==========================================================
+  // QUOTE
+  // ==========================================================
+
+  &__quote {
+    font-family: $font-display;
+
+    font-size:
+      clamp(
+        $font-size-lg,
+        2.5vw,
+        $font-size-2xl
+      );
+
+    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.95);
+
+    font-weight: $font-weight-medium;
+
+    font-style: italic;
+
+    margin: 0 0 $space-8;
+
+    letter-spacing: -0.01em;
+
+    text-shadow:
+      0 2px 10px rgba(0, 0, 0, 0.15);
+  }
+
+
+  // ==========================================================
+  // AUTHOR
+  // ==========================================================
+
+  &__author {
+    @include flex(
+      row,
+      center,
+      flex-start
+    );
+
+    flex-wrap: wrap;
+
+    gap: $space-4;
+
+    margin-bottom: $space-4;
+  }
+
+
+  // ==========================================================
+  // AVATAR
+  // ==========================================================
+
+  &__avatar-wrap {
+    flex-shrink: 0;
+  }
+
+  &__avatar-placeholder {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background:
+      linear-gradient(
+        135deg,
+        #7C3AED 0%,
+        #EC4899 52%,
+        #F97316 100%
+      );
+
+    @include flex-center;
+
+    font-family: $font-display;
+
+    font-size: $font-size-xl;
+
+    font-weight: $font-weight-bold;
+
+    color: #ffffff;
+
+    border:
+      2px solid rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+      0 5px 20px rgba(0, 0, 0, 0.2);
+  }
+
+
+  // ==========================================================
+  // AUTHOR INFO
+  // ==========================================================
+
+  &__author-info {
+    flex: 1;
+  }
+
+  &__name {
+    font-weight: $font-weight-semi;
+
+    color: #ffffff;
+
+    font-size: $font-size-base;
+
+    margin: 0;
+  }
+
+  &__role {
+    font-size: $font-size-sm;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    margin: 0;
+  }
+
+
+  // ==========================================================
+  // STARS
+  // ==========================================================
+
+  &__stars {
+    @include flex(
+      row,
+      center,
+      flex-end,
+      2px
+    );
+
+    margin-left: auto;
+
+    color: #ffffff;
+
+    filter:
+      drop-shadow(
+        0 2px 6px rgba(0, 0, 0, 0.2)
+      );
+  }
+
+
+  // ==========================================================
+  // PRODUCT TAG
+  // ==========================================================
+
+  &__product-tag {
+    @include flex(
+      row,
+      center,
+      flex-start,
+      $space-2
+    );
+
+    display: inline-flex;
+
+    font-size: $font-size-xs;
+
+    color: #ffffff;
+
+    background:
+      rgba(255, 255, 255, 0.12);
+
+    border:
+      1px solid rgba(255, 255, 255, 0.18);
+
+    padding:
+      0.25rem 0.75rem;
+
+    border-radius: $radius-full;
+
+    font-weight: $font-weight-medium;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+
+  // ==========================================================
+  // TESTIMONIAL CARDS
+  // ==========================================================
+
+  &__cards {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: $space-3;
+  }
+
+
+  &__card {
+    @include card;
+
+    background:
+      rgba(255, 255, 255, 0.10);
+
+    border:
+      1px solid rgba(255, 255, 255, 0.16);
+
+    padding:
+      $space-4 $space-5;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+      all $transition-base;
+
+    width: 100%;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+      0 6px 25px rgba(0, 0, 0, 0.12);
+
+
+    &:hover,
+    &.active {
+      background:
+        rgba(255, 255, 255, 0.18);
+
+      border-color:
+        rgba(255, 255, 255, 0.35);
+
+      transform:
+        translateX(4px);
+
+      box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+
+  // ==========================================================
+  // CARD HEADER
+  // ==========================================================
+
+  .tc-header {
+    @include flex(
+      row,
+      center,
+      flex-start,
+      $space-3
+    );
+
+    margin-bottom: $space-2;
+  }
+
+
+  // ==========================================================
+  // CARD AVATAR
+  // ==========================================================
+
+  .tc-avatar {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background:
+      linear-gradient(
+        135deg,
+        #7C3AED 0%,
+        #EC4899 52%,
+        #F97316 100%
+      );
+
+    @include flex-center;
+
+    font-weight:
+      $font-weight-bold;
+
+    color: #ffffff;
+
+    font-size:
+      $font-size-sm;
+
+    flex-shrink: 0;
+
+    border:
+      1px solid rgba(255, 255, 255, 0.3);
+  }
+
+
+  // ==========================================================
+  // CARD NAME
+  // ==========================================================
+
+  .tc-name {
+    font-size:
+      $font-size-sm;
+
+    font-weight:
+      $font-weight-semi;
+
+    color:
+      rgba(255, 255, 255, 0.95);
+
+    margin: 0;
+  }
+
+
+  // ==========================================================
+  // COMPANY
+  // ==========================================================
+
+  .tc-company {
+    font-size:
+      $font-size-xs;
+
+    color:
+      rgba(255, 255, 255, 0.65);
+
+    margin: 0;
+  }
+
+
+  // ==========================================================
+  // EXCERPT
+  // ==========================================================
+
+  .tc-excerpt {
+    font-size:
+      $font-size-xs;
+
+    color:
+      rgba(255, 255, 255, 0.72);
+
+    line-height: 1.5;
+
+    margin:
+      0 0 $space-2;
+
+    @include truncate(2);
+  }
+
+
+  // ==========================================================
+  // CARD STARS
+  // ==========================================================
+
+  .tc-stars {
+    @include flex(
+      row,
+      center,
+      flex-start,
+      2px
+    );
+
+    color: #ffffff;
+  }
+
+
+  // ==========================================================
+  // DOTS
+  // ==========================================================
+
+  &__dots {
+    @include flex(
+      row,
+      center,
+      center,
+      $space-2
+    );
+
+    padding-top: $space-4;
+  }
+
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius:
+      $radius-full;
+
+    background:
+      rgba(255, 255, 255, 0.35);
+
+    border: none;
+
+    cursor: pointer;
+
+    transition:
+      all $transition-base;
+
+    padding: 0;
+
+
+    &.active {
+      width: 24px;
+
+      background:
+        #ffffff;
+
+      box-shadow:
+        0 2px 10px rgba(255, 255, 255, 0.4);
+    }
+  }
+}

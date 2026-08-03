@@ -1,0 +1,110 @@
+<!-- Hero -->
+<section class="blog-hero">
+  <div class="blog-hero__bg" aria-hidden="true"><div class="orb orb-1"></div></div>
+  <div class="container blog-hero__inner" [apScrollAnimate]="'fade-up'">
+    <span class="blog-hero__label">Insights & Innovation</span>
+    <h1 class="blog-hero__title">The Sustainable <span class="highlight">Materials Blog</span></h1>
+    <p class="blog-hero__subtitle">Expert perspectives on biodegradable polymers, sustainable manufacturing, regulatory updates, and the future of eco-friendly materials.</p>
+  </div>
+</section>
+
+<section class="blog-main section">
+  <div class="container">
+
+    <!-- Featured Post -->
+    @if (featuredPost) {
+      <div class="blog-featured" [apScrollAnimate]="'scale'">
+        <div class="blog-featured__visual">
+          <div class="blog-featured__img-placeholder">
+            <span class="featured-label">Featured</span>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+        </div>
+        <div class="blog-featured__content">
+          <div class="blog-featured__meta">
+            <span class="blog-featured__category" [ngStyle]="{ backgroundColor: getCategoryColor(featuredPost.category) + '20', color: getCategoryColor(featuredPost.category) }">{{ featuredPost.category.split('-').join(' ') }}</span>
+            <span class="blog-featured__read-time">{{ featuredPost.readTime }} min read</span>
+          </div>
+          <h2 class="blog-featured__title">
+            <a [routerLink]="['/blog', featuredPost.slug]">{{ featuredPost.title }}</a>
+          </h2>
+          <p class="blog-featured__excerpt">{{ featuredPost.excerpt }}</p>
+          <div class="blog-featured__author">
+            <div class="author-avatar">{{ featuredPost.author.name.charAt(0) }}</div>
+            <div>
+              <p class="author-name">{{ featuredPost.author.name }}</p>
+              <p class="author-role">{{ featuredPost.author.role }}</p>
+            </div>
+            <span class="blog-featured__date">{{ featuredPost.publishedAt | timeAgo }}</span>
+          </div>
+          <a [routerLink]="['/blog', featuredPost.slug]" class="blog-featured__btn">
+            Read Full Article
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    }
+
+    <!-- Filters -->
+    <div class="blog-controls" [apScrollAnimate]="'fade-up'">
+      <div class="blog-search">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="search" placeholder="Search articles..." [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)" aria-label="Search blog posts" />
+      </div>
+      <div class="blog-filters">
+        @for (cat of categories; track cat.value) {
+          <button class="filter-btn" [class.active]="activeCategory() === cat.value" (click)="activeCategory.set(cat.value)"
+            [ngStyle]="activeCategory() === cat.value ? { backgroundColor: cat.color, borderColor: cat.color, color: '#fff' } : {}"
+          >{{ cat.label }}</button>
+        }
+      </div>
+    </div>
+
+    <!-- Posts Grid -->
+    @if (filteredPosts().length > 0) {
+      <div class="blog-grid">
+        @for (post of filteredPosts(); track post.id; let i = $index) {
+          <article class="blog-card" [apScrollAnimate]="'fade-up'" [scrollDelay]="(i % 3) * 100">
+            <div class="blog-card__img-wrap">
+              <div class="blog-card__img-placeholder">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+            </div>
+            <div class="blog-card__content">
+              <div class="blog-card__meta">
+                <span class="blog-card__cat" [ngStyle]="{ color: getCategoryColor(post.category), backgroundColor: getCategoryColor(post.category) + '15' }">
+                  {{ post.category.split('-').join(' ') }}
+                </span>
+                <span class="blog-card__read">{{ post.readTime }} min</span>
+              </div>
+              <h3 class="blog-card__title">
+                <a [routerLink]="['/blog', post.slug]">{{ post.title }}</a>
+              </h3>
+              <p class="blog-card__excerpt">{{ post.excerpt | truncate:120 }}</p>
+              <div class="blog-card__tags">
+                @for (tag of post.tags.slice(0, 3); track tag) {
+                  <span class="blog-tag">{{ tag }}</span>
+                }
+              </div>
+              <div class="blog-card__footer">
+                <div class="blog-card__author">
+                  <div class="author-sm-avatar">{{ post.author.name.charAt(0) }}</div>
+                  <span>{{ post.author.name }}</span>
+                </div>
+                <span class="blog-card__date">{{ post.publishedAt | timeAgo }}</span>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    } @else {
+      <div class="blog-empty" [apScrollAnimate]="'fade-up'">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <h3>No articles found</h3>
+        <p>Try a different search or category filter.</p>
+        <button (click)="activeCategory.set('all'); searchQuery.set('')">Clear Filters</button>
+      </div>
+    }
+
+  </div>
+</section>

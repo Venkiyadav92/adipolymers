@@ -1,0 +1,44 @@
+<section class="certs-section section" aria-labelledby="certs-heading">
+  <div class="container">
+    <ap-section-header
+      label="Quality Assurance"
+      title='Industry-Leading <span class="highlight">Certifications</span>'
+      subtitle="Our products meet the world's most rigorous sustainability and quality standards — giving you confidence in every material choice."
+      align="center"
+    />
+
+    <div class="certs-section__grid">
+      @for (cert of certs; track cert.id; let i = $index) {
+        <div class="cert-card" [apScrollAnimate]="'scale'" [scrollDelay]="i * 80">
+          <div class="cert-card__icon-wrap">
+            <span class="material-symbols-rounded">{{ cert.icon }}</span>
+          </div>
+          <div class="cert-card__badge">{{ cert.badge }}</div>
+          <h3 class="cert-card__name">{{ cert.name }}</h3>
+          <p class="cert-card__issuer">{{ cert.issuer }}</p>
+          <p class="cert-card__desc">{{ cert.description }}</p>
+          <span class="cert-card__year">Since {{ cert.year }}</span>
+        </div>
+      }
+    </div>
+
+    <!-- Trust Bar -->
+    <div class="certs-section__trust-bar" [apScrollAnimate]="'fade-up'" [scrollDelay]="200">
+      <div class="trust-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>All products independently verified</span>
+      </div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>Batch-level compliance documentation</span>
+      </div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <span>Full technical data sheets available</span>
+      </div>
+    </div>
+
+  </div>
+</section>

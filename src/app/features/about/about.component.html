@@ -1,0 +1,88 @@
+<!-- Page Hero -->
+<section class="about-hero">
+  <div class="about-hero__bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+  <div class="container about-hero__inner">
+    <div class="about-hero__content" [apScrollAnimate]="'fade-up'">
+      <span class="about-hero__label">Our Story</span>
+      <h1 class="about-hero__title">Pioneering Sustainable <span class="highlight">Packaging Solutions</span> Since 2010</h1>
+      <p class="about-hero__subtitle">From a passionate startup in Puducherry to a recognized leader in sustainable packaging, we bring dependable quality and responsible manufacturing to every order.</p>
+      <div class="about-hero__actions">
+        <a routerLink="/contact" class="btn-primary">Partner With Us</a>
+        <a routerLink="/products" class="btn-secondary">Explore Products</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="about-mission section">
+  <div class="container">
+    <div class="about-mission__grid">
+      <div class="mission-card" [apScrollAnimate]="'fade-left'">
+        <div class="mission-card__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <span class="mission-card__label">Our Mission</span>
+        <h2 class="mission-card__title">Empowering Industries to Go Green</h2>
+        <p class="mission-card__text">We know how important it is to match your business with environmentally responsible practices, and our team is dedicated to delivering dependable compostable packaging that balances quality, appearance, and durability.</p>
+      </div>
+
+      <div class="mission-card mission-card--dark" [apScrollAnimate]="'fade-right'">
+        <div class="mission-card__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <span class="mission-card__label">Our Vision</span>
+        <h2 class="mission-card__title">Creating an Eco-Friendly Environment Without Plastic</h2>
+        <p class="mission-card__text">To lead the transition toward a plastic-free world through innovative, eco-friendly packaging solutions. Our vision is to make biodegradable materials the global standard, empowering industries to reduce environmental impact while safeguarding nature for generations to come.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="about-stats section">
+  <div class="container">
+    <div class="about-stats__grid">
+      @for (stat of stats; track stat.label; let i = $index) {
+        <div class="about-stat-item" [apScrollAnimate]="'scale'" [scrollDelay]="i * 80">
+          <span class="about-stat-value"
+            [apCounter]="stat.value"
+            [counterSuffix]="stat.suffix">0</span>
+          <p class="about-stat-label">{{ stat.label }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="about-values section">
+  <div class="container">
+    <ap-section-header
+      label="Our Values"
+      title='The Principles That <span class="highlight">Drive Us</span>'
+      subtitle="Six core values that guide every decision, product, and relationship at Aditya Polymers."
+      align="center"
+    />
+    <div class="about-values__grid">
+      @for (value of values; track value.title; let i = $index) {
+        <div
+  class="value-card"
+  [ngClass]="'value-card--' + (i + 1)"
+  [apScrollAnimate]="'fade-up'"
+  [scrollDelay]="i * 80">
+          <div class="value-card__icon">
+            <span class="material-symbols-rounded">{{ value.icon }}</span>
+          </div>
+          <h3 class="value-card__title">{{ value.title }}</h3>
+          <p class="value-card__desc">{{ value.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+

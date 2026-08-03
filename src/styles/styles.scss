@@ -1,0 +1,888 @@
+// ============================================================
+// ADITYA POLYMERS - Global Styles Entry Point
+// ============================================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'typography';
+@use 'animations';
+
+
+// ============================================================
+// CSS CUSTOM PROPERTIES
+// ============================================================
+
+:root {
+  --color-primary: #{$color-purple};
+  --color-primary-light: #{$color-purple-light};
+  --color-primary-dark: #{$color-purple-dark};
+
+  --color-accent-pink: #{$color-pink};
+  --color-accent-orange: #{$color-orange};
+
+  --color-green: #{$color-green};
+  --color-dark: #{$color-dark};
+  --color-gray: #{$color-gray};
+  --color-border: #{$color-border};
+
+  --color-bg: #120B24;
+  --color-bg-soft: rgba(255,255,255,0.12);
+
+  --gradient-brand: #{$gradient-brand};
+  --shadow-card: #{$shadow-card};
+
+  --navbar-height: #{$navbar-height};
+  --transition-base: #{$transition-base};
+
+
+  // ==========================================================
+  // INSTAGRAM COLORS
+  // ==========================================================
+
+  --instagram-purple: #7C3AED;
+  --instagram-pink: #EC4899;
+  --instagram-orange: #F97316;
+
+  --instagram-gradient:
+    linear-gradient(
+      135deg,
+      #7C3AED 0%,
+      #EC4899 52%,
+      #F97316 100%
+    );
+
+  --instagram-gradient-reverse:
+    linear-gradient(
+      315deg,
+      #7C3AED 0%,
+      #EC4899 52%,
+      #F97316 100%
+    );
+
+  --white: #ffffff;
+  --black: #111111;
+}
+
+
+// ============================================================
+// RESET
+// ============================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+// ============================================================
+// HTML
+// ============================================================
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--navbar-height) + 1rem);
+
+  @include custom-scrollbar;
+}
+
+
+// ============================================================
+// BODY
+// STATIC INSTAGRAM GRADIENT
+// ============================================================
+
+body {
+  overflow-x: hidden;
+
+  min-height: 100vh;
+
+  background: linear-gradient(
+    135deg,
+    #140b25 0%,
+    #3b0e4f 35%,
+    #c13584 72%,
+    #f56b3f 100%
+  );
+
+  background-attachment: fixed;
+  background-size: cover;
+
+  color: #fdf7ff;
+
+  font-family:
+    "Poppins",
+    "Inter",
+    Arial,
+    sans-serif;
+
+  position: relative;
+
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 32%),
+      radial-gradient(circle at bottom right, rgba(255,255,255,0.12), transparent 36%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &.menu-open {
+    overflow: hidden;
+  }
+}
+
+
+// ============================================================
+// ROOT / APP
+// ============================================================
+
+#root,
+app-root {
+  min-height: 100vh;
+  background: transparent;
+}
+
+
+// ============================================================
+// MEDIA
+// ============================================================
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+// ============================================================
+// FORM ELEMENTS
+// ============================================================
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+
+// ============================================================
+// LISTS
+// ============================================================
+
+ul,
+ol {
+  list-style: none;
+}
+
+
+// ============================================================
+// LAYOUT UTILITIES
+// ============================================================
+
+.container {
+  @include container;
+}
+
+.section {
+  @include section-padding;
+}
+
+.sr-only {
+  @include sr-only;
+}
+
+
+// ============================================================
+// FLEX UTILITIES
+// ============================================================
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-4 {
+  gap: $space-4;
+}
+
+.gap-6 {
+  gap: $space-6;
+}
+
+.gap-8 {
+  gap: $space-8;
+}
+
+
+// ============================================================
+// GRID UTILITIES
+// ============================================================
+
+.grid-2 {
+  @include grid(2);
+}
+
+.grid-3 {
+  @include grid(3);
+}
+
+.grid-4 {
+  @include grid(4);
+}
+
+
+// ============================================================
+// SPACING
+// ============================================================
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+
+// ============================================================
+// SELECTION
+// ============================================================
+
+::selection {
+  background: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+}
+
+
+// ============================================================
+// BUTTONS
+// ============================================================
+
+.btn-primary {
+  @include btn-primary;
+
+  font-size: $font-size-sm;
+  padding: $space-3 $space-8;
+  height: 48px;
+}
+
+.btn-secondary {
+  @include btn-outline;
+
+  font-size: $font-size-sm;
+  padding: $space-3 $space-8;
+  height: 48px;
+}
+
+.btn-ghost {
+  @include btn-ghost;
+
+  font-size: $font-size-sm;
+  padding: $space-3 $space-6;
+}
+
+.btn-icon {
+  @include flex-center;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: $radius-full;
+  border: none;
+
+  cursor: pointer;
+
+  transition: all $transition-base;
+
+  background: transparent;
+  color: #ffffff;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+  }
+}
+
+
+// ============================================================
+// CARDS
+// ============================================================
+
+.card {
+  @include card;
+}
+
+.card-hover {
+  @include card-hover;
+}
+
+
+// ============================================================
+// GLASS CARD
+// ============================================================
+
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.15);
+
+  border-radius: 20px;
+}
+
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-radius: 24px;
+
+  padding: 24px;
+
+  box-shadow:
+    0 12px 36px rgba(11, 7, 24, 0.24);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 18px 48px rgba(11, 7, 24, 0.3);
+}
+
+
+// ============================================================
+// TAGS
+// ============================================================
+
+.tag {
+  @include tag;
+}
+
+.tag-green {
+  @include tag(
+    rgba(20, 184, 166, 0.16),
+    #5eead4
+  );
+}
+
+.tag-orange {
+  @include tag(
+    rgba(249, 115, 22, 0.1),
+    $color-orange
+  );
+}
+
+
+// ============================================================
+// DIVIDERS
+// ============================================================
+
+.divider {
+  width: 100%;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.divider-gradient {
+  width: 60px;
+  height: 3px;
+
+  border-radius: $radius-full;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7C3AED,
+      #EC4899,
+      #F97316
+    );
+}
+
+
+// ============================================================
+// PAGE WRAPPER
+// ============================================================
+
+.page-wrapper {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: transparent;
+}
+
+
+// ============================================================
+// MAIN
+// ============================================================
+
+main {
+  flex: 1;
+
+  padding-top: var(--navbar-height);
+
+  position: relative;
+
+  background: transparent;
+}
+
+
+// ============================================================
+// INSTAGRAM GRADIENT
+// ============================================================
+
+.instagram-gradient {
+  background:
+    linear-gradient(
+      135deg,
+      #7C3AED 0%,
+      #EC4899 52%,
+      #F97316 100%
+    );
+}
+
+
+// ============================================================
+// INSTAGRAM GRADIENT TEXT
+// ============================================================
+
+.gradient-text {
+  background:
+    linear-gradient(
+      135deg,
+      #7C3AED,
+      #EC4899,
+      #F97316
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+}
+
+
+// ============================================================
+// INSTAGRAM BUTTON
+// ============================================================
+
+.instagram-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 28px;
+
+  border: none;
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7C3AED 0%,
+      #EC4899 52%,
+      #F97316 100%
+    );
+
+  color: #ffffff;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px rgba(225, 48, 108, 0.35);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.instagram-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 35px rgba(225, 48, 108, 0.5);
+}
+
+
+// ============================================================
+// NAVBAR
+// ============================================================
+
+.navbar {
+  background: rgba(255, 255, 255, 0.10);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.20);
+
+  color: #ffffff;
+}
+
+
+// ============================================================
+// LINKS
+// ============================================================
+
+a {
+  color: #ffffff;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+
+// ============================================================
+// SECTIONS
+// ============================================================
+
+.section {
+  background: transparent;
+  color: #ffffff;
+
+  padding: 80px 20px;
+}
+
+
+// ============================================================
+// HERO
+// ============================================================
+
+.hero {
+  min-height: 80vh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+}
+
+
+// ============================================================
+// HEADINGS
+// ============================================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ffffff;
+}
+
+
+// ============================================================
+// PARAGRAPHS
+// ============================================================
+
+p {
+  color: rgba(255, 255, 255, 0.9);
+
+  line-height: 1.7;
+}
+
+
+// ============================================================
+// INPUTS
+// ============================================================
+
+input,
+textarea,
+select {
+  width: 100%;
+
+  padding: 12px 16px;
+
+  border-radius: 12px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.25);
+
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  color: #ffffff;
+
+  outline: none;
+
+  backdrop-filter: blur(10px);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #EC4899;
+
+  box-shadow:
+    0 0 0 3px rgba(236, 72, 153, 0.22);
+}
+
+
+// ============================================================
+// GRADIENT BORDER
+// ============================================================
+
+.gradient-border {
+  position: relative;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7C3AED,
+      #EC4899,
+      #F97316
+    );
+}
+
+
+// ============================================================
+// GLOW EFFECTS
+// ============================================================
+
+.instagram-glow {
+  box-shadow:
+    0 0 30px rgba(124, 58, 237, 0.35),
+    0 0 60px rgba(236, 72, 153, 0.28),
+    0 0 90px rgba(249, 115, 22, 0.22);
+}
+
+.glow-purple {
+  filter:
+    drop-shadow(
+      0 0 24px rgba(124, 58, 237, 0.24)
+    );
+}
+
+.glow-green {
+  filter:
+    drop-shadow(
+      0 0 24px rgba(20, 184, 166, 0.24)
+    );
+}
+
+
+// ============================================================
+// BACKGROUND PATTERNS
+// ============================================================
+
+.bg-grid {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+}
+
+.bg-dots {
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 1px
+    );
+
+  background-size: 24px 24px;
+}
+
+.bg-gradient-radial {
+  background:
+    radial-gradient(
+      ellipse at top center,
+      rgba(255, 255, 255, 0.12) 0%,
+      transparent 70%
+    );
+}
+
+
+// ============================================================
+// HERO BACKGROUND
+// ============================================================
+
+.bg-hero {
+  background:
+    linear-gradient(
+      135deg,
+      #7C3AED 0%,
+      #EC4899 52%,
+      #F97316 100%
+    );
+
+  position: relative;
+}
+
+.bg-hero::before {
+  content: '';
+
+  @include absolute-fill;
+
+  background:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+  pointer-events: none;
+}
+
+
+// ============================================================
+// LOADING
+// ============================================================
+
+.is-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+
+// ============================================================
+// FOCUS
+// ============================================================
+
+:focus-visible {
+  outline: 2px solid #EC4899;
+
+  outline-offset: 2px;
+}
+
+
+// ============================================================
+// SCROLLBAR
+// ============================================================
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.12);
+}
+
+::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      180deg,
+      #7C3AED,
+      #EC4899,
+      #F97316
+    );
+
+  border-radius: 10px;
+}
+
+
+// ============================================================
+// MOBILE
+// ============================================================
+
+@media (max-width: 768px) {
+
+  body {
+    background:
+      linear-gradient(
+        135deg,
+        #7C3AED 0%,
+        #EC4899 52%,
+        #F97316 100%
+      );
+
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  .section {
+    padding: 60px 16px;
+  }
+
+  .glass-card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .instagram-button {
+    padding: 10px 22px;
+  }
+}
+
+
+// ============================================================
+// PRINT
+// ============================================================
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

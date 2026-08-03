@@ -1,0 +1,526 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+// --- Hero ---
+.about-hero {
+  min-height: 100vh;
+  @include section-padding;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(3, 8, 20, 0.90) 0%, rgba(3, 8, 20, 0.64) 38%, rgba(3, 8, 20, 0.32) 100%),
+    url('/assets/images/pinmachine1.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  &__bg {
+    @include absolute-fill;
+    pointer-events: none;
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+
+      &-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(107,33,168,0.35), transparent); top: -150px; right: -100px; }
+      &-2 { width: 320px; height: 320px; background: radial-gradient(circle, rgba(22,163,74,0.25), transparent); bottom: -60px; left: 5%; }
+    }
+  }
+
+  &__inner { position: relative; z-index: 1; }
+
+  &__content {
+    max-width: 720px;
+    text-align: left;
+  }
+
+  &__label {
+    @include tag(rgba(107,33,168,0.2), $color-purple-light);
+    margin-bottom: $space-5;
+    display: inline-flex;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: $font-weight-black;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: $space-5;
+
+    .highlight { @include gradient-text($gradient-brand); }
+  }
+
+  &__subtitle {
+    font-size: clamp($font-size-base, 1.5vw, $font-size-lg);
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    max-width: 600px;
+    margin-bottom: $space-8;
+  }
+
+  &__actions {
+    @include flex(row, center, flex-start, $space-4);
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    .btn-primary {
+      @include btn-primary;
+      height: 52px;
+      padding: 0 $space-8;
+      font-size: $font-size-base;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      @include btn-outline;
+      height: 52px;
+      padding: 0 $space-8;
+      font-size: $font-size-base;
+      border-color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+
+      &:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.08); color: #fff; }
+    }
+  }
+}
+
+// --- Mission & Vision ---
+.about-mission {
+  background:
+    linear-gradient(135deg, rgba(3, 8, 20, 0.84) 0%, rgba(3, 8, 20, 0.58) 100%),
+    url('/assets/images/pinmachine1.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  isolation: isolate;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    z-index: -1;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+
+    @include md { grid-template-columns: 1fr 1fr; }
+  }
+}
+
+.mission-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-2xl;
+  padding: $space-10;
+  min-height: 420px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $space-4;
+
+  color: #fff;
+
+  background:
+    linear-gradient(
+      rgba(252, 6, 227, 0.72),
+      rgba(3, 8, 20, 0.72)
+    ),
+    url('/assets/images/certification-bg1.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition: all .4s ease;
+
+  &:hover{
+    transform: translateY(-8px);
+    background-size:110%;
+  }
+
+  &__icon{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    color:#fff;
+  }
+
+  &__label{
+    display:inline-flex;
+    width:max-content;
+    padding:6px 16px;
+    border-radius:999px;
+    background:rgba(255,255,255,.15);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.2);
+  }
+
+  &__title{
+    color:#fff;
+    font-size:clamp(1.6rem,2vw,2rem);
+    font-weight:800;
+  }
+
+  &__text{
+    color:rgba(255,255,255,.88);
+    line-height:1.8;
+  }
+}
+
+// --- Stats ---
+.about-stats {
+  background: linear-gradient(135deg, rgba(33, 168, 44, 0.04) 0%, rgba(249,115,22,0.04) 100%);
+  border-top: 1px solid $color-border;
+  // border-bottom: 1px solid $color-border;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-8;
+    text-align: center;
+
+    @include md { grid-template-columns: repeat(4, 1fr); }
+  }
+}
+
+.about-stat-item { @include flex(column, center, center, $space-2); }
+
+.about-stat-value {
+  font-family: $font-display;
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: $font-weight-black;
+  @include gradient-text($gradient-brand);
+  line-height: 1;
+}
+
+.about-stat-label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-gray;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// --- Values ---
+.about-values {
+  position: relative;
+  overflow: hidden;
+
+  
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-4;
+
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.value-card {
+  padding: $space-6;
+  border-radius: $radius-2xl;
+  
+  background: rgba(255,255,255,.08);
+  // border: 1px solid rgba(11, 1, 7, 0.12);
+  backdrop-filter: blur(14px);
+
+  color: #fff;
+
+  transition: .35s ease;
+
+  &:hover{
+    transform: translateY(-8px);
+    border-color: rgba(255,255,255,.25);
+  }
+
+  &__icon{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    .material-symbols-rounded{
+      font-size:30px;
+      color:#fff;
+    }
+  }
+
+  &__title{
+    color:#fff;
+  }
+
+  &__desc{
+    color:rgba(255,255,255,.82);
+  }
+}
+
+// --- Timeline ---
+.about-timeline {
+  background: $color-bg-white;
+  overflow: hidden;
+
+  &__track {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-track__line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, $color-purple, $color-pink, $color-orange);
+    transform: translateX(-50%);
+    opacity: 0.3;
+
+    @include max-md { left: 24px; }
+  }
+}
+
+.timeline-item {
+  @include flex(row, flex-start, flex-start);
+  padding-bottom: $space-10;
+  position: relative;
+
+  @include max-md {
+    padding-left: 60px;
+    flex-direction: column;
+  }
+
+  @include md {
+    &:nth-child(odd) {
+      padding-right: calc(50% + 2.5rem);
+      justify-content: flex-end;
+
+      .timeline-item__content { text-align: right; }
+    }
+
+    &:nth-child(even) {
+      padding-left: calc(50% + 2.5rem);
+    }
+  }
+
+  &__content {
+    @include card;
+    padding: $space-5 $space-6;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  &__year {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semi;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    @include gradient-text($gradient-brand);
+    display: block;
+    margin-bottom: $space-2;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-dark;
+    margin-bottom: $space-2;
+  }
+
+  &__desc {
+    font-size: $font-size-sm;
+    color: $color-gray;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &__dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: $gradient-brand;
+    box-shadow: 0 0 0 4px rgba(107,33,168,0.15);
+    left: 50%;
+    top: 24px;
+    transform: translateX(-50%);
+
+    @include max-md { left: 24px; top: 20px; transform: translateX(-50%); }
+  }
+}
+
+// --- Team ---
+.about-team {
+  background: $color-bg-soft;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+
+    @include md { grid-template-columns: repeat(2, 1fr); }
+    @include lg { grid-template-columns: repeat(4, 1fr); }
+  }
+}
+
+.team-card {
+  @include card;
+  @include card-hover;
+  padding: $space-6;
+  @include flex(column, center, flex-start);
+  gap: $space-4;
+  text-align: center;
+
+  &__avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: $gradient-brand;
+    @include flex-center;
+    font-family: $font-display;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: #fff;
+    margin-inline: auto;
+    box-shadow: $shadow-brand;
+  }
+
+  &__info { width: 100%; }
+
+  &__name {
+    font-family: $font-display;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-dark;
+    margin-bottom: $space-1;
+  }
+
+  &__role {
+    font-size: $font-size-sm;
+    color: $color-purple;
+    font-weight: $font-weight-medium;
+    margin-bottom: $space-3;
+  }
+
+  &__bio {
+    font-size: $font-size-xs;
+    color: $color-gray;
+    line-height: 1.6;
+    margin-bottom: $space-4;
+  }
+
+  &__expertise {
+    @include flex(row, center, center);
+    flex-wrap: wrap;
+    gap: $space-2;
+    margin-bottom: $space-3;
+  }
+
+  .expertise-tag {
+    font-size: 10px;
+    font-weight: $font-weight-semi;
+    color: $color-purple;
+    background: rgba(107,33,168,0.08);
+    padding: 0.2rem 0.5rem;
+    border-radius: $radius-full;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__linkedin {
+    @include flex(row, center, center, $space-2);
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-gray;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover { color: $color-purple; }
+  }
+}
+
+
+.value-card--1 {
+  background:
+    linear-gradient(rgba(3,8,20,.75), rgba(255, 224, 246, 0.75)),
+    url('/assets/images/machine1.jpg');
+}
+
+.value-card--2 {
+  background:
+    linear-gradient(rgba(3,8,20,.75), rgba(247, 35, 201, 0.75)),
+    url('/assets/images/machine2.jpg');
+}
+
+.value-card--3 {
+  background:
+    linear-gradient(rgba(3,8,20,.75), rgba(255, 224, 246, 0.75)),
+    url('/assets/images/machine3.jpg');
+}
+
+.value-card--4 {
+  background:
+    linear-gradient(rgba(3,8,20,.75), rgba(247, 35, 201, 0.75)),
+    url('/assets/images/machine8.jpg');
+}
+
+.value-card--5 {
+  background:
+    linear-gradient(rgba(3,8,20,.75), rgba(255, 224, 246, 0.75)),
+    url('/assets/images/machine5.jpg');
+}
+
+.value-card--6 {
+  background:
+    linear-gradient(rgba(3,8,20,.75), rgba(247, 35, 201, 0.75)),
+    url('/assets/images/machinenew1.jpg');
+}
+  
+.value-card--1,
+.value-card--2,
+.value-card--3,
+.value-card--4,
+.value-card--5,
+.value-card--6 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

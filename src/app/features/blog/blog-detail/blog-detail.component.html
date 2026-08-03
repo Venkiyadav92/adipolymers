@@ -1,0 +1,123 @@
+@if (post()) {
+  <!-- Breadcrumb -->
+  <div class="bd-breadcrumb">
+    <div class="container bd-breadcrumb__inner">
+      <a routerLink="/">Home</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      <a routerLink="/blog">Blog</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      <span>{{ post()!.title }}</span>
+    </div>
+  </div>
+
+  <article class="bd-article">
+    <div class="container">
+      <div class="bd-article__layout">
+
+        <!-- Main Content -->
+        <main class="bd-content">
+          <header class="bd-content__header" [apScrollAnimate]="'fade-up'">
+            <div class="bd-meta">
+              <span class="bd-category">{{ post()!.category.split('-').join(' ') }}</span>
+              <span class="bd-read-time">{{ post()!.readTime }} min read</span>
+              <span class="bd-date">{{ post()!.publishedAt | timeAgo }}</span>
+            </div>
+            <h1 class="bd-title">{{ post()!.title }}</h1>
+            <p class="bd-excerpt">{{ post()!.excerpt }}</p>
+            <div class="bd-author">
+              <div class="bd-author__avatar">{{ post()!.author.name.charAt(0) }}</div>
+              <div>
+                <p class="bd-author__name">{{ post()!.author.name }}</p>
+                <p class="bd-author__role">{{ post()!.author.role }}</p>
+              </div>
+            </div>
+          </header>
+
+          <!-- Hero Image Placeholder -->
+          <div class="bd-hero-img" [apScrollAnimate]="'scale'">
+            <div class="bd-hero-img__inner">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <p>Article cover image</p>
+            </div>
+          </div>
+
+          <!-- Article Body -->
+          <div class="bd-body" [apScrollAnimate]="'fade-up'">
+            <p>This is a preview article. In production, the full article content would be rendered here from a CMS or static content source. The article covers: <strong>{{ post()!.title }}</strong></p>
+            <p>{{ post()!.excerpt }}</p>
+            <blockquote>
+              "Sustainability in materials science is no longer a choice — it's an imperative. The companies that lead this transition today will define the industry of tomorrow."
+            </blockquote>
+            <p>Aditya Polymers continues to be at the forefront of this transformation, providing manufacturers with the tools, materials, and expertise needed to make the switch to biodegradable alternatives without compromising performance or profitability.</p>
+            <h2>Key Insights</h2>
+            <ul>
+              @for (tag of post()!.tags; track tag) {
+                <li>{{ tag }} — an important consideration in modern sustainable manufacturing.</li>
+              }
+            </ul>
+            <p>For more information about our products and how they can help your business meet sustainability targets, <a routerLink="/contact">contact our team</a> or <a routerLink="/products">browse our product catalog</a>.</p>
+          </div>
+
+          <!-- Tags -->
+          <div class="bd-tags">
+            @for (tag of post()!.tags; track tag) {
+              <span class="bd-tag">{{ tag }}</span>
+            }
+          </div>
+
+          <!-- Share -->
+          <div class="bd-share">
+            <span>Share this article:</span>
+            <div class="bd-share__btns">
+              <button class="share-btn" aria-label="Share on LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              </button>
+              <button class="share-btn" aria-label="Share on Twitter">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </button>
+              <button class="share-btn" aria-label="Copy link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              </button>
+            </div>
+          </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="bd-sidebar">
+          <div class="bd-sidebar__card">
+            <h3>About the Author</h3>
+            <div class="bd-sidebar__author">
+              <div class="sidebar-avatar">{{ post()!.author.name.charAt(0) }}</div>
+              <p class="sidebar-name">{{ post()!.author.name }}</p>
+              <p class="sidebar-role">{{ post()!.author.role }}</p>
+            </div>
+          </div>
+
+          @if (relatedPosts().length > 0) {
+            <div class="bd-sidebar__card">
+              <h3>Related Articles</h3>
+              @for (rp of relatedPosts(); track rp.id) {
+                <a [routerLink]="['/blog', rp.slug]" class="sidebar-post">
+                  <p class="sidebar-post__title">{{ rp.title }}</p>
+                  <span class="sidebar-post__read">{{ rp.readTime }} min</span>
+                </a>
+              }
+            </div>
+          }
+
+          <div class="bd-sidebar__card bd-sidebar__cta">
+            <h3>Explore Our Products</h3>
+            <p>Discover the biodegradable materials discussed in our articles.</p>
+            <a routerLink="/products" class="sidebar-cta-btn">Browse Products</a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </article>
+} @else {
+  <div class="bd-not-found container section">
+    <h2>Article Not Found</h2>
+    <a routerLink="/blog">Back to Blog</a>
+  </div>
+}
