@@ -30,6 +30,7 @@ export interface Certification {
   icon: string;
   description: string;
   badge?: string;
+  // image: string;
 }
 
 export interface Stat {

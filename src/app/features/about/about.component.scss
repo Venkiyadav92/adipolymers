@@ -11,7 +11,7 @@
   align-items: center;
   background:
     linear-gradient(90deg, rgba(3, 8, 20, 0.90) 0%, rgba(3, 8, 20, 0.64) 38%, rgba(3, 8, 20, 0.32) 100%),
-    url('/assets/images/pinmachine1.webp');
+    url('/assets/images/servicepic1.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -191,9 +191,9 @@
 
 // --- Stats ---
 .about-stats {
-  background: linear-gradient(135deg, rgba(33, 168, 44, 0.04) 0%, rgba(249,115,22,0.04) 100%);
-  border-top: 1px solid $color-border;
-  // border-bottom: 1px solid $color-border;
+  background: #ffffff;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 
   &__grid {
     display: grid;

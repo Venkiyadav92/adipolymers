@@ -73,8 +73,8 @@ $insta-yellow: #FCAF45;
   // background: rgba($green-bright, 0.12);
   // color: $green-mid;
   // border: 1px solid rgba($green-bright, 0.25);
-  background: rgba($insta-pink,.18);
-border:1px solid rgba($insta-pink,.35);
+  background: rgba($insta-pink,.99);
+border:1px solid rgba($insta-pink,.55);
 color:#fff;
 
   &--dark {
@@ -251,7 +251,8 @@ $insta-orange 100%);
     color: rgba(255,255,255,0.68);
     line-height: 1.75;
     max-width: 600px;
-    margin: 0 auto $space-8;
+    margin: 0 0 $space-8;
+    text-align: left;
   }
 
   &__actions {
@@ -330,9 +331,23 @@ $insta-orange);
 
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  grid-template-columns: repeat(3, 1fr); // 3 cards per row
   gap: $space-5;
   margin-top: $space-10;
+  
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+
+   // Tablet
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Mobile
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .why-card {

@@ -8,8 +8,13 @@
     />
 
     <div class="certs-section__grid">
-      @for (cert of certs; track cert.id; let i = $index) {
-        <div class="cert-card" [apScrollAnimate]="'scale'" [scrollDelay]="i * 80">
+  @for (cert of certs; track cert.id; let i = $index) {
+    <div 
+  class="cert-card cert-card--{{i + 1}}"
+  [apScrollAnimate]="'scale'" 
+  [scrollDelay]="i * 80">
+
+     
           <div class="cert-card__icon-wrap">
             <span class="material-symbols-rounded">{{ cert.icon }}</span>
           </div>

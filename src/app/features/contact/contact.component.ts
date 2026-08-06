@@ -71,13 +71,13 @@ export class ContactComponent {
     {
       icon: 'phone',
       label: 'Landline',
-      values: ['2661399'],
+      values: ['+91 452-2661399'],
       type: 'phone',
     },
     {
       icon: 'phone',
       label: 'Puducherry',
-      values: ['7824966999'],
+      values: ['+91 7824966999'],
       type: 'phone',
     },
     {

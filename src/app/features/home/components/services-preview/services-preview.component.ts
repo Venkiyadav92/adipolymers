@@ -35,7 +35,7 @@ export class ServicesPreviewComponent {
       icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="1.5" opacity="0.3"/><path d="M16 24H32M24 16V32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="3" fill="currentColor"/><circle cx="32" cy="32" r="3" fill="currentColor"/><circle cx="32" cy="16" r="3" fill="currentColor"/><circle cx="16" cy="32" r="3" fill="currentColor"/></svg>`,
       title: 'Manufacturing & Supply',
       description: 'State-of-the-art production facility with twin-screw extruder capacity for consistent, high-quality polymer compound manufacturing at scale.',
-      features: ['ISO 9001 Manufacturing', 'JIT Delivery', 'Bulk & Custom Packaging', 'Global Logistics'],
+      features: ['ISO 9001 Manufacturing', 'Bulk & Custom Packaging', 'Global Logistics'],
       color: 'green',
       link: '/services',
       image: '/assets/images/machine8.jpg',

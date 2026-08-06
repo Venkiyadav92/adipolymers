@@ -148,57 +148,7 @@ export class DataService {
     ];
   }
 
-  getTestimonials(): Testimonial[] {
-    return [
-      {
-        id: 't1',
-        name: 'Rajesh Mehta',
-        role: 'Head of Procurement',
-        company: 'GreenPack Industries',
-        avatar: 'assets/images/testimonials/avatar-1.jpg',
-        rating: 5,
-        content: 'Aditya Polymers has been an exceptional partner. Their EcoPLA-X500 compound helped us transition our entire packaging line to compostable materials without compromising on performance. The technical support team is outstanding.',
-        productUsed: 'EcoPLA-X500',
-        date: '2024-11-15',
-        verified: true,
-      },
-      {
-        id: 't2',
-        name: 'Priya Sharma',
-        role: 'R&D Manager',
-        company: 'AutoTech Components',
-        avatar: 'assets/images/testimonials/avatar-2.jpg',
-        rating: 5,
-        content: 'The JuteComp NF30 exceeded our expectations for automotive interior applications. Weight reduction of 15% while maintaining structural integrity — exactly what we needed. Highly professional team and consistent quality.',
-        productUsed: 'JuteComp-NF30',
-        date: '2024-10-20',
-        verified: true,
-      },
-      {
-        id: 't3',
-        name: 'Dr. Anil Kumar',
-        role: 'Chief Sustainability Officer',
-        company: 'EcoFuture Corp',
-        avatar: 'assets/images/testimonials/avatar-3.jpg',
-        rating: 5,
-        content: "Working with Aditya Polymers has accelerated our sustainability goals significantly. Their custom formulation service created exactly the compostable compound we needed for our zero-waste product line. True innovation partners.",
-        date: '2024-09-08',
-        verified: true,
-      },
-      {
-        id: 't4',
-        name: 'Sunita Patel',
-        role: 'Operations Director',
-        company: 'FreshFarm Packaging',
-        avatar: 'assets/images/testimonials/avatar-4.jpg',
-        rating: 5,
-        content: 'Switched our mulch film production to FlexBio PBAT-100 two years ago. The soil biodegradation performance in Indian conditions is remarkable. Our farmers love it, and we love the peace of mind on compliance.',
-        productUsed: 'FlexBio PBAT-100',
-        date: '2024-08-30',
-        verified: true,
-      },
-    ];
-  }
+
 
   getTeamMembers(): TeamMember[] {
     return [
@@ -242,7 +192,7 @@ export class DataService {
 
   getCertifications(): Certification[] {
     return [
-      { id: 'c1', name: 'ISO 14001:2015', issuer: 'Bureau Veritas', year: '2019', icon: 'verified_user', description: 'Environmental Management System', badge: 'Environmental' },
+      { id: 'c1', name: 'ISO 14001:2015', issuer: 'Bureau Veritas', year: '2019', icon: 'verified_user', description: 'Environmental Management System', badge: 'Environmental'},
       { id: 'c2', name: 'ISO 9001:2015', issuer: 'TÜV SÜD', year: '2018', icon: 'workspace_premium', description: 'Quality Management System', badge: 'Quality' },
       { id: 'c3', name: 'EN 13432', issuer: 'DIN CERTCO', year: '2020', icon: 'eco', description: 'Compostable Packaging Standard', badge: 'Compostable' },
       { id: 'c4', name: 'ASTM D6400', issuer: 'BPI', year: '2020', icon: 'recycling', description: 'Compostable Plastics Standard', badge: 'BPI Certified' },

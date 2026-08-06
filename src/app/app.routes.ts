@@ -9,7 +9,7 @@ export const routes: Routes = [
     data: {
       seo: {
         title: 'Aditya Polymers - Quality Compostable Packaging Solutions',
-        description: 'Manufacturer of certified compostable carry bags and sustainable packaging solutions. CIPET certified, Udyam registered, based in Puducherry, India.'
+        description: 'Manufacture of certified compostable carry bags and sustainable packaging solutions. CIPET certified, Udyam registered, based in Puducherry, India.'
       },
     },
   },

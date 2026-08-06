@@ -1,0 +1,44 @@
+.highlight {
+  display: inline-block;
+
+  background-image: linear-gradient(
+    135deg,
+    #833AB4 0%,
+    #E1306C 55%,
+    #F77737 100%
+  );
+
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  color: transparent;
+  -webkit-background-clip: text;.section-header {
+  position: relative;
+  z-index: 10;
+  color: white;
+
+  &__label {
+    color: #f77737;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__title {
+    color: white;
+    font-size: 48px;
+  }
+
+  &__subtitle {
+    color: rgba(255,255,255,0.75);
+  }
+
+  .highlight {
+    background: linear-gradient(90deg, #833ab4, #e1306c, #f77737);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

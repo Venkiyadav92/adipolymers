@@ -85,7 +85,7 @@
 
 // --- Card ---
 @mixin card($radius: $radius-2xl, $shadow: $shadow-card) {
-  background: $gradient-card;
+  background: #ffff;
   border-radius: $radius;
   box-shadow: $shadow;
   border: 1px solid rgba(255,255,255,0.16);
