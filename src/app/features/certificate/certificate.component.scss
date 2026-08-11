@@ -176,14 +176,23 @@
 .cert-docs {
   background: $color-bg-light;
   padding: $space-16 0 $space-20;
+
+   .container {
+    max-width: 1600px;
+    width: 94%;
+    margin: 0 auto;
+  }
 }
 
 // ── Three-column uniform grid ──────────────────────────────────
 .cert-docs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $space-6;
-  align-items: start;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 28px !important;
+  row-gap: 28px !important;
+  align-items: stretch;
+  width: 100%;
+
 
   @include max-md {
     grid-template-columns: 1fr;
@@ -191,6 +200,20 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .cert-docs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px !important;
+    row-gap: 24px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cert-docs-grid {
+    grid-template-columns: 1fr;
+    gap: 32px !important;
+  }
+}
 // ── Document Block — all share identical dimensions ────────────
 .cert-doc-block {
   background: #fff;

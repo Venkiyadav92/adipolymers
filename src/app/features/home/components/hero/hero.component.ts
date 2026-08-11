@@ -44,7 +44,8 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit{
   readonly slides: HeroSlide[] = [
     {
       tagline: 'Industrial excellence',
-      title: 'Best Quality Biodegradable Carry Bags Manufacturers in India',
+      // title: 'Best Quality Biodegradable Carry Bags Manufacturers in India',
+      title:'Very Largest Exporter of Certified Biodegradable Carry Bags Worldwide',
       highlight: '',
       subtitle: 'Compostable Carry Bags are an eco-friendly alternative to conventional carry bags. We are one of the leading manufacturers of compostable carry bags, committed to providing sustainable solutions without compromising on quality, durability, or functionality.',
       cta: 'Request a Consultation',
