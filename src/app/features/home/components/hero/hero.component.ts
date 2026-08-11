@@ -1,18 +1,7 @@
-// import { Component, OnInit, OnDestroy, signal, inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, signal, inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { ScrollAnimateDirective } from '../../../../shared/directives/scroll-animate.directive';
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  AfterViewInit,
-  ViewChild,
-  ElementRef,
-  signal,
-  inject,
-  PLATFORM_ID
-} from '@angular/core';
 
 
 
@@ -74,7 +63,7 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit{
   video.muted = true;
 
   video.play().catch(err => {
-    console.log('Video autoplay failed:', err);
+    // Handle autoplay failure silently
   });
 }
 

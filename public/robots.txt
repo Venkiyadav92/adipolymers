@@ -1,0 +1,17 @@
+# Robots.txt for Aditya Polymers
+# Allows search engines to crawl all content
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+# Specific crawl-delay for aggressive bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://www.adityapolymers.com/sitemap.xml
