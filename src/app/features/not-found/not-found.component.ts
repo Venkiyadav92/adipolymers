@@ -44,8 +44,8 @@ import { RouterLink } from '@angular/router';
     }
     .not-found__bg { @include absolute-fill; pointer-events: none; }
     .not-found__bg .orb { position: absolute; border-radius: 50%; filter: blur(80px); }
-    .not-found__bg .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(107,33,168,0.35), transparent); top: -100px; right: -100px; }
-    .not-found__bg .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(249,115,22,0.25), transparent); bottom: -100px; left: -50px; }
+    .not-found__bg .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(var(--color-gold-rgb), 0.35), transparent); top: -100px; right: -100px; }
+    .not-found__bg .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(var(--color-gold-light-rgb), 0.25), transparent); bottom: -100px; left: -50px; }
     .not-found__content { position: relative; z-index: 1; max-width: 560px; }
     .not-found__code {
       font-family: $font-display;
@@ -60,10 +60,10 @@ import { RouterLink } from '@angular/router';
       font-family: $font-display;
       font-size: clamp(1.5rem, 3vw, 2rem);
       font-weight: $font-weight-bold;
-      color: #fff;
+      color: var(--color-bg-white);
       margin-bottom: $space-3;
     }
-    .not-found__desc { font-size: $font-size-base; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: $space-8; }
+    .not-found__desc { font-size: $font-size-base; color: rgba(var(--color-bg-white-rgb), 0.6); line-height: 1.7; margin-bottom: $space-8; }
     .not-found__actions {
       @include flex(row, center, center, $space-4);
       flex-wrap: wrap;
@@ -73,8 +73,8 @@ import { RouterLink } from '@angular/router';
       @include flex(row, center, center, $space-5);
       flex-wrap: wrap;
     }
-    .not-found__links a { font-size: $font-size-sm; color: rgba(255,255,255,0.4); text-decoration: none; transition: color $transition-fast; }
-    .not-found__links a:hover { color: rgba(255,255,255,0.85); }
+    .not-found__links a { font-size: $font-size-sm; color: rgba(var(--color-bg-white-rgb), 0.4); text-decoration: none; transition: color $transition-fast; }
+    .not-found__links a:hover { color: rgba(var(--color-bg-white-rgb), 0.85); }
 
     .nf-btn-home {
       @include btn-primary;
@@ -90,14 +90,14 @@ import { RouterLink } from '@angular/router';
       height: 52px;
       padding: 0 $space-8;
       font-size: $font-size-base;
-      border-color: rgba(255,255,255,0.3);
-      color: rgba(255,255,255,0.8);
+      border-color: rgba(var(--color-bg-white-rgb), 0.3);
+      color: rgba(var(--color-bg-white-rgb), 0.8);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
     }
-    .nf-btn-products:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.08); color: #fff; }
+    .nf-btn-products:hover { border-color: rgba(var(--color-bg-white-rgb), 0.8); background: rgba(var(--color-bg-white-rgb), 0.08); color: var(--color-bg-white); }
   `],
 })
 export class NotFoundComponent {}

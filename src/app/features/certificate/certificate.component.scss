@@ -15,8 +15,8 @@
 
   background:
     linear-gradient(
-      rgba(10, 10, 20, 0.65),
-      rgba(20, 20, 40, 0.65)
+      rgba($color-dark, 0.65),
+      rgba($color-dark, 0.65)
     ),
     url('/assets/images/certification-bg2.jpg');
 
@@ -77,7 +77,7 @@
     font-family: $font-display;
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: $font-weight-black;
-    color: #fff;
+    color: $color-bg-white;
     line-height: 1.15;
     margin-bottom: $space-5;
 
@@ -88,7 +88,7 @@
 
   &__subtitle {
     font-size: $font-size-lg;
-    color: rgba(255,255,255,0.72);
+    color: rgba($color-bg-white, 0.72);
     line-height: $line-height-relaxed;
     max-width: 680px;
     margin: 0 auto $space-10;
@@ -121,7 +121,7 @@
   &__lbl {
     display: block;
     font-size: $font-size-xs;
-    color: rgba(255,255,255,0.55);
+    color: rgba($color-bg-white, 0.55);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-weight: $font-weight-medium;
@@ -130,7 +130,7 @@
   &__divider {
     width: 1px;
     height: 40px;
-    background: rgba(255,255,255,0.15);
+    background: rgba($color-bg-white, 0.15);
 
     @media (max-width: 480px) { display: none; }
   }
@@ -138,7 +138,7 @@
 
 // ── Trust Bar ─────────────────────────────────────────────────
 .trust-bar {
-  background: #fff;
+  background: $color-bg-white;
   border-bottom: 1px solid $color-border;
   padding: $space-5 0;
 
@@ -216,7 +216,7 @@
 }
 // ── Document Block — all share identical dimensions ────────────
 .cert-doc-block {
-  background: #fff;
+  background: $color-bg-white;
   border-radius: $radius-xl;
   box-shadow: $shadow-card;
   border: 1px solid $color-border;
@@ -246,7 +246,7 @@
   margin-bottom: $space-2;
 
   &--green  { background: rgba($color-green, 0.12); color: $color-green-dark; }
-  &--blue   { background: rgba(#3b82f6, 0.12); color: #1d4ed8; }
+  &--blue   { background: rgba($color-info, 0.12); color: $color-info; }
   &--orange { background: rgba($color-orange, 0.12); color: $color-orange-dark; }
 }
 
@@ -269,7 +269,7 @@
 // ── PDF iframe — fixed identical height for all three ──────────
 .cert-doc-viewer {
   width: 100%;
-  background: #f0f0f0;
+  background: $color-bg-light;
   flex: 1;
 }
 
@@ -306,20 +306,20 @@
   color: $color-green-dark;
   border: 1px solid rgba($color-green, 0.25);
 
-  &:hover { background: $color-green; color: #fff; border-color: $color-green; transform: translateY(-1px); }
+  &:hover { background: $color-green; color: $color-bg-white; border-color: $color-green; transform: translateY(-1px); }
 
   &--blue {
-    background: rgba(#3b82f6, 0.1);
-    color: #1d4ed8;
-    border-color: rgba(#3b82f6, 0.25);
-    &:hover { background: #1d4ed8; color: #fff; border-color: #1d4ed8; }
+    background: rgba($color-info, 0.1);
+    color: $color-info;
+    border-color: rgba($color-info, 0.25);
+    &:hover { background: $color-info; color: $color-bg-white; border-color: $color-info; }
   }
 
   &--orange {
     background: rgba($color-orange, 0.1);
     color: $color-orange-dark;
     border-color: rgba($color-orange, 0.25);
-    &:hover { background: $color-orange; color: #fff; border-color: $color-orange; }
+    &:hover { background: $color-orange; color: $color-bg-white; border-color: $color-orange; }
   }
 
   svg { flex-shrink: 0; }
@@ -346,7 +346,7 @@
     font-family: $font-display;
     font-size: $font-size-3xl;
     font-weight: $font-weight-bold;
-    color: #fff;
+    color: $color-bg-white;
     margin-bottom: $space-2;
 
     @include max-md { font-size: $font-size-2xl; }
@@ -354,7 +354,7 @@
 
   &__sub {
     font-size: $font-size-base;
-    color: rgba(255,255,255,0.68);
+    color: rgba($color-bg-white, 0.68);
     margin: 0;
   }
 
@@ -377,7 +377,7 @@
     white-space: nowrap;
 
     &--primary {
-      background: #fff;
+      background: $color-bg-white;
       color: $color-dark;
       box-shadow: $shadow-md;
 
@@ -385,11 +385,12 @@
     }
 
     &--whatsapp {
-      background: #25D366;
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(#25D366, 0.4);
+      background: $color-success;
+      color: $color-bg-white;
+      box-shadow: 0 4px 16px rgba($color-success, 0.4);
 
-      &:hover { background: #20BA5A; transform: translateY(-2px); }
+      &:hover { background: $color-success; transform: translateY(-2px); }
+      svg { color: $color-bg-white; }
     }
   }
 }

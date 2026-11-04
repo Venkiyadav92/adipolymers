@@ -56,19 +56,20 @@ import { SeoService } from './core/services/seo.service';
       width: 56px;
       height: 56px;
       border-radius: 50%;
-      background: #25D366;
-      color: #fff;
+      background: var(--color-success);
+      color: var(--color-bg-white);
+      svg { color: var(--color-bg-white); }
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 20px rgba(var(--color-success-rgb), 0.45), 0 2px 8px rgba(var(--color-dark-rgb), 0.15);
       text-decoration: none;
       transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease;
       position: fixed;
 
       &:hover {
         transform: scale(1.1);
-        box-shadow: 0 8px 32px rgba(37, 211, 102, 0.55), 0 4px 12px rgba(0,0,0,0.2);
+        box-shadow: 0 8px 32px rgba(var(--color-success-rgb), 0.55), 0 4px 12px rgba(var(--color-dark-rgb), 0.2);
       }
 
       &:active { transform: scale(0.96); }
@@ -78,7 +79,7 @@ import { SeoService } from './core/services/seo.service';
       position: absolute;
       inset: 0;
       border-radius: 50%;
-      background: #25D366;
+      background: var(--color-success);
       animation: wa-pulse 2.5s ease-out infinite;
       z-index: -1;
     }

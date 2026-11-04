@@ -2,14 +2,14 @@
 @use '../../../styles/mixins' as *;
 
 // ── Shared tokens ─────────────────────────────────────────────
-// $green-deep:   #064e3b;
-// $green-mid:    #047857;
-// $green-bright: #10b981;
-// $teal:         #14b8a6;
-$insta-purple: #833AB4;
-$insta-pink:   #E1306C;
-$insta-orange: #F77737;
-$insta-yellow: #FCAF45;
+// $green-deep:   $color-success;
+// $green-mid:    $color-success;
+// $green-bright: $color-success;
+// $teal:         $color-gold;
+$insta-purple: $color-gold;
+$insta-pink:   $color-gold;
+$insta-orange: $color-gold-light;
+$insta-yellow: $color-gold-light;
 
 
 // ── Shared helpers ────────────────────────────────────────────
@@ -75,7 +75,7 @@ $insta-yellow: #FCAF45;
   // border: 1px solid rgba($green-bright, 0.25);
   background: rgba($insta-pink,.99);
 border:1px solid rgba($insta-pink,.55);
-color:#fff;
+color:$color-bg-white;
 
   &--dark {
     background: $color-bg-soft;
@@ -101,7 +101,7 @@ color:#fff;
 
   &--primary {
     // background: linear-gradient(135deg, $green-deep 0%, $green-mid 100%);
-    color: #fff;
+    color: $color-bg-white;
     // box-shadow: 0 4px 16px rgba($green-bright, 0.35);
     background: linear-gradient(
   135deg,
@@ -120,11 +120,16 @@ box-shadow:0 15px 40px rgba($insta-pink,.45);
   }
 
   &--whatsapp {
-    background: #25D366;
-    color: #fff;
-    box-shadow: 0 4px 16px rgba(#25D366, 0.35);
+    background: $color-success;
+    color: $color-bg-white;
+    box-shadow: 0 4px 16px rgba($color-success, 0.35);
 
-    &:hover { background: #20BA5A; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(#25D366, 0.45); }
+    &:hover { background: $color-success; transform: translateY(-2px); box-shadow: 0 8px 24px rgba($color-success, 0.45); }
+  }
+
+  &--primary,
+  &--whatsapp {
+    svg { color: $color-bg-white; }
   }
 
   &--outline {
@@ -140,7 +145,7 @@ color:$insta-pink;
   $insta-pink,
   $insta-orange
 );
-color:#fff;
+color:$color-bg-white;
 border-color:transparent; }
   }
 
@@ -161,7 +166,7 @@ border-color:transparent; }
   display: flex;
   align-items: center;
   background:
-    linear-gradient(90deg, rgba(3, 8, 20, 0.90) 0%, rgba(3, 8, 20, 0.64) 38%, rgba(3, 8, 20, 0.30) 100%),
+    linear-gradient(90deg, rgba($color-dark, 0.90) 0%, rgba($color-dark, 0.64) 38%, rgba($color-dark, 0.30) 100%),
     url('/assets/images/pinmachine2.jpg');
   background-size: cover;
   background-position: center center;
@@ -186,7 +191,7 @@ border-color:transparent; }
     pointer-events: none;
     // Instagram-style subtle grid
     background-image:
-      radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      radial-gradient(circle, rgba($color-bg-white, 0.04) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 
@@ -205,7 +210,7 @@ border-color:transparent; }
     border-radius: $radius-full;
     background:rgba($insta-pink,.18);
 border:1px solid rgba($insta-pink,.4);
-color: #fff;
+color: $color-bg-white;
     font-size: $font-size-xs;
     font-weight: $font-weight-bold;
     text-transform: uppercase;
@@ -228,7 +233,7 @@ color: #fff;
     font-family: $font-display;
     font-size: clamp(2.25rem, 6vw, 4.25rem);
     font-weight: $font-weight-black;
-    color: #fff;
+    color: $color-bg-white;
     line-height: 1.1;
     letter-spacing: -0.03em;
     margin-bottom: $space-5;
@@ -248,7 +253,7 @@ $insta-orange 100%);
 
   &__sub {
     font-size: clamp($font-size-base, 2vw, $font-size-lg);
-    color: rgba(255,255,255,0.68);
+    color: rgba($color-bg-white, 0.68);
     line-height: 1.75;
     max-width: 600px;
     margin: 0 0 $space-8;
@@ -269,8 +274,8 @@ $insta-orange 100%);
     align-items: center;
     justify-content: flex-start;
     gap: $space-6;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba($color-bg-white, 0.06);
+    border: 1px solid rgba($color-bg-white, 0.1);
     border-radius: $radius-2xl;
     padding: $space-5 $space-8;
     flex-wrap: wrap;
@@ -302,7 +307,7 @@ $insta-orange);
     span {
       display: block;
       font-size: $font-size-xs;
-      color: rgba(255,255,255,0.5);
+      color: rgba($color-bg-white, 0.5);
       text-transform: uppercase;
       letter-spacing: 0.06em;
       margin-top: 4px;
@@ -312,7 +317,7 @@ $insta-orange);
   &__stat-sep {
     width: 1px;
     height: 36px;
-    background: rgba(255,255,255,0.12);
+    background: rgba($color-bg-white, 0.12);
     flex-shrink: 0;
 
     @media (max-width: 500px) { display: none; }
@@ -362,7 +367,7 @@ $insta-orange);
     box-shadow:0 18px 45px rgba($insta-pink,.18);
     // border-color: rgba($green-bright, 0.3);
     border-color:rgba($insta-pink,.35);
-    background: #fff;
+    background: $color-bg-white;
   }
 
   &__emoji {
@@ -393,12 +398,12 @@ $insta-orange);
 // ══════════════════════════════════════════════════════════════
 .bag-variants {
   padding: $space-20 0;
-  // background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  // background: linear-gradient(135deg, $color-bg-light 0%, $color-bg-light 100%);
   background: linear-gradient(
 135deg,
-#fff6fb 0%,
-#fff1f7 55%,
-#fff7ef 100%);
+$color-bg-white 0%,
+$color-bg-light 55%,
+$color-bg-light 100%);
 
   &__inner {
     display: grid;
@@ -426,7 +431,7 @@ $insta-orange);
   display: flex;
   align-items: center;
   gap: $space-3;
-  background: #fff;
+  background: $color-bg-white;
   border-radius: $radius-xl;
   padding: $space-4 $space-5;
   // border: 1px solid rgba($green-bright, 0.2);
@@ -480,9 +485,9 @@ box-shadow:0 8px 28px rgba($insta-pink,.22);
 }
 
 .svc-ig-card {
-  // background: #fff;
-    background:#fff;
-    // linear-gradient(rgba(247, 247, 249, 0.75), rgba(249, 246, 248, 0.75));
+  // background: $color-bg-white;
+    background:$color-bg-white;
+    // linear-gradient(rgba($color-bg-white, 0.75), rgba($color-bg-white, 0.75));
     // url('/assets/images/machine1.jpg');
   border-radius: $radius-2xl;
   overflow: hidden;
@@ -503,10 +508,10 @@ box-shadow:0 8px 28px rgba($insta-pink,.22);
 
     background: linear-gradient(
       135deg,
-      #833AB4 0%,
-      #C13584 30%,
-      #E1306C 65%,
-      #F77737 100%
+      $color-gold 0%,
+      $color-gold 30%,
+      $color-gold 65%,
+      $color-gold-light 100%
     );
 
     display: flex;
@@ -525,7 +530,7 @@ box-shadow:0 8px 28px rgba($insta-pink,.22);
       width: 140px;
       height: 140px;
       border-radius: 50%;
-      background: rgba(255,255,255,.12);
+      background: rgba($color-bg-white, .12);
     }
   
     display: flex;
@@ -543,16 +548,16 @@ box-shadow:0 8px 28px rgba($insta-pink,.22);
     font-weight: $font-weight-bold;
     text-transform: uppercase;
     letter-spacing: 0.07em;
-    background: rgba(255,255,255,0.18);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba($color-bg-white, 0.18);
+    color: $color-bg-white;
+    border: 1px solid rgba($color-bg-white, 0.3);
     backdrop-filter: blur(8px);
   }
 
   &__emoji {
     font-size: 2.75rem;
     line-height: 1;
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 2px 8px rgba($color-dark, 0.2));
   }
 
   &__body {
@@ -682,7 +687,7 @@ box-shadow:0 8px 28px rgba($insta-pink,.22);
 $insta-purple,
 $insta-pink,
 $insta-orange);
-    color: #fff;
+    color: $color-bg-white;
     font-family: $font-display;
     font-size: $font-size-lg;
     font-weight: $font-weight-black;
@@ -731,11 +736,11 @@ $insta-orange);
   padding: $space-20 0;
   background: linear-gradient(
 135deg,
-#833AB4 0%,
-#C13584 30%,
-#E1306C 60%,
-#F56040 80%,
-#FCAF45 100%
+$color-gold 0%,
+$color-gold 30%,
+$color-gold 60%,
+$color-error 80%,
+$color-gold-light 100%
 );
   position: relative;
   overflow: hidden;
@@ -744,7 +749,7 @@ $insta-orange);
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%);
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba($color-bg-white, 0.04) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -767,14 +772,14 @@ $insta-orange);
     font-family: $font-display;
     font-size: clamp(1.5rem, 3vw, 2.25rem);
     font-weight: $font-weight-black;
-    color: #fff;
+    color: $color-bg-white;
     margin-bottom: $space-3;
     line-height: 1.2;
   }
 
   &__sub {
     font-size: $font-size-base;
-    color: rgba(255,255,255,0.72);
+    color: $color-bg-white;
     line-height: 1.75;
     margin: 0;
   }
@@ -786,5 +791,10 @@ $insta-orange);
     flex-shrink: 0;
 
     @include max-md { justify-content: center; }
+  }
+
+  .svc-btn {
+    color: $color-bg-white;
+    svg { color: $color-bg-white; }
   }
 }

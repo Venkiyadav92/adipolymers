@@ -28,20 +28,20 @@
 }
 
 .bd-meta { @include flex(row, center, flex-start, $space-4); flex-wrap: wrap; margin-bottom: $space-4; }
-.bd-category { font-size: $font-size-xs; font-weight: $font-weight-semi; color: $color-purple; background: rgba(107,33,168,0.08); padding: 0.25rem 0.75rem; border-radius: $radius-full; text-transform: capitalize; }
+.bd-category { font-size: $font-size-xs; font-weight: $font-weight-semi; color: $color-purple; background: rgba($color-gold, 0.08); padding: 0.25rem 0.75rem; border-radius: $radius-full; text-transform: capitalize; }
 .bd-read-time, .bd-date { font-size: $font-size-xs; color: $color-gray; }
 
 .bd-title { font-family: $font-display; font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: $font-weight-extra; color: $color-dark; line-height: 1.2; letter-spacing: -0.025em; margin-bottom: $space-4; }
 .bd-excerpt { font-size: $font-size-lg; color: $color-gray; line-height: 1.7; margin-bottom: $space-6; }
 
 .bd-author { @include flex(row, center, flex-start, $space-3);
-  .bd-author__avatar { width: 44px; height: 44px; border-radius: 50%; background: $gradient-brand; @include flex-center; font-weight: $font-weight-bold; color: #fff; font-size: $font-size-sm; flex-shrink: 0; }
+  .bd-author__avatar { width: 44px; height: 44px; border-radius: 50%; background: $gradient-brand; @include flex-center; font-weight: $font-weight-bold; color: $color-bg-white; font-size: $font-size-sm; flex-shrink: 0; }
   .bd-author__name { font-size: $font-size-sm; font-weight: $font-weight-semi; color: $color-dark; margin: 0; }
   .bd-author__role { font-size: $font-size-xs; color: $color-gray; margin: 0; }
 }
 
 .bd-hero-img { border-radius: $radius-2xl; overflow: hidden; margin-bottom: $space-8;
-  &__inner { height: 360px; background: $gradient-hero; @include flex(column, center, center, $space-3); color: rgba(255,255,255,0.4); font-size: $font-size-sm; }
+  &__inner { height: 360px; background: $gradient-hero; @include flex(column, center, center, $space-3); color: rgba($color-bg-white, 0.4); font-size: $font-size-sm; }
 }
 
 .bd-body {
@@ -57,7 +57,7 @@
   strong { color: $color-dark; font-weight: $font-weight-semi; }
 
   blockquote {
-    background: rgba(107,33,168,0.04);
+    background: rgba($color-gold, 0.04);
     border-left: 4px solid $color-purple;
     padding: $space-5 $space-6;
     border-radius: 0 $radius-lg $radius-lg 0;
@@ -70,7 +70,7 @@
 }
 
 .bd-tags { @include flex(row, center, flex-start, $space-2); flex-wrap: wrap; margin-bottom: $space-6; padding-top: $space-6; border-top: 1px solid $color-border; }
-.bd-tag { font-size: $font-size-xs; color: $color-purple; background: rgba(107,33,168,0.08); border: 1px solid rgba(107,33,168,0.15); padding: 0.25rem 0.75rem; border-radius: $radius-full; }
+.bd-tag { font-size: $font-size-xs; color: $color-purple; background: rgba($color-gold, 0.08); border: 1px solid rgba($color-gold, 0.15); padding: 0.25rem 0.75rem; border-radius: $radius-full; }
 
 .bd-share {
   @include flex(row, center, flex-start, $space-3);
@@ -83,7 +83,7 @@
 
   .share-btn {
     width: 36px; height: 36px; border-radius: 50%; border: 1px solid $color-border; background: none; cursor: pointer; @include flex-center; color: $color-gray; transition: all $transition-fast;
-    &:hover { background: $color-purple; border-color: $color-purple; color: #fff; }
+    &:hover { background: $color-purple; border-color: $color-purple; color: $color-bg-white; }
   }
 }
 
@@ -102,7 +102,7 @@
   @include flex(column, center, center, $space-2);
   text-align: center;
 
-  .sidebar-avatar { width: 56px; height: 56px; border-radius: 50%; background: $gradient-brand; @include flex-center; font-size: $font-size-xl; font-weight: $font-weight-bold; color: #fff; }
+  .sidebar-avatar { width: 56px; height: 56px; border-radius: 50%; background: $gradient-brand; @include flex-center; font-size: $font-size-xl; font-weight: $font-weight-bold; color: $color-bg-white; }
   .sidebar-name { font-weight: $font-weight-semi; color: $color-dark; font-size: $font-size-sm; margin: 0; }
   .sidebar-role { font-size: $font-size-xs; color: $color-gray; margin: 0; }
 }
@@ -123,10 +123,10 @@
 
 .bd-sidebar__cta {
   background: $color-dark;
-  border-color: rgba(255,255,255,0.08);
+  border-color: rgba($color-bg-white, 0.08);
 
-  h3 { color: #fff; }
-  p { font-size: $font-size-sm; color: rgba(255,255,255,0.55); margin-bottom: $space-4; }
+  h3 { color: $color-bg-white; }
+  p { font-size: $font-size-sm; color: rgba($color-bg-white, 0.55); margin-bottom: $space-4; }
 
   .sidebar-cta-btn { @include btn-primary; width: 100%; height: 44px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: $font-size-sm; }
 }

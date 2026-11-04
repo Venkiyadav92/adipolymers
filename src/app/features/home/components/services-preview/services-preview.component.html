@@ -14,7 +14,7 @@
       <div class="services-preview__grid">
         @for (service of services; track service.title; let i = $index) {
           <div class="service-card service-card--{{ service.color }}" [apScrollAnimate]="'fade-up'" [scrollDelay]="i * 100">
-            <div class="service-card__media" [style.background-image]="'linear-gradient(135deg, rgba(3, 8, 20, 0.82) 0%, rgba(3, 8, 20, 0.45) 100%), url(' + service.image + ')'" aria-hidden="true"></div>
+            <div class="service-card__media" [style.background-image]="'linear-gradient(135deg, rgba(var(--color-dark-rgb), 0.82) 0%, rgba(var(--color-dark-rgb), 0.45) 100%), url(' + service.image + ')'" aria-hidden="true"></div>
             <div class="service-card__icon" [innerHTML]="service.icon"></div>
             <h3 class="service-card__title">{{ service.title }}</h3>
             <p class="service-card__desc">{{ service.description }}</p>

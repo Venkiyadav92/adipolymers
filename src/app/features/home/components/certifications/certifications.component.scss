@@ -2,17 +2,17 @@
 @use '../../../../../styles/mixins' as *;
 
 .certs-section {
-  background: #ffffff;
-  color:rgba(12, 12, 12, 0.75);
+  background: $color-bg-white;
+  color:rgba($color-dark, 0.75);
 
   ::ng-deep .section-header {
 
    &__title {
       background: linear-gradient(
         90deg,
-        #833ab4,
-        #e1306c,
-        #f77737
+        $color-gold,
+        $color-gold,
+        $color-gold-light
       );
 
       -webkit-background-clip: text;
@@ -23,15 +23,15 @@
     }
 
     &__subtitle {
-      color: rgba(12, 12, 12, 0.75) !important;
+      color: rgba($color-dark, 0.75) !important;
     }
 
     .highlight {
       background: linear-gradient(
         90deg,
-        #833ab4,
-        #e1306c,
-        #f77737
+        $color-gold,
+        $color-gold,
+        $color-gold-light
       );
       background-clip: text;
       -webkit-background-clip: text;
@@ -92,7 +92,7 @@
   position: relative;
   overflow: hidden;
   min-height: 300px;
-  color: white;
+  color: $color-bg-white;
 
   background-size: cover;
   background-position: center;
@@ -116,7 +116,8 @@
     width: 52px;
     height: 52px;
     border-radius: $radius-xl;
-    background: rgba(244, 234, 234, 0.08);
+    background: rgba($color-bg-light, 0.08);
+    color: $color-bg-white;
     @include flex-center;
     margin-bottom: $space-2;
     transition: transform $transition-base;
@@ -126,33 +127,37 @@
 
   .material-symbols-rounded {
     font-size: 26px;
-    color: #fae2f1;
+    color: $color-bg-white;
   }
 
   &__badge {
     @include tag;
-    color: #ffffff;
+    color: $color-bg-white;
+    -webkit-text-fill-color: $color-bg-white;
     margin-bottom: $space-1;
   }
 
   &__name {
     font-size: $font-size-sm;
     font-weight: $font-weight-bold;
-    color: #ffff;
+    color: $color-bg-white;
+    -webkit-text-fill-color: $color-bg-white;
     line-height: 1.3;
     margin: 0;
   }
 
   &__issuer {
     font-size: $font-size-xs;
-    color: #ffff;
+    color: $color-bg-white;
+    -webkit-text-fill-color: $color-bg-white;
     font-weight: $font-weight-medium;
     margin: 0;
   }
 
   &__desc {
     font-size: $font-size-xs;
-    color: #ffff;
+    color: $color-bg-white;
+    -webkit-text-fill-color: $color-bg-white;
     line-height: 1.4;
     text-align: center;
     margin: 0;
@@ -161,7 +166,8 @@
 
   &__year {
     font-size: $font-size-xs;
-    color: #ffff;
+    color: $color-bg-white;
+    -webkit-text-fill-color: $color-bg-white;
     margin-top: auto;
   }
 }
@@ -169,8 +175,8 @@
 .cert-card--1 {
   background:
     linear-gradient(
-      rgba(82, 76, 76, 0.45),
-      rgba(16, 16, 16, 0.65)
+      rgba($color-dark-2, 0.45),
+      rgba($color-dark, 0.65)
     ),
     url('/assets/images/adigridpicture1.jpg');
     
@@ -184,8 +190,8 @@ background-position: center top; // or center 20%
 .cert-card--2 {
   background:
     linear-gradient(
-     rgba(82, 76, 76, 0.45),
-      rgba(16, 16, 16, 0.65)
+     rgba($color-dark-2, 0.45),
+      rgba($color-dark, 0.65)
     ),
     url('/assets/images/adigridpicture2.jpg');
     background-repeat: no-repeat;
@@ -198,8 +204,8 @@ background-position: center top; // or center 20%
 .cert-card--3 {
   background:
     linear-gradient(
-      rgba(82, 76, 76, 0.45),
-      rgba(16, 16, 16, 0.65)
+      rgba($color-dark-2, 0.45),
+      rgba($color-dark, 0.65)
     ),
     url('/assets/images/adigridpicture3.jpg');
     background-repeat: no-repeat;
@@ -210,8 +216,8 @@ background-position: center top;
 .cert-card--4 {
   background:
     linear-gradient(
-      rgba(82, 76, 76, 0.45),
-      rgba(16, 16, 16, 0.65)
+      rgba($color-dark-2, 0.45),
+      rgba($color-dark, 0.65)
     ),
     url('/assets/images/adigridpicture4.jpg');
     background-repeat: no-repeat;
@@ -222,8 +228,8 @@ background-position: center top;
 .cert-card--5 {
   background:
     linear-gradient(
-    rgba(82, 76, 76, 0.45),
-      rgba(16, 16, 16, 0.65)
+    rgba($color-dark-2, 0.45),
+      rgba($color-dark, 0.65)
     ),
     url('/assets/images/adigridpicture5.jpg');
     background-repeat: no-repeat;
@@ -234,8 +240,8 @@ background-position: center top;
 .cert-card--6 {
   background:
     linear-gradient(
-     rgba(82, 76, 76, 0.45),
-      rgba(16, 16, 16, 0.65)
+     rgba($color-dark-2, 0.45),
+      rgba($color-dark, 0.65)
     ),
     url('/assets/images/adigridpicture6.jpg');
     background-repeat: no-repeat;
@@ -243,6 +249,5 @@ background-position: center top;
   background-size: cover;
 background-position: center top;
 }
-
 
 

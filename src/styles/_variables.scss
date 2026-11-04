@@ -1,113 +1,105 @@
-
 // ============================================================
 // ADITYA POLYMERS - Design System Variables
-// Instagram-Inspired Theme: Purple → Pink → Orange
+// Theme: White background + Golden text
 // ============================================================
 
 
 // ============================================================
-// BRAND COLORS
+// BRAND COLORS (GOLD)
 // ============================================================
 
-// Purple
-// $color-purple:        #eeebf1;
-// $color-purple-light:  #ede9f1;
-// $color-purple-dark:   #e0daea;
+$color-gold:          #C9A227;   // main gold (buttons, icons, large headings)
+$color-gold-light:    #E8C766;   // highlights, hover tints
+$color-gold-lighter:  #F6E7B4;   // soft backgrounds, badges
+$color-gold-dark:     #9A7B0A;   // text on white (better contrast)
+$color-gold-deep:     #6F5806;   // small body text, strongest contrast
 
-// // Pink
-// $color-pink:          #E1306C;
-// $color-pink-light:    #F06292;
+// ------------------------------------------------------------
+// Legacy aliases: old Instagram names now point to gold, so
+// existing components keep working without edits.
+// ------------------------------------------------------------
+$color-purple:        $color-gold-dark;
+$color-purple-light:  $color-gold;
+$color-purple-dark:   $color-gold-deep;
 
-// // Orange
-// $color-orange:        #F77737;
-// $color-orange-light:  #FF9A5B;
-// $color-orange-dark:   #C13515;
-$color-purple:       #833AB4;
-$color-purple-light: #A64DDB;
-$color-purple-dark:  #5B2A86;
+$color-pink:          $color-gold;
+$color-pink-light:    $color-gold-light;
 
-$color-pink:         #E1306C;
-$color-pink-light:   #F560A0;
+$color-orange:        $color-gold-light;
+$color-orange-light:  $color-gold-lighter;
+$color-orange-dark:   $color-gold-dark;
 
-$color-orange:       #F77737;
-$color-orange-light: #FCAF45;
-$color-orange-dark:  #D95E1F;
-
-
+$color-green:         $color-gold-dark;
+$color-green-light:   $color-gold;
+$color-green-dark:    $color-gold-deep;
 
 
-// Green / Accent
-// $color-green:         #14B8A6;
-// $color-green-light:   #2DD4BF;
-// $color-green-dark:    #0F766E;
-$color-green:         #833AB4;   // Instagram Purple
-$color-green-light:   #E1306C;   // Instagram Pink
-$color-green-dark:    #F77737;   // Instagram Orange
+// ============================================================
+// TEXT COLORS
+// ============================================================
+
+$color-text:          $color-gold-deep;   // body text
+$color-text-heading:  $color-gold-dark;   // headings
+$color-text-muted:    #A8934A;            // secondary text
+$color-text-on-gold:  #FFFFFF;            // text on gold buttons/cards
 
 
 // ============================================================
 // GRADIENT DEFINITIONS
 // ============================================================
 
-// Main Instagram-style gradient
+// Main gold gradient
 $gradient-brand: linear-gradient(
   135deg,
-  $color-purple 10%,
-  $color-pink 52%,
-  $color-orange 100%
+  $color-gold-dark 0%,
+  $color-gold 52%,
+  $color-gold-light 100%
 );
 
 // Reverse gradient
 $gradient-brand-rev: linear-gradient(
   135deg,
-  $color-orange 0%,
-  $color-pink 52%,
-  $color-purple 100%
+  $color-gold-light 0%,
+  $color-gold 52%,
+  $color-gold-dark 100%
 );
 
-// Green gradient
-// $gradient-green: linear-gradient(
-//   135deg,
-//   $color-green-dark 0%,
-//   $color-green-light 100%
-// );
-
+// Accent gradient (kept for compatibility)
 $gradient-green: linear-gradient(
   135deg,
-  $color-green 0%,
-  $color-green-light 55%,
-  $color-green-dark 100%
+  $color-gold-dark 0%,
+  $color-gold 55%,
+  $color-gold-light 100%
 );
 
-
-// Purple gradient
+// Deep gold gradient
 $gradient-purple: linear-gradient(
   135deg,
-  $color-purple-dark 0%,
-  $color-purple-light 100%
+  $color-gold-deep 0%,
+  $color-gold 100%
 );
 
-// Pink → Orange
+// Warm light gold
 $gradient-warm: linear-gradient(
   135deg,
-  $color-pink 0%,
-  $color-orange 100%
+  $color-gold 0%,
+  $color-gold-light 100%
 );
 
-// Hero gradient
+// Hero gradient (soft gold wash over white)
 $gradient-hero: linear-gradient(
   145deg,
-  rgba(131, 58, 180, 0.24) 0%,
-  rgba(225, 48, 108, 0.20) 48%,
-  rgba(247, 119, 55, 0.16) 100%
+  rgba(201, 162, 39, 0.14) 0%,
+  rgba(232, 199, 102, 0.10) 48%,
+  rgba(255, 255, 255, 0) 100%
 );
 
-// Instagram-style card gradient
+// Card gradient
 $gradient-card: linear-gradient(
   145deg,
-  rgba(131, 58, 180, 0.96) 0%,
-  rgba(225, 48, 108, 0.94) 52%,
-  rgba(247, 119, 55, 0.92) 100%
+  rgba(154, 123, 10, 0.96) 0%,
+  rgba(201, 162, 39, 0.94) 52%,
+  rgba(232, 199, 102, 0.92) 100%
 );
 
 
@@ -115,20 +107,21 @@ $gradient-card: linear-gradient(
 // NEUTRAL COLORS
 // ============================================================
 
-$color-dark:          #180A25;
-$color-dark-2:        #241039;
-$color-dark-3:        #35164D;
+// Dark tones (footers, overlays, dark sections) - warm brown-black
+$color-dark:          #1F1708;
+$color-dark-2:        #2D2210;
+$color-dark-3:        #3E2F14;
 
-$color-gray:          #511672;
-$color-gray-light:    #dfd2e6;
-$color-silver:        #E4D9E8;
+$color-gray:          #7A6A3A;
+$color-gray-light:    #EFE6CC;
+$color-silver:        #F3ECD6;
 
-$color-border:        rgba(255, 255, 255, 0.16);
+$color-border:        rgba(201, 162, 39, 0.35);
 
-$color-bg-light:      #FFF7FC;
-$color-bg-white:      #FFFFFF;
+$color-bg-light:      #FFFDF6;   // faint warm white for alternate sections
+$color-bg-white:      #FFFFFF;   // main page background
 
-$color-bg-soft:       rgba(255, 255, 255, 0.12);
+$color-bg-soft:       rgba(255, 250, 235, 0.95);
 
 
 // ============================================================
@@ -136,9 +129,9 @@ $color-bg-soft:       rgba(255, 255, 255, 0.12);
 // ============================================================
 
 $color-success:       #16A34A;
-$color-warning:       #D97706;
-$color-error:         #DC2626;
-$color-info:          #0EA5E9;
+$color-warning:       #e8c7a1;
+$color-error:         #e6d5d5;
+$color-info:          #140e0ef9;
 
 
 // ============================================================
@@ -253,28 +246,22 @@ $shadow-xl:
 $shadow-2xl:
   0 25px 50px -12px rgba(0, 0, 0, 0.15);
 
-// Brand glow
+// Brand glow (gold)
 $shadow-brand:
-  0 12px 45px rgba(131, 58, 180, 0.32);
+  0 12px 45px rgba(201, 162, 39, 0.30);
 
-// Green glow
-// $shadow-green:
-//   0 10px 40px rgba(20, 184, 166, 0.25);
+// Accent glow (gold)
 $shadow-green:
-  0 12px 40px rgba(225, 48, 108, 0.35);
-
-
-
-
+  0 12px 40px rgba(201, 162, 39, 0.35);
 
 // Card shadow
 $shadow-card:
-  0 12px 36px rgba(20, 5, 30, 0.22),
-  0 1px 4px rgba(255, 255, 255, 0.06);
+  0 12px 36px rgba(111, 88, 6, 0.14),
+  0 1px 4px rgba(201, 162, 39, 0.20);
 
-// Pink hover glow
+// Hover glow
 $shadow-hover:
-  0 20px 60px rgba(225, 48, 108, 0.22);
+  0 20px 60px rgba(201, 162, 39, 0.28);
 
 
 // ============================================================
@@ -336,4 +323,3 @@ $container-padding: 1.5rem;
 
 $navbar-height:       72px;
 $navbar-height-sm:    64px;
-

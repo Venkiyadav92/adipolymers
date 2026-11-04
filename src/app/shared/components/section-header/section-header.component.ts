@@ -41,11 +41,11 @@ import { ScrollAnimateDirective } from '../../directives/scroll-animate.directiv
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: $color-purple;
-      background: rgba(107, 33, 168, 0.08);
+      background: rgba(var(--color-gold-rgb), 0.08);
       padding: 0.375rem 1rem;
       border-radius: $radius-full;
       margin-bottom: $space-4;
-      border: 1px solid rgba(107, 33, 168, 0.12);
+      border: 1px solid rgba(var(--color-gold-rgb), 0.12);
     }
     .section-header__title {
       font-family: $font-display;

@@ -78,18 +78,18 @@ import { trigger, style, transition, animate } from '@angular/animations';
       @include flex(row, flex-start, flex-start, $space-3);
       padding: $space-4;
       border-radius: $radius-xl;
-      background: #fff;
-      box-shadow: $shadow-xl, 0 0 0 1px rgba(0,0,0,0.05);
+      background: var(--color-bg-white);
+      box-shadow: $shadow-xl, 0 0 0 1px rgba(var(--color-dark-rgb), 0.05);
       border-left: 3px solid;
     }
     .toast--success { border-color: $color-green; }
-    .toast--success .toast__icon { color: $color-green; background: rgba(22,163,74,0.08); }
+    .toast--success .toast__icon { color: $color-green; background: rgba(var(--color-success-rgb), 0.08); }
     .toast--error   { border-color: $color-error; }
-    .toast--error .toast__icon   { color: $color-error; background: rgba(220,38,38,0.08); }
+    .toast--error .toast__icon   { color: $color-error; background: rgba(var(--color-error-rgb), 0.08); }
     .toast--warning { border-color: $color-warning; }
-    .toast--warning .toast__icon { color: $color-warning; background: rgba(217,119,6,0.08); }
+    .toast--warning .toast__icon { color: $color-warning; background: rgba(var(--color-gold-light-rgb), 0.08); }
     .toast--info    { border-color: $color-info; }
-    .toast--info .toast__icon    { color: $color-info; background: rgba(14,165,233,0.08); }
+    .toast--info .toast__icon    { color: $color-info; background: rgba(var(--color-info-rgb), 0.08); }
     .toast__icon {
       width: 36px;
       height: 36px;

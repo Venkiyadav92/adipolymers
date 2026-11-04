@@ -13,6 +13,24 @@
 // ============================================================
 
 :root {
+  --color-gold: #{$color-gold};
+  --color-gold-light: #{$color-gold-light};
+  --color-gold-lighter: #{$color-gold-lighter};
+  --color-gold-dark: #{$color-gold-dark};
+  --color-gold-deep: #{$color-gold-deep};
+  --color-text: #{$color-text};
+  --color-text-heading: #{$color-text-heading};
+  --color-text-muted: #{$color-text-muted};
+  --color-text-on-gold: #{$color-text-on-gold};
+
+  --color-success: #{$color-success};
+  --color-warning: #{$color-warning};
+  --color-error: #{$color-error};
+  --color-info: #{$color-info};
+
+  --color-bg-white: #{$color-bg-white};
+  --color-bg-light: #{$color-bg-light};
+  --color-bg-soft: #{$color-bg-soft};
   --color-primary: #{$color-purple};
   --color-primary-light: #{$color-purple-light};
   --color-primary-dark: #{$color-purple-dark};
@@ -25,10 +43,21 @@
   --color-gray: #{$color-gray};
   --color-border: #{$color-border};
 
-  --color-bg: #120B24;
-  --color-bg-soft: rgba(255,255,255,0.12);
+  --color-dark-rgb: #{red($color-dark)}, #{green($color-dark)}, #{blue($color-dark)};
+  --color-bg-white-rgb: #{red($color-bg-white)}, #{green($color-bg-white)}, #{blue($color-bg-white)};
+  --color-gold-rgb: #{red($color-gold)}, #{green($color-gold)}, #{blue($color-gold)};
+  --color-gold-light-rgb: #{red($color-gold-light)}, #{green($color-gold-light)}, #{blue($color-gold-light)};
+  --color-success-rgb: #{red($color-success)}, #{green($color-success)}, #{blue($color-success)};
+  --color-error-rgb: #{red($color-error)}, #{green($color-error)}, #{blue($color-error)};
+  --color-info-rgb: #{red($color-info)}, #{green($color-info)}, #{blue($color-info)};
+
+  --color-bg: #{$color-bg-white};
+  --color-text-gold: #{$color-text-heading};
 
   --gradient-brand: #{$gradient-brand};
+  --gradient-brand-rev: #{$gradient-brand-rev};
+  --gradient-brand-deep: #{$gradient-purple};
+  --gradient-warm: #{$gradient-warm};
   --shadow-card: #{$shadow-card};
 
   --navbar-height: #{$navbar-height};
@@ -39,28 +68,28 @@
   // INSTAGRAM COLORS
   // ==========================================================
 
-  --instagram-purple: #7C3AED;
-  --instagram-pink: #EC4899;
-  --instagram-orange: #F97316;
+  --instagram-purple: #{$color-gold};
+  --instagram-pink: #{$color-gold};
+  --instagram-orange: #{$color-gold-light};
 
   --instagram-gradient:
     linear-gradient(
       135deg,
-      #7C3AED 0%,
-      #EC4899 52%,
-      #F97316 100%
+      #{$color-gold} 0%,
+      #{$color-gold} 52%,
+      #{$color-gold-light} 100%
     );
 
   --instagram-gradient-reverse:
     linear-gradient(
       315deg,
-      #7C3AED 0%,
-      #EC4899 52%,
-      #F97316 100%
+      #{$color-gold} 0%,
+      #{$color-gold} 52%,
+      #{$color-gold-light} 100%
     );
 
-  --white: #ffffff;
-  --black: #111111;
+  --white: #{$color-bg-white};
+  --black: #{$color-dark};
 }
 
 
@@ -100,18 +129,8 @@ body {
 
   min-height: 100vh;
 
-  background: linear-gradient(
-    135deg,
-    #140b25 0%,
-    #3b0e4f 35%,
-    #c13584 72%,
-    #f56b3f 100%
-  );
-
-  background-attachment: fixed;
-  background-size: cover;
-
-  color: #fdf7ff;
+  background: $color-bg-white;
+  color: var(--color-text-gold);
 
   font-family:
     "Poppins",
@@ -122,17 +141,6 @@ body {
   position: relative;
 
   isolation: isolate;
-
-  &::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 32%),
-      radial-gradient(circle at bottom right, rgba(255,255,255,0.12), transparent 36%);
-    pointer-events: none;
-    z-index: -1;
-  }
 
   &.menu-open {
     overflow: hidden;
@@ -280,8 +288,8 @@ ol {
 // ============================================================
 
 ::selection {
-  background: rgba(255, 255, 255, 0.24);
-  color: #ffffff;
+  background: rgba($color-bg-white, 0.24);
+  color: $color-bg-white;
 }
 
 
@@ -326,11 +334,11 @@ ol {
   transition: all $transition-base;
 
   background: transparent;
-  color: #ffffff;
+  color: $color-bg-white;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    background: rgba($color-bg-white, 0.15);
+    color: $color-bg-white;
   }
 }
 
@@ -353,24 +361,24 @@ ol {
 // ============================================================
 
 .glass {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba($color-bg-white, 0.12);
 
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba($color-bg-white, 0.25);
 
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
 
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.15);
+    0 8px 32px rgba($color-dark, 0.15);
 
   border-radius: 20px;
 }
 
 
 .glass-card {
-  background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+  background: linear-gradient(135deg, rgba($color-bg-white, 0.16), rgba($color-bg-white, 0.08));
 
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba($color-bg-white, 0.18);
 
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -380,7 +388,7 @@ ol {
   padding: 24px;
 
   box-shadow:
-    0 12px 36px rgba(11, 7, 24, 0.24);
+    0 12px 36px rgba($color-dark, 0.24);
 
   transition:
     transform 0.3s ease,
@@ -391,7 +399,7 @@ ol {
   transform: translateY(-5px);
 
   box-shadow:
-    0 18px 48px rgba(11, 7, 24, 0.3);
+    0 18px 48px rgba($color-dark, 0.3);
 }
 
 
@@ -405,14 +413,14 @@ ol {
 
 .tag-green {
   @include tag(
-    rgba(20, 184, 166, 0.16),
-    #5eead4
+    rgba($color-gold, 0.16),
+    $color-gold
   );
 }
 
 .tag-orange {
   @include tag(
-    rgba(249, 115, 22, 0.1),
+    rgba($color-gold-light, 0.1),
     $color-orange
   );
 }
@@ -426,7 +434,7 @@ ol {
   width: 100%;
   height: 1px;
 
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba($color-bg-white, 0.25);
 }
 
 .divider-gradient {
@@ -438,9 +446,9 @@ ol {
   background:
     linear-gradient(
       135deg,
-      #7C3AED,
-      #EC4899,
-      #F97316
+      $color-gold,
+      $color-gold,
+      $color-gold-light
     );
 }
 
@@ -482,9 +490,9 @@ main {
   background:
     linear-gradient(
       135deg,
-      #7C3AED 0%,
-      #EC4899 52%,
-      #F97316 100%
+      $color-gold 0%,
+      $color-gold 52%,
+      $color-gold-light 100%
     );
 }
 
@@ -497,9 +505,9 @@ main {
   background:
     linear-gradient(
       135deg,
-      #7C3AED,
-      #EC4899,
-      #F97316
+      $color-gold,
+      $color-gold,
+      $color-gold-light
     );
 
   -webkit-background-clip: text;
@@ -527,12 +535,12 @@ main {
   background:
     linear-gradient(
       135deg,
-      #7C3AED 0%,
-      #EC4899 52%,
-      #F97316 100%
+      $color-gold 0%,
+      $color-gold 52%,
+      $color-gold-light 100%
     );
 
-  color: #ffffff;
+  color: $color-bg-white;
 
   font-weight: 600;
 
@@ -541,7 +549,7 @@ main {
   cursor: pointer;
 
   box-shadow:
-    0 8px 25px rgba(225, 48, 108, 0.35);
+    0 8px 25px rgba($color-gold, 0.35);
 
   transition:
     transform 0.3s ease,
@@ -552,7 +560,7 @@ main {
   transform: translateY(-3px);
 
   box-shadow:
-    0 12px 35px rgba(225, 48, 108, 0.5);
+    0 12px 35px rgba($color-gold, 0.5);
 }
 
 
@@ -561,15 +569,15 @@ main {
 // ============================================================
 
 .navbar {
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba($color-gray-light, 0.1);
 
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 
   border-bottom:
-    1px solid rgba(255, 255, 255, 0.20);
+    1px solid rgba($color-bg-light, 0.2);
 
-  color: #ffffff;
+  color: $color-bg-white;
 }
 
 
@@ -578,7 +586,7 @@ main {
 // ============================================================
 
 a {
-  color: #ffffff;
+  color: $color-bg-white;
 
   transition:
     opacity 0.3s ease,
@@ -596,7 +604,7 @@ a:hover {
 
 .section {
   background: transparent;
-  color: #ffffff;
+  color: $color-bg-white;
 
   padding: 80px 20px;
 }
@@ -628,7 +636,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #ffffff;
+  color: $color-bg-white;
 }
 
 
@@ -637,7 +645,7 @@ h6 {
 // ============================================================
 
 p {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba($color-bg-white, 0.9);
 
   line-height: 1.7;
 }
@@ -657,12 +665,12 @@ select {
   border-radius: 12px;
 
   border:
-    1px solid rgba(255, 255, 255, 0.25);
+    1px solid rgba($color-bg-white, 0.25);
 
   background:
-    rgba(255, 255, 255, 0.12);
+    rgba($color-bg-white, 0.12);
 
-  color: #ffffff;
+  color: $color-bg-white;
 
   outline: none;
 
@@ -671,16 +679,16 @@ select {
 
 input::placeholder,
 textarea::placeholder {
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba($color-bg-white, 0.65);
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: #EC4899;
+  border-color: $color-gold;
 
   box-shadow:
-    0 0 0 3px rgba(236, 72, 153, 0.22);
+    0 0 0 3px rgba($color-gold, 0.22);
 }
 
 
@@ -696,9 +704,9 @@ select:focus {
   background:
     linear-gradient(
       135deg,
-      #7C3AED,
-      #EC4899,
-      #F97316
+      $color-gold,
+      $color-gold,
+      $color-gold-light
     );
 }
 
@@ -709,22 +717,22 @@ select:focus {
 
 .instagram-glow {
   box-shadow:
-    0 0 30px rgba(124, 58, 237, 0.35),
-    0 0 60px rgba(236, 72, 153, 0.28),
-    0 0 90px rgba(249, 115, 22, 0.22);
+    0 0 30px rgba($color-gold, 0.35),
+    0 0 60px rgba($color-gold, 0.28),
+    0 0 90px rgba($color-gold-light, 0.22);
 }
 
 .glow-purple {
   filter:
     drop-shadow(
-      0 0 24px rgba(124, 58, 237, 0.24)
+      0 0 24px rgba($color-gold, 0.24)
     );
 }
 
 .glow-green {
   filter:
     drop-shadow(
-      0 0 24px rgba(20, 184, 166, 0.24)
+      0 0 24px rgba($color-gold, 0.24)
     );
 }
 
@@ -736,12 +744,12 @@ select:focus {
 .bg-grid {
   background-image:
     linear-gradient(
-      rgba(255, 255, 255, 0.04) 1px,
+      rgba($color-bg-white, 0.04) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.04) 1px,
+      rgba($color-bg-white, 0.04) 1px,
       transparent 1px
     );
 
@@ -752,7 +760,7 @@ select:focus {
   background-image:
     radial-gradient(
       circle,
-      rgba(255, 255, 255, 0.12) 1px,
+      rgba($color-bg-white, 0.12) 1px,
       transparent 1px
     );
 
@@ -763,7 +771,7 @@ select:focus {
   background:
     radial-gradient(
       ellipse at top center,
-      rgba(255, 255, 255, 0.12) 0%,
+      rgba($color-bg-white, 0.12) 0%,
       transparent 70%
     );
 }
@@ -777,9 +785,9 @@ select:focus {
   background:
     linear-gradient(
       135deg,
-      #7C3AED 0%,
-      #EC4899 52%,
-      #F97316 100%
+      $color-gold 0%,
+      $color-gold 52%,
+      $color-gold-light 100%
     );
 
   position: relative;
@@ -812,7 +820,7 @@ select:focus {
 // ============================================================
 
 :focus-visible {
-  outline: 2px solid #EC4899;
+  outline: 2px solid $color-gold;
 
   outline-offset: 2px;
 }
@@ -827,16 +835,16 @@ select:focus {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.12);
+  background: rgba($color-bg-white, 0.12);
 }
 
 ::-webkit-scrollbar-thumb {
   background:
     linear-gradient(
       180deg,
-      #7C3AED,
-      #EC4899,
-      #F97316
+      $color-gold,
+      $color-gold,
+      $color-gold-light
     );
 
   border-radius: 10px;
@@ -848,20 +856,6 @@ select:focus {
 // ============================================================
 
 @media (max-width: 768px) {
-
-  body {
-    background:
-      linear-gradient(
-        135deg,
-        #7C3AED 0%,
-        #EC4899 52%,
-        #F97316 100%
-      );
-
-    background-attachment: fixed;
-    background-size: cover;
-  }
-
   .section {
     padding: 60px 16px;
   }
@@ -885,4 +879,57 @@ select:focus {
   .no-print {
     display: none !important;
   }
+}
+
+// Keep every page surface and text color consistent across component styles.
+*,
+*::before,
+*::after {
+  color: var(--color-text-gold) ;
+  -webkit-text-fill-color: var(--color-text-gold);  
+}
+
+::placeholder {
+  color: var(--color-text-gold) !important;
+  -webkit-text-fill-color: var(--color-text-gold) !important;
+  opacity: 1;
+}
+
+::selection {
+  color: var(--color-text-gold) !important;
+  background: $color-bg-white !important;
+}
+
+// Keep WhatsApp controls white-on-green despite the global text-fill rule above.
+.whatsapp-fab,
+.whatsapp-fab__pulse,
+.btn-whatsapp,
+.svc-btn--whatsapp,
+.quick-btn--whatsapp,
+.cert-cta__btn--whatsapp,
+.footer__whatsapp,
+.footer__social-link--wa {
+  background-color: $color-success !important;
+  background-image: none !important;
+  color: $color-bg-white !important;
+  -webkit-text-fill-color: $color-bg-white !important;
+}
+
+.whatsapp-fab svg,
+.whatsapp-fab svg *,
+.btn-whatsapp svg,
+.btn-whatsapp svg *,
+.svc-btn--whatsapp svg,
+.svc-btn--whatsapp svg *,
+.quick-btn--whatsapp svg,
+.quick-btn--whatsapp svg *,
+.cert-cta__btn--whatsapp svg,
+.cert-cta__btn--whatsapp svg *,
+.footer__whatsapp svg,
+.footer__whatsapp svg *,
+.footer__social-link--wa svg,
+.footer__social-link--wa svg * {
+  color: $color-bg-white !important;
+  fill: $color-bg-white !important;
+  -webkit-text-fill-color: $color-bg-white !important;
 }

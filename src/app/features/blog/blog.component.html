@@ -54,7 +54,7 @@
       <div class="blog-filters">
         @for (cat of categories; track cat.value) {
           <button class="filter-btn" [class.active]="activeCategory() === cat.value" (click)="activeCategory.set(cat.value)"
-            [ngStyle]="activeCategory() === cat.value ? { backgroundColor: cat.color, borderColor: cat.color, color: '#fff' } : {}"
+            [ngStyle]="activeCategory() === cat.value ? { backgroundColor: cat.color, borderColor: cat.color, color: 'var(--color-bg-white)' } : {}"
           >{{ cat.label }}</button>
         }
       </div>

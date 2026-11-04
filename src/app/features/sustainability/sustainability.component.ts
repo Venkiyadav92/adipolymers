@@ -22,12 +22,12 @@ export class SustainabilityComponent {
   ];
 
   readonly sdgs = [
-    { number: '12', title: 'Responsible Consumption & Production', color: '#BF8B2E' },
-    { number: '13', title: 'Climate Action', color: '#3F7E44' },
-    { number: '14', title: 'Life Below Water', color: '#0A97D9' },
-    { number: '15', title: 'Life on Land', color: '#56C02B' },
-    { number: '8', title: 'Decent Work & Economic Growth', color: '#A21942' },
-    { number: '9', title: 'Industry, Innovation & Infrastructure', color: '#FD6925' },
+    { number: '12', title: 'Responsible Consumption & Production', color: 'var(--color-gold)' },
+    { number: '13', title: 'Climate Action', color: 'var(--color-success)' },
+    { number: '14', title: 'Life Below Water', color: 'var(--color-info)' },
+    { number: '15', title: 'Life on Land', color: 'var(--color-success)' },
+    { number: '8', title: 'Decent Work & Economic Growth', color: 'var(--color-gold-dark)' },
+    { number: '9', title: 'Industry, Innovation & Infrastructure', color: 'var(--color-gold-light)' },
   ];
 
   readonly certifications = [

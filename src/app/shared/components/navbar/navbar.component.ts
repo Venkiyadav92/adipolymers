@@ -18,8 +18,18 @@ interface NavLink {
   styleUrl: './navbar.component.scss',
   animations: [
     trigger('mobileMenu', [
-      state('closed', style({ opacity: 0, transform: 'translateY(-16px)', pointerEvents: 'none' })),
-      state('open', style({ opacity: 1, transform: 'translateY(0)', pointerEvents: 'all' })),
+      state('closed', style({
+        opacity: 0,
+        transform: 'translateY(-16px)',
+        visibility: 'hidden',
+        pointerEvents: 'none'
+      })),
+      state('open', style({
+        opacity: 1,
+        transform: 'translateY(0)',
+        visibility: 'visible',
+        pointerEvents: 'auto'
+      })),
       transition('closed <=> open', animate('280ms cubic-bezier(0.4, 0, 0.2, 1)')),
     ]),
   ],

@@ -17,7 +17,7 @@
   }
 
   &__body {
-    background: linear-gradient(180deg, rgba(11, 7, 24, 0.98) 0%, rgba(27, 18, 47, 0.98) 100%);
+    background: linear-gradient(180deg, $color-gold-lighter 0%, $color-gold-light 100%);
     padding: $space-16 0 $space-12;
   }
 
@@ -49,10 +49,10 @@
     height: 60px;
     flex-shrink: 0;
     border-radius: 12px;
-    background: #ffffff;
+    background: $color-bg-white;
     padding: 4px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba($color-dark, 0.35), 0 0 0 1px rgba($color-bg-white, 0.08);
   }
 
   &__logo-img {
@@ -80,15 +80,15 @@
   &__desc {
     font-size: $font-size-sm;
     line-height: 1.75;
-    color: rgba(255,255,255,0.55);
+    color: rgba($color-bg-white, 0.55);
     margin-bottom: $space-6;
   }
 
   &__contact { display: flex; flex-direction: column; gap: $space-3; margin-bottom: $space-6; }
 
   &__contact-block {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba($color-gold, 0.15);
+    border: 1px solid rgba($color-bg-white, 0.07);
     border-radius: $radius-lg;
     padding: $space-3 $space-4;
     display: flex;
@@ -107,23 +107,28 @@
   &__contact-item {
     @include flex(row, flex-start, flex-start, $space-3);
     font-size: $font-size-sm;
-    color: rgba(255,255,255,0.6);
+    color: rgba($color-bg-white, 0.6);
     text-decoration: none;
     transition: color $transition-fast;
 
     svg { flex-shrink: 0; margin-top: 2px; color: $color-purple-light; }
 
-    &:hover { color: rgba(255,255,255,0.9); }
+    &:hover { color: rgba($color-bg-white, 0.9); }
   }
 
   &__whatsapp {
-    svg { color: #25D366; }
-    &:hover { color: #25D366 !important; }
+    background: $color-success;
+    color: $color-bg-white;
+    padding: $space-2 $space-3;
+    border-radius: $radius-full;
+
+    svg { color: $color-bg-white; }
+    &:hover { color: $color-bg-white !important; }
   }
 
   &__contact-block {
     padding-bottom: $space-4;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba($color-bg-white, 0.06);
     margin-bottom: $space-4;
 
     &:last-of-type { border-bottom: none; }
@@ -137,7 +142,7 @@
     font-weight: $font-weight-bold;
     text-transform: uppercase;
     letter-spacing: 0.07em;
-    color: rgba(255,255,255,0.4);
+    color: rgba($color-bg-white, 0.4);
     margin-bottom: $space-2;
   }
 
@@ -152,7 +157,7 @@
   }
 
   &__contact-email--primary {
-    color: rgba(255,255,255,0.85);
+    color: rgba($color-bg-white, 0.85);
     font-weight: $font-weight-medium;
     svg { color: $color-green-light; }
     &:hover { color: $color-green-light; }
@@ -172,21 +177,29 @@
     height: 38px;
     @include flex-center;
     border-radius: $radius-lg;
-    background: rgba(255,255,255,0.06);
-    color: rgba(255,255,255,0.6);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba($color-bg-white, 0.06);
+    color: rgba($color-bg-white, 0.6);
+    border: 1px solid rgba($color-bg-white, 0.08);
     transition: all $transition-base;
 
     &:hover {
       background: $gradient-brand;
-      color: #fff;
+      color: $color-bg-white;
       border-color: transparent;
       transform: translateY(-2px);
     }
 
-    &--wa:hover {
-      background: #25D366;
-      border-color: #25D366;
+    &--wa {
+      background: $color-success;
+      border-color: $color-success;
+      color: $color-bg-white;
+      svg { color: $color-bg-white; }
+
+      &:hover {
+        background: $color-success;
+        color: $color-bg-white;
+        border-color: $color-success;
+      }
     }
   }
 
@@ -197,7 +210,7 @@
     font-family: $font-display;
     font-size: $font-size-sm;
     font-weight: $font-weight-semi;
-    color: #fff;
+    color: $color-bg-white;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: $space-5;
@@ -227,7 +240,7 @@
   &__link {
     @include flex(row, center, flex-start, $space-2);
     font-size: $font-size-sm;
-    color: rgba(255,255,255,0.55);
+    color: rgba($color-bg-white, 0.55);
     text-decoration: none;
     padding: $space-1 0;
     transition: all $transition-fast;
@@ -235,7 +248,7 @@
     svg { color: $color-purple-light; opacity: 0; transition: opacity $transition-fast; }
 
     &:hover {
-      color: rgba(255,255,255,0.9);
+      color: rgba($color-bg-white, 0.9);
       padding-left: $space-2;
       svg { opacity: 1; }
     }
@@ -252,9 +265,9 @@
   &__cert-badge {
     @include flex(row, center, flex-start, 0.3rem);
     font-size: $font-size-xs;
-    color: rgba(255,255,255,0.6);
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba($color-bg-white, 0.6);
+    background: rgba($color-bg-white, 0.05);
+    border: 1px solid rgba($color-bg-white, 0.08);
     padding: 0.25rem 0.625rem;
     border-radius: $radius-full;
 
@@ -272,7 +285,7 @@
 
   &__cert-cta-text {
     font-size: $font-size-xs;
-    color: rgba(255,255,255,0.5);
+    color: rgba($color-bg-white, 0.5);
     margin-bottom: $space-3;
     line-height: 1.5;
   }
@@ -283,7 +296,7 @@
     gap: $space-2;
     padding: $space-2 $space-4;
     background: $gradient-green;
-    color: #fff;
+    color: $color-bg-white;
     border-radius: $radius-full;
     font-size: $font-size-xs;
     font-weight: $font-weight-semi;
@@ -295,8 +308,8 @@
 
   // --- Bottom Bar ---
   &__bottom {
-    background: rgba(0,0,0,0.3);
-    border-top: 1px solid rgba(255,255,255,0.06);
+    background: rgba($color-dark, 0.3);
+    border-top: 1px solid rgba($color-bg-white, 0.06);
     padding: $space-5 0;
   }
 
@@ -308,7 +321,7 @@
 
   &__copyright {
     font-size: $font-size-xs;
-    color: rgba(255,255,255,0.35);
+    color: rgba($color-bg-white, 0.35);
     margin: 0;
   }
 
@@ -318,12 +331,12 @@
 
   &__legal-link {
     font-size: $font-size-xs;
-    color: rgba(255,255,255,0.35);
+    color: rgba($color-bg-white, 0.35);
     text-decoration: none;
     transition: color $transition-fast;
 
-    &:hover { color: rgba(255,255,255,0.8); }
+    &:hover { color: rgba($color-bg-white, 0.8); }
   }
 
-  .divider-dot { color: rgba(255,255,255,0.2); }
+  .divider-dot { color: rgba($color-bg-white, 0.2); }
 }

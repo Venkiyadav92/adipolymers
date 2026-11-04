@@ -10,24 +10,24 @@
 
   &__bg { @include absolute-fill; pointer-events: none;
     .orb { position: absolute; border-radius: 50%; filter: blur(80px); }
-    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(107,33,168,0.4), transparent); top: -100px; right: -100px; }
+    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba($color-gold, 0.4), transparent); top: -100px; right: -100px; }
   }
 
   &__inner { position: relative; z-index: 1; max-width: 660px; margin-inline: auto; }
-  &__label { @include tag(rgba(107,33,168,0.2), $color-purple-light); display: inline-flex; margin-bottom: $space-5; }
+  &__label { @include tag(rgba($color-gold, 0.2), $color-purple-light); display: inline-flex; margin-bottom: $space-5; }
 
   &__title {
     font-family: $font-display;
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: $font-weight-black;
-    color: #fff;
+    color: $color-bg-white;
     line-height: 1.15;
     letter-spacing: -0.03em;
     margin-bottom: $space-4;
     .highlight { @include gradient-text($gradient-brand); }
   }
 
-  &__subtitle { font-size: clamp($font-size-base, 1.5vw, $font-size-lg); color: rgba(255,255,255,0.65); line-height: 1.75; }
+  &__subtitle { font-size: clamp($font-size-base, 1.5vw, $font-size-lg); color: rgba($color-bg-white, 0.65); line-height: 1.75; }
 }
 
 .blog-main { background: $color-bg-soft; }
@@ -55,15 +55,15 @@
     &::before {
       content: '';
       @include absolute-fill;
-      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-image: linear-gradient(rgba($color-bg-white, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba($color-bg-white, 0.03) 1px, transparent 1px);
       background-size: 40px 40px;
     }
   }
 
   .featured-label {
-    @include tag(rgba(249,115,22,0.2), $color-orange-light);
+    @include tag(rgba($color-gold-light, 0.2), $color-orange-light);
     display: inline-flex;
-    border: 1px solid rgba(249,115,22,0.3);
+    border: 1px solid rgba($color-gold-light, 0.3);
     position: absolute;
     top: $space-4;
     left: $space-4;
@@ -102,7 +102,7 @@
     @include flex(row, center, flex-start, $space-3);
     width: 100%;
 
-    .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: $gradient-brand; @include flex-center; font-weight: $font-weight-bold; color: #fff; font-size: $font-size-sm; flex-shrink: 0; }
+    .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: $gradient-brand; @include flex-center; font-weight: $font-weight-bold; color: $color-bg-white; font-size: $font-size-sm; flex-shrink: 0; }
     .author-name { font-size: $font-size-sm; font-weight: $font-weight-semi; color: $color-dark; margin: 0; }
     .author-role { font-size: $font-size-xs; color: $color-gray; margin: 0; }
   }
@@ -140,13 +140,13 @@
     border: 1.5px solid $color-border;
     border-radius: $radius-full;
     font-size: $font-size-sm;
-    background: #fff;
+    background: $color-bg-white;
     outline: none;
     transition: all $transition-fast;
     font-family: $font-primary;
     color: $color-dark;
 
-    &:focus { border-color: $color-purple-light; box-shadow: 0 0 0 3px rgba(107,33,168,0.1); }
+    &:focus { border-color: $color-purple-light; box-shadow: 0 0 0 3px rgba($color-gold, 0.1); }
     &::placeholder { color: $color-gray-light; }
   }
 }
@@ -160,7 +160,7 @@
     padding: $space-2 $space-4;
     border-radius: $radius-full;
     border: 1.5px solid $color-border;
-    background: #fff;
+    background: $color-bg-white;
     font-size: $font-size-xs;
     font-weight: $font-weight-medium;
     color: $color-gray;
@@ -170,7 +170,7 @@
     white-space: nowrap;
 
     &:hover { border-color: $color-purple; color: $color-purple; }
-    &.active { box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+    &.active { box-shadow: 0 2px 12px rgba($color-dark, 0.15); }
   }
 }
 
@@ -203,7 +203,7 @@
     &::before {
       content: '';
       @include absolute-fill;
-      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-image: linear-gradient(rgba($color-bg-white, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba($color-bg-white, 0.03) 1px, transparent 1px);
       background-size: 30px 30px;
     }
   }
@@ -265,7 +265,7 @@
     font-size: $font-size-xs;
     color: $color-dark-3;
 
-    .author-sm-avatar { width: 24px; height: 24px; border-radius: 50%; background: $gradient-brand; @include flex-center; font-size: 10px; font-weight: $font-weight-bold; color: #fff; flex-shrink: 0; }
+    .author-sm-avatar { width: 24px; height: 24px; border-radius: 50%; background: $gradient-brand; @include flex-center; font-size: 10px; font-weight: $font-weight-bold; color: $color-bg-white; flex-shrink: 0; }
   }
 
   &__date { font-size: $font-size-xs; color: $color-gray; }
@@ -275,7 +275,7 @@
   @include flex(column, center, center, $space-4);
   padding: $space-20;
   text-align: center;
-  background: #fff;
+  background: $color-bg-white;
   border-radius: $radius-2xl;
   border: 1px dashed $color-border;
 

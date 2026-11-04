@@ -95,8 +95,8 @@ export class ServicesComponent {
         'Compliant with waste management rules 2022',
       ],
       cta: 'Order Now',
-      gradient: 'linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%)',
-      accentColor: '#10b981',
+      gradient: 'var(--gradient-brand)',
+      accentColor: 'var(--color-gold)',
     },
     {
       id: 's2',
@@ -115,8 +115,8 @@ export class ServicesComponent {
         'Design-to-sample in 7 business days',
       ],
       cta: 'Get Custom Quote',
-      gradient: 'linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #3b82f6 100%)',
-      accentColor: '#60a5fa',
+      gradient: 'var(--gradient-brand-rev)',
+      accentColor: 'var(--color-gold-light)',
     },
     {
       id: 's3',
@@ -134,8 +134,8 @@ export class ServicesComponent {
         'GST invoice with HSN 39231010',
       ],
       cta: 'Request Bulk Pricing',
-      gradient: 'linear-gradient(135deg, #3b0764 0%, #6b21a8 50%, #9333ea 100%)',
-      accentColor: '#c084fc',
+      gradient: 'var(--gradient-brand-deep)',
+      accentColor: 'var(--color-gold-dark)',
     },
     {
       id: 's4',
@@ -154,8 +154,8 @@ export class ServicesComponent {
         'Support for Green Procurement tenders',
       ],
       cta: 'Talk to Compliance Team',
-      gradient: 'linear-gradient(135deg, #78350f 0%, #b45309 50%, #d97706 100%)',
-      accentColor: '#fbbf24',
+      gradient: 'var(--gradient-warm)',
+      accentColor: 'var(--color-gold-deep)',
     },
     {
       id: 's5',
@@ -174,8 +174,8 @@ export class ServicesComponent {
         'Bulk packing: 10 kg / 25 kg bags',
       ],
       cta: 'Join Express Programme',
-      gradient: 'linear-gradient(135deg, #831843 0%, #be185d 50%, #ec4899 100%)',
-      accentColor: '#f9a8d4',
+      gradient: 'var(--gradient-brand)',
+      accentColor: 'var(--color-gold)',
     },
     {
       id: 's6',
@@ -194,8 +194,8 @@ export class ServicesComponent {
         'Compliance with Gulf eco-labelling norms',
       ],
       cta: 'Contact UAE Office',
-      gradient: 'linear-gradient(135deg, #134e4a 0%, #0f766e 50%, #14b8a6 100%)',
-      accentColor: '#5eead4',
+      gradient: 'var(--gradient-brand-rev)',
+      accentColor: 'var(--color-gold-light)',
     },
   ];
 

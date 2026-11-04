@@ -45,6 +45,6 @@ export class BlogComponent {
   });
 
   getCategoryColor(category: string): string {
-    return this.categories.find(c => c.value === category)?.color ?? '#6B21A8';
+    return this.categories.find(c => c.value === category)?.color ?? 'var(--color-gold)';
   }
 }

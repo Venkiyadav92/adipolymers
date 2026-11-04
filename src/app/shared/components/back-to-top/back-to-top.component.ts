@@ -41,26 +41,27 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       border-radius: 100%;
         background: linear-gradient(
     145deg,
-    #4f2ca7 0%,
-    #833AB4 25%,
-    #C13584 55%,
-    #E1306C 75%,
-    #F77737 90%,
-    #FCAF45 100%
+    var(--color-info) 0%,
+    var(--color-gold) 25%,
+    var(--color-gold) 55%,
+    var(--color-gold) 75%,
+    var(--color-gold-light) 90%,
+    var(--color-gold-light) 100%
   );
       
-      color: #fff;
+      color: var(--color-bg-white);
+      svg { color: var(--color-bg-white); }
       border: none;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 20px rgba(107, 33, 168, 0.4);
+      box-shadow: 0 4px 20px rgba(var(--color-gold-rgb), 0.4);
       z-index: $z-toast;
       transition: box-shadow $transition-base, transform $transition-base;
 
       &:hover {
-        box-shadow: 0 8px 32px rgba(107, 33, 168, 0.5);
+        box-shadow: 0 8px 32px rgba(var(--color-gold-rgb), 0.5);
         transform: translateY(-2px);
       }
     }

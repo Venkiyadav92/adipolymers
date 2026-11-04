@@ -2,7 +2,7 @@
 @use '../../../styles/mixins' as *;
 
 .sus-hero {
-  background: linear-gradient(160deg, #0A1628 0%, #0D2918 50%, #0F172A 100%);
+  background: linear-gradient(160deg, $color-dark 0%, $color-success 50%, $color-info 100%);
   @include section-padding;
   position: relative;
   overflow: hidden;
@@ -10,8 +10,8 @@
 
   &__bg { @include absolute-fill; pointer-events: none;
     .orb { position: absolute; border-radius: 50%; filter: blur(80px); }
-    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(22,163,74,0.3), transparent); top: -100px; right: -100px; }
-    .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(107,33,168,0.25), transparent); bottom: 0; left: 5%; }
+    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba($color-success, 0.3), transparent); top: -100px; right: -100px; }
+    .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba($color-gold, 0.25), transparent); bottom: 0; left: 5%; }
   }
 
   &__inner { position: relative; z-index: 1; max-width: 760px; margin-inline: auto; }
@@ -19,23 +19,23 @@
   &__label {
     @include flex(row, center, center, $space-2);
     display: inline-flex;
-    @include tag(rgba(22,163,74,0.2), $color-green-light);
+    @include tag(rgba($color-success, 0.2), $color-green-light);
     margin-bottom: $space-5;
-    border: 1px solid rgba(22,163,74,0.3);
+    border: 1px solid rgba($color-success, 0.3);
   }
 
   &__title {
     font-family: $font-display;
     font-size: clamp(2rem, 5vw, 3.25rem);
     font-weight: $font-weight-black;
-    color: #fff;
+    color: $color-bg-white;
     line-height: 1.15;
     letter-spacing: -0.03em;
     margin-bottom: $space-5;
     .highlight { @include gradient-text($gradient-green); }
   }
 
-  &__subtitle { font-size: clamp($font-size-base, 1.5vw, $font-size-lg); color: rgba(255,255,255,0.6); line-height: 1.75; }
+  &__subtitle { font-size: clamp($font-size-base, 1.5vw, $font-size-lg); color: rgba($color-bg-white, 0.6); line-height: 1.75; }
 }
 
 .sus-stats {
@@ -95,7 +95,7 @@
     width: 52px;
     height: 52px;
     border-radius: $radius-xl;
-    background: rgba(22,163,74,0.08);
+    background: rgba($color-success, 0.08);
     @include flex-center;
 
     .material-symbols-rounded { font-size: 26px; color: $color-green; }
@@ -173,7 +173,7 @@
     width: 48px;
     height: 48px;
     border-radius: $radius-xl;
-    background: rgba(22,163,74,0.08);
+    background: rgba($color-success, 0.08);
     @include flex-center;
     flex-shrink: 0;
 
@@ -185,7 +185,7 @@
 }
 
 .sus-cta {
-  background: linear-gradient(135deg, #0A1628 0%, #0D2918 100%);
+  background: linear-gradient(135deg, $color-dark 0%, $color-success 100%);
 
   &__inner {
     max-width: 640px;
@@ -193,12 +193,12 @@
     text-align: center;
     @include flex(column, center, center, $space-4);
 
-    h2 { font-family: $font-display; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: $font-weight-bold; color: #fff; .highlight { @include gradient-text($gradient-green); } }
-    p { font-size: $font-size-base; color: rgba(249, 240, 240, 0.6); line-height: 1.75; }
+    h2 { font-family: $font-display; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: $font-weight-bold; color: $color-bg-white; .highlight { @include gradient-text($gradient-green); } }
+    p { font-size: $font-size-base; color: rgba($color-bg-light, 0.6); line-height: 1.75; }
   }
 
   &__actions { @include flex(row, center, center, $space-4); flex-wrap: wrap; }
 
-  .btn-explore { @include btn-outline; height: 52px; padding: 0 $space-8; font-size: $font-size-base; border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; justify-content: center; &:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.08); color: #fff; } }
-  .btn-consult { @include btn-primary; height: 52px; padding: 0 $space-8; font-size: $font-size-base; background: $gradient-green; text-decoration: none; display: inline-flex; align-items: center; box-shadow: 0 4px 20px rgba(22,163,74,0.4); &:hover { box-shadow: 0 8px 32px rgba(22,163,74,0.5); } }
+  .btn-explore { @include btn-outline; height: 52px; padding: 0 $space-8; font-size: $font-size-base; border-color: rgba($color-bg-white, 0.3); color: rgba($color-bg-white, 0.8); text-decoration: none; display: flex; align-items: center; justify-content: center; &:hover { border-color: rgba($color-bg-white, 0.8); background: rgba($color-bg-white, 0.08); color: $color-bg-white; } }
+  .btn-consult { @include btn-primary; height: 52px; padding: 0 $space-8; font-size: $font-size-base; background: $gradient-green; text-decoration: none; display: inline-flex; align-items: center; box-shadow: 0 4px 20px rgba($color-success, 0.4); &:hover { box-shadow: 0 8px 32px rgba($color-success, 0.5); } }
 }

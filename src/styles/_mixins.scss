@@ -69,7 +69,7 @@
 }
 
 // --- Glassmorphism ---
-@mixin glass($blur: 16px, $bg: rgba(255,255,255,0.10), $border: rgba(255,255,255,0.18)) {
+@mixin glass($blur: 16px, $bg: rgba($color-bg-white, 0.10), $border: rgba($color-bg-white, 0.18)) {
   background: $bg;
   backdrop-filter: blur($blur);
   -webkit-backdrop-filter: blur($blur);
@@ -77,18 +77,18 @@
 }
 
 @mixin glass-light($blur: 12px) {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba($color-bg-white, 0.12);
   backdrop-filter: blur($blur);
   -webkit-backdrop-filter: blur($blur);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba($color-bg-white, 0.2);
 }
 
 // --- Card ---
 @mixin card($radius: $radius-2xl, $shadow: $shadow-card) {
-  background: #ffff;
+  background: $color-bg-white;
   border-radius: $radius;
   box-shadow: $shadow;
-  border: 1px solid rgba(255,255,255,0.16);
+  border: 1px solid rgba($color-bg-white, 0.16);
   transition: transform $transition-base, box-shadow $transition-base;
 }
 
@@ -128,12 +128,12 @@
 @mixin btn-primary {
   @include btn-base;
   background: $gradient-brand;
-  color: #fff;
-  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+  color: $color-bg-white;
+  box-shadow: 0 10px 30px rgba($color-gold, 0.3);
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 36px rgba(236, 72, 153, 0.28);
+    box-shadow: 0 14px 36px rgba($color-gold, 0.28);
   }
 
   &:active { transform: translateY(0); }
@@ -141,13 +141,13 @@
 
 @mixin btn-outline {
   @include btn-base;
-  background: rgba(255,255,255,0.08);
+  background: rgba($color-bg-white, 0.08);
   color: $color-pink-light;
-  border: 1px solid rgba(255,255,255,0.24);
+  border: 1px solid rgba($color-bg-white, 0.24);
 
   &:hover {
-    background: rgba(255,255,255,0.16);
-    color: #fff;
+    background: rgba($color-bg-white, 0.16);
+    color: $color-bg-white;
     transform: translateY(-2px);
   }
 }
@@ -155,11 +155,11 @@
 @mixin btn-ghost {
   @include btn-base;
   background: transparent;
-  color: rgba(255,255,255,0.86);
+  color: rgba($color-bg-white, 0.86);
 
   &:hover {
-    background: rgba(255,255,255,0.14);
-    color: #fff;
+    background: rgba($color-bg-white, 0.14);
+    color: $color-bg-white;
   }
 }
 
@@ -182,8 +182,8 @@
     border-radius: inherit;
     padding: 1px;
     background: $gradient;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient($color-bg-white 0 0) content-box, linear-gradient($color-bg-white 0 0);
+    mask: linear-gradient($color-bg-white 0 0) content-box, linear-gradient($color-bg-white 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
@@ -202,7 +202,7 @@
 }
 
 // --- Overlay ---
-@mixin overlay($color: rgba(0,0,0,0.5)) {
+@mixin overlay($color: rgba($color-dark, 0.5)) {
   position: absolute;
   inset: 0;
   background: $color;
@@ -241,7 +241,7 @@
 }
 
 // --- Scrollbar ---
-@mixin custom-scrollbar($thumb: $color-pink, $track: rgba(255,255,255,0.12)) {
+@mixin custom-scrollbar($thumb: $color-pink, $track: rgba($color-bg-white, 0.12)) {
   scrollbar-width: thin;
   scrollbar-color: $thumb $track;
 
@@ -259,7 +259,7 @@
 }
 
 // --- Tag Badge ---
-@mixin tag($bg: rgba(124,58,237,0.16), $color: $color-purple-light) {
+@mixin tag($bg: rgba($color-gold, 0.16), $color: $color-purple-light) {
   display: inline-flex;
   align-items: center;
   gap: $space-1;
