@@ -19,6 +19,7 @@ import { SeoService } from './core/services/seo.service';
     ToastComponent,
   ],
   template: `
+ 
     <div class="page-wrapper">
       <ap-scroll-progress />
       <ap-navbar />

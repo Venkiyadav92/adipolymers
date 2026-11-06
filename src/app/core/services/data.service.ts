@@ -192,8 +192,8 @@ export class DataService {
 
   getCertifications(): Certification[] {
     return [
-      { id: 'c1', name: 'ISO 14001:2015', issuer: 'Bureau Veritas', year: '2019', icon: 'verified_user', description: 'Environmental Management System', badge: 'Environmental'},
-      { id: 'c2', name: 'ISO 9001:2015', issuer: 'TÜV SÜD', year: '2018', icon: 'workspace_premium', description: 'Quality Management System', badge: 'Quality' },
+      { id: 'c1', name: 'ISO 17088:2021', issuer: 'Bureau Veritas', year: '2019', icon: 'verified_user', description: 'Environmental Management System', badge: 'Environmental'},
+      { id: 'c2', name: 'ISO 17088:2021', issuer: 'TÜV SÜD', year: '2018', icon: 'workspace_premium', description: 'Quality Management System', badge: 'Quality' },
       { id: 'c3', name: 'EN 13432', issuer: 'DIN CERTCO', year: '2020', icon: 'eco', description: 'Compostable Packaging Standard', badge: 'Compostable' },
       { id: 'c4', name: 'ASTM D6400', issuer: 'BPI', year: '2020', icon: 'recycling', description: 'Compostable Plastics Standard', badge: 'BPI Certified' },
       { id: 'c5', name: 'OK Compostable', issuer: 'TÜV Austria', year: '2021', icon: 'grass', description: 'Compostable Content Certification', badge: 'Compostable' },

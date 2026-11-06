@@ -12,6 +12,7 @@ $nav-h-sm: 64px;
   right: 0;
   z-index: $z-fixed;
   height: $nav-h;
+  
   // ──────────────────────────────────────────────────────────────
   // KEY FIX: Permanent dark-overlay gradient so white nav text is
   // ALWAYS readable regardless of scroll state or page content.
@@ -46,11 +47,14 @@ $nav-h-sm: 64px;
 
     // Nav items switch to dark
     .navbar__link {
-      color: $color-bg-white;
+      // color: $color-bg-white;
       text-shadow: none;
+      color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
 
       &:hover {
         color: $color-gold;
+        
         background: rgba($color-gold, 0.18);
       }
 
@@ -86,8 +90,8 @@ $nav-h-sm: 64px;
   }
 
 &__logo-frame {
-  width: 65px;
-  height: 65px;
+  width:95px;
+  height:60px;
   flex-shrink: 0;
   border-radius: 12px;
   background: $color-bg-white;
@@ -132,6 +136,7 @@ $nav-h-sm: 64px;
     flex: 1;
     display: flex;
     justify-content: center;
+    
 
     // Collapse to hamburger below lg breakpoint
     @include max-lg { display: none; }

@@ -1,6 +1,7 @@
 @use '../../../../../styles/variables' as *;
 @use '../../../../../styles/mixins' as *;
 
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -108,13 +109,20 @@
       background: $color-gold;
       animation: pulse 2s ease-in-out infinite;
       box-shadow: 0 0 8px rgba($color-gold, 0.8);
+      
+    }
+    .hero__badge{
+      color: #caae35 !important;
+    -webkit-text-fill-color: #caae35 !important;
     }
   }
 
   &__tagline {
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
-    color: rgba($color-bg-white, 0.72);
+    // color: rgba($color-bg-white, 0.72);
+    color: #caae35 !important;
+    -webkit-text-fill-color: #caae35 !important;
     text-transform: uppercase;
     letter-spacing: 0.18em;
     margin-bottom: $space-3;
@@ -126,8 +134,11 @@
     font-weight: $font-weight-black;
     line-height: 1.06;
     letter-spacing: -0.03em;
-    color: $color-bg-white;
+    // color: $color-bg-white;
     margin-bottom: $space-5;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
+    
   }
 
   &__highlight {

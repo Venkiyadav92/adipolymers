@@ -26,20 +26,25 @@
 
   &__inner { position: relative; z-index: 1; max-width: 760px; margin-inline: 0; }
 
-  &__label { @include tag(rgba($color-gold, 0.2), $color-purple-light); display: inline-flex; margin-bottom: $space-5; }
+  &__label { @include tag(rgba($color-gold, 0.2), $color-purple-light); display: inline-flex; margin-bottom: $space-5; color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;}
 
   &__title {
     font-family: $font-display;
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: $font-weight-black;
-    color: $color-bg-white;
+    // color: $color-bg-white;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     line-height: 1.15;
     letter-spacing: -0.03em;
     margin-bottom: $space-4;
-    .highlight { @include gradient-text($gradient-brand); }
+    .highlight { @include gradient-text($gradient-brand); color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;}
   }
 
-  &__subtitle { font-size: clamp($font-size-base, 1.5vw, $font-size-lg); color: rgba($color-bg-white, 0.65); line-height: 1.75; }
+  &__subtitle { font-size: clamp($font-size-base, 1.5vw, $font-size-lg); color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important; line-height: 1.75; }
 }
 
 // ─────────────────────────────────────────────
@@ -70,7 +75,8 @@
     font-family: $font-display;
     font-size: $font-size-2xl;
     font-weight: $font-weight-bold;
-    color: $color-bg-white;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     margin-bottom: $space-2;
   }
 
@@ -90,11 +96,14 @@
     @include flex-center;
     flex-shrink: 0;
 
-    .material-symbols-rounded { font-size: 22px; color: $color-bg-white; }
+    .material-symbols-rounded { font-size: 22px; color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important; }
   }
 
-  &__label { font-size: $font-size-xs; font-weight: $font-weight-semi; color: $color-bg-white; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 $space-1; }
-  &__value { font-size: $font-size-sm; color: $color-bg-white; line-height: 1.5; margin: 0; }
+  &__label { font-size: $font-size-xs; font-weight: $font-weight-semi; color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 $space-1; }
+  &__value { font-size: $font-size-sm; color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important; line-height: 1.5; margin: 0; }
 }
 
 // ─ Office location cards ──────────────────────────────────────
@@ -114,7 +123,9 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: $space-2;
-    color: rgba($color-bg-white, 0.4);
+    // color: rgba($color-bg-white, 0.4);
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
   }
 
   &__dot {
@@ -131,14 +142,18 @@
     font-family: $font-display;
     font-size: $font-size-base;
     font-weight: $font-weight-bold;
-    color: $color-bg-white;
+    // color: $color-bg-white;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     margin: 0 0 $space-2;
   }
 
   &__address {
     font-style: normal;
     font-size: $font-size-sm;
-    color: rgba($color-bg-white, 0.55);
+    // color: rgba($color-bg-white, 0.55);
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     line-height: $line-height-relaxed;
     white-space: pre-line;
     margin: 0;
@@ -197,7 +212,9 @@
 .contact-detail-label {
   font-size: $font-size-xs;
   font-weight: $font-weight-semi;
-  color: rgba($color-bg-white, 0.4);
+  // color: rgba($color-bg-white, 0.4);
+  color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 0;
@@ -205,16 +222,21 @@
 
 .contact-detail-value {
   font-size: $font-size-sm;
-  color: rgba($color-bg-white, 0.75);
+  // color: rgba($color-bg-white, 0.75);
+  color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
   margin: 0;
   line-height: $line-height-normal;
   word-break: break-word;
 
   &--link {
     text-decoration: none;
-    color: $color-purple-light;
+    // color: $color-purple-light;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     transition: color $transition-fast;
-    &:hover { color: $color-bg-white; text-decoration: underline; }
+    &:hover { color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important; text-decoration: underline; }
   }
 }
 
@@ -254,7 +276,9 @@
     height: 180px;
     background: rgba($color-bg-white, 0.03);
     @include flex(column, center, center, $space-3);
-    color: rgba($color-bg-white, 0.4);
+    // color: rgba($color-bg-white, 0.4);
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     font-size: $font-size-sm;
 
     svg { color: $color-green-light; }
@@ -283,8 +307,10 @@
   border-radius: $radius-2xl;
   padding: $space-8;
 
-  &__title { font-family: $font-display; font-size: $font-size-2xl; font-weight: $font-weight-bold; color: $color-bg-white; margin-bottom: $space-1; }
-  &__sub { font-size: $font-size-sm; color: rgba($color-bg-white, 0.5); margin-bottom: $space-6; }
+  &__title { font-family: $font-display; font-size: $font-size-2xl; font-weight: $font-weight-bold; color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important; margin-bottom: $space-1; }
+  &__sub { font-size: $font-size-sm; color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important; margin-bottom: $space-6; }
 }
 
 .contact-form {
@@ -307,7 +333,8 @@
   label {
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
-    color: rgba($color-bg-white, 0.85);
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
   }
 
   .required { color: $color-error; }
@@ -318,13 +345,15 @@
     border: 1.5px solid rgba($color-bg-white, 0.12);
     border-radius: $radius-lg;
     font-size: $font-size-sm;
-    color: $color-bg-white;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     background: rgba($color-bg-white, 0.05);
     outline: none;
     transition: all $transition-fast;
     font-family: $font-primary;
 
-    &:focus { border-color: $color-purple-light; box-shadow: 0 0 0 3px rgba($color-gold, 0.2); background: rgba($color-bg-white, 0.07); }
+    &:focus { border-color:  #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important; box-shadow: 0 0 0 3px rgba($color-gold, 0.2); background: rgba($color-bg-white, 0.07); }
     &.invalid { border-color: $color-error; box-shadow: 0 0 0 3px rgba($color-error, 0.15); }
     &::placeholder { color: rgba($color-bg-white, 0.35); }
   }
@@ -339,7 +368,8 @@
     padding-right: 2.5rem;
     cursor: pointer;
 
-    option { background: $color-info; color: $color-bg-white; }
+    option { background: $color-info; color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important; }
   }
 }
 

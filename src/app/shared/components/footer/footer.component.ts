@@ -22,8 +22,8 @@ export class FooterComponent {
   readonly certBadges = [
     'CIPET Certified',
     'ISO 17088:2021',
-    'Udyam MSME',
-    'PPCC Green',
+      // 'Udyam MSME',
+      // 'PPCC Green',
     '91.1% Biodegradation',
     'Zero Hazardous Waste',
   ];

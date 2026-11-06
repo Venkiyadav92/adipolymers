@@ -31,7 +31,7 @@ export class SustainabilityComponent {
   ];
 
   readonly certifications = [
-    { name: 'ISO 14001:2015', desc: 'Environmental Management System certified by Bureau Veritas', icon: 'verified_user' },
+    { name: 'ISO 17088:2021', desc: 'Environmental Management System certified by Bureau Veritas', icon: 'verified_user' },
     { name: 'EN 13432', desc: 'European standard for compostable packaging — certified by DIN CERTCO', icon: 'eco' },
     { name: 'ASTM D6400', desc: 'American standard for compostable plastics — BPI certified', icon: 'recycling' },
     { name: 'OK Compostable', desc: 'TÜV Austria certification for compostable material content', icon: 'grass' },

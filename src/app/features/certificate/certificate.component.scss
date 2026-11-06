@@ -12,6 +12,7 @@
   padding: 140px 0 80px;
   overflow: hidden;
   text-align: center;
+  
 
   background:
     linear-gradient(
@@ -65,7 +66,9 @@
     border-radius: $radius-full;
     font-size: $font-size-sm;
     font-weight: $font-weight-semi;
-    color: $color-green-light;
+    // color: $color-green-light;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     margin-bottom: $space-5;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -77,18 +80,24 @@
     font-family: $font-display;
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: $font-weight-black;
-    color: $color-bg-white;
+    // color: $color-bg-white;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     line-height: 1.15;
     margin-bottom: $space-5;
 
     .highlight {
       @include gradient-text($gradient-green);
+      color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     }
   }
 
   &__subtitle {
     font-size: $font-size-lg;
-    color: rgba($color-bg-white, 0.72);
+    // color: rgba($color-bg-white, 0.72);
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     line-height: $line-height-relaxed;
     max-width: 680px;
     margin: 0 auto $space-10;
@@ -107,6 +116,7 @@
 
 .cert-stat {
   text-align: center;
+  
 
   &__num {
     display: block;
@@ -121,7 +131,9 @@
   &__lbl {
     display: block;
     font-size: $font-size-xs;
-    color: rgba($color-bg-white, 0.55);
+    // color: rgba($color-bg-white, 0.55);
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-weight: $font-weight-medium;

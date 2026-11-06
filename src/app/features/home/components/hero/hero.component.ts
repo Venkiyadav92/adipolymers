@@ -41,6 +41,7 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit{
       ctaLink: '/contact',
       badge: 'Trusted Manufacturing Partner',
     },
+    
   ];
 
   private timer: ReturnType<typeof setInterval> | null = null;

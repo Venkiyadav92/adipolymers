@@ -102,14 +102,18 @@
     font-family: $font-display;
     font-size: $font-size-lg;
     font-weight: $font-weight-bold;
-    color: $color-bg-white;
+    // color: $color-bg-white;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     line-height: 1.3;
   }
 
   &__desc {
     font-size: $font-size-sm;
-    color: rgba($color-bg-white, 0.82);
+    // color: rgba($color-bg-white, 0.82);
     line-height: 1.65;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
   }
 
   &__features {
@@ -120,7 +124,9 @@
     li {
       @include flex(row, center, flex-start, $space-2);
       font-size: $font-size-xs;
-      color: rgba($color-bg-white, 0.85);
+      // color: rgba($color-bg-white, 0.85);
+      color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
 
       svg { flex-shrink: 0; color: $color-bg-white; }
     }
@@ -134,7 +140,9 @@
     margin-top: auto;
     padding-top: $space-2;
     transition: gap $transition-base;
-    color: $color-bg-white;
+    // color: $color-bg-white;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
 
     &:hover { gap: $space-3; }
   }
