@@ -101,7 +101,8 @@ color:$color-bg-white;
 
   &--primary {
     // background: linear-gradient(135deg, $green-deep 0%, $green-mid 100%);
-    color: $color-bg-white;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     // box-shadow: 0 4px 16px rgba($green-bright, 0.35);
     background: linear-gradient(
   135deg,
@@ -260,7 +261,8 @@ $insta-orange 100%);
 
   &__sub {
     font-size: clamp($font-size-base, 2vw, $font-size-lg);
-    color: rgba($color-bg-white, 0.68);
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     line-height: 1.75;
     max-width: 600px;
     margin: 0 0 $space-8;
@@ -779,14 +781,16 @@ $color-gold-light 100%
     font-family: $font-display;
     font-size: clamp(1.5rem, 3vw, 2.25rem);
     font-weight: $font-weight-black;
-    color: $color-bg-white;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     margin-bottom: $space-3;
     line-height: 1.2;
   }
 
   &__sub {
     font-size: $font-size-base;
-    color: $color-bg-white;
+    color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
     line-height: 1.75;
     margin: 0;
   }

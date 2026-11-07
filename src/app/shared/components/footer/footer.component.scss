@@ -13,6 +13,7 @@
       width: 100%;
       height: 100%;
       display: block;
+      
     }
   }
 
@@ -291,21 +292,41 @@
     line-height: 1.5;
   }
 
-  &__cert-cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: $space-2;
-    padding: $space-2 $space-4;
-    background: $gradient-green;
-    color: $color-bg-white;
-    border-radius: $radius-full;
-    font-size: $font-size-xs;
-    font-weight: $font-weight-semi;
-    text-decoration: none;
-    transition: opacity $transition-fast;
+&__cert-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  background: linear-gradient(90deg, #3b5d2b, #45cd52);
 
-    &:hover { opacity: 0.85; }
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semi;
+  text-decoration: none;
+  transition: opacity $transition-fast;
+
+  animation: cert-wa-pulse 2.5s ease-out infinite;
+
+  &:hover {
+    opacity: 0.85;
   }
+}
+
+@keyframes cert-wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(69, 205, 82, 0.65);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(69, 205, 82, 0.15);
+  }
+
+  100% {
+    box-shadow: 0 0 0 16px rgba(69, 205, 82, 0);
+  }
+}
 
   // --- Bottom Bar ---
   &__bottom {

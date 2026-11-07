@@ -112,8 +112,8 @@
       
     }
     .hero__badge{
-      color: #caae35 !important;
-    -webkit-text-fill-color: #caae35 !important;
+      color: #e0c136 !important;
+    -webkit-text-fill-color: #e0c136 !important;
     }
   }
 
@@ -121,8 +121,8 @@
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
     // color: rgba($color-bg-white, 0.72);
-    color: #caae35 !important;
-    -webkit-text-fill-color: #caae35 !important;
+    color: #e0c136 !important;
+    -webkit-text-fill-color: #e0c136 !important;
     text-transform: uppercase;
     letter-spacing: 0.18em;
     margin-bottom: $space-3;
@@ -150,7 +150,8 @@
   &__subtitle {
     font-size: clamp($font-size-base, 1.45vw, $font-size-lg);
     line-height: 1.8;
-    color: rgba($color-bg-white, 0.77);
+    color: #e0c136 !important;
+    -webkit-text-fill-color: #e0c136 !important;
     max-width: 640px;
     margin-bottom: $space-8;
   }

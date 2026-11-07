@@ -80,14 +80,36 @@
     justify-content: flex-start;
     flex-wrap: wrap;
 
-    .btn-primary {
-      @include btn-primary;
-      color: $color-bg-white;
-      height: 52px;
-      padding: 0 $space-8;
-      font-size: $font-size-base;
-      text-decoration: none;
-    }
+   .btn-primary {
+  @include btn-primary;
+
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  height: 52px;
+  padding: 0 $space-8;
+  font-size: $font-size-base;
+  text-decoration: none;
+  background: linear-gradient(90deg, #3b5d2b, #45cd52);
+
+  animation: cert-wa-pulse 2.5s ease-out infinite;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+@keyframes cert-wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(69, 205, 82, 0.65);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(69, 205, 82, 0.15);
+  }
+
+  100% {
+    box-shadow: 0 0 0 16px rgba(69, 205, 82, 0);
+  }
+}
 
     .btn-secondary {
       @include btn-outline;
@@ -95,7 +117,8 @@
       padding: 0 $space-8;
       font-size: $font-size-base;
       border-color: rgba($color-bg-white, 0.3);
-      color: rgba($color-bg-white, 0.8);
+      color: #ffdd46 !important;
+    -webkit-text-fill-color: #ffdd46 !important;
       text-decoration: none;
 
       &:hover { border-color: rgba($color-bg-white, 0.8); background: rgba($color-bg-white, 0.08); color: $color-bg-white; }

@@ -109,10 +109,33 @@
     padding: 0 $space-8;
     font-size: $font-size-base;
     text-decoration: none;
-    color: $color-bg-white;
+    color: #ffff !important;
+    -webkit-text-fill-color: #ffff !important;
+    background: linear-gradient(90deg, #3b5d2b, #45cd52);
+    animation: wa-pulse 2.5s ease-out infinite;
+    position: relative;
+  z-index: 1;
+  will-change: box-shadow, transform;
 
     svg { color: $color-bg-white; }
   }
+  // WhatsApp pulse animation
+@keyframes wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(69, 205, 82, 0.65);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 0 0 10px rgba(69, 205, 82, 0.15);
+    transform: scale(1.03);
+  }
+
+  100% {
+    box-shadow: 0 0 0 18px rgba(69, 205, 82, 0);
+    transform: scale(1);
+  }
+}
 
   .cta-btn-ghost {
     @include btn-outline;
