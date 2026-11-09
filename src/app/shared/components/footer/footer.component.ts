@@ -21,6 +21,7 @@ export class FooterComponent {
 
   readonly certBadges = [
     'CIPET Certified',
+    'CPCB Certified',
     'ISO 17088:2021',
       // 'Udyam MSME',
       // 'PPCC Green',
