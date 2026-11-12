@@ -67,8 +67,8 @@ export class ServicesComponent {
     },
     {
       icon: '🏭',
-      title: 'MSME Registered',
-      desc: 'Udyam Registration No. UDYAM-PY-03-0046488. Micro enterprise, 360 TPA capacity.',
+      title: 'CPCB Certified',
+      desc: 'Central Pollution Control Board (CPCB) – CPCB-UPC, Puducherry | Report No. 796 | 30 October 2026.',
     },
     {
       icon: '🌍',

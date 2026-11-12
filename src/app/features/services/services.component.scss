@@ -743,14 +743,7 @@ $insta-orange);
 // ══════════════════════════════════════════════════════════════
 .svc-cta-banner {
   padding: $space-20 0;
-  background: linear-gradient(
-135deg,
-$color-gold 0%,
-$color-gold 30%,
-$color-gold 60%,
-$color-error 80%,
-$color-gold-light 100%
-);
+  background: linear-gradient(135deg, #273ec9, #272fc9, #afe866);
   position: relative;
   overflow: hidden;
 
