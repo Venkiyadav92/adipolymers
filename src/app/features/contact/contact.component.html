@@ -73,6 +73,10 @@
             <p class="contact-form-card__sub">Fill in the details below and we'll respond within 24 business hours.</p>
 
             <form [formGroup]="form" (ngSubmit)="submit()" novalidate class="contact-form" aria-label="Contact form">
+              <div class="sr-only" aria-hidden="true">
+                <label for="website">Leave this field empty</label>
+                <input id="website" type="text" formControlName="website" tabindex="-1" autocomplete="off" />
+              </div>
 
               <div class="form-row">
                 <div class="form-group">
@@ -90,7 +94,7 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="phone">Phone / WhatsApp</label>
-                  <input id="phone" type="tel" formControlName="phone" placeholder="+91 78249 66999" autocomplete="tel" />
+                  <input id="phone" type="tel" formControlName="phone" placeholder="+91 7305993999" autocomplete="tel" />
                 </div>
                 <div class="form-group">
                   <label for="company">Company Name</label>
@@ -135,7 +139,7 @@
 
               <p class="form-disclaimer">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                Your information is secure and never shared with third parties.
+                Your information is sent through our email provider to deliver your inquiry.
               </p>
             </form>
           </div>

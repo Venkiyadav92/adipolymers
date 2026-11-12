@@ -1,9 +1,16 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 import { ScrollAnimateDirective } from '../../shared/directives/scroll-animate.directive';
 import { ToastService } from '../../core/services/toast.service';
 import { INQUIRY_TYPES } from '../../core/models/inquiry.model';
+
+interface FormSubmitResponse {
+  success?: boolean | string;
+  message?: string;
+}
 
 @Component({
   selector: 'ap-contact',
@@ -14,7 +21,9 @@ import { INQUIRY_TYPES } from '../../core/models/inquiry.model';
 })
 export class ContactComponent {
   private readonly fb = inject(FormBuilder);
+  private readonly http = inject(HttpClient);
   private readonly toastService = inject(ToastService);
+  private readonly emailEndpoint = 'https://formsubmit.co/ajax/coo.mangal@gmail.com';
 
   readonly inquiryTypes = INQUIRY_TYPES;
   readonly isSubmitting = signal(false);
@@ -28,6 +37,7 @@ export class ContactComponent {
     inquiryType: ['general', Validators.required],
     subject:     ['', [Validators.required, Validators.minLength(5)]],
     message:     ['', [Validators.required, Validators.minLength(20)]],
+    website:     [''],
   });
 
   readonly officeLocations = [
@@ -43,7 +53,7 @@ export class ContactComponent {
       type: 'Marketed By — International',
       icon: 'public',
       company: 'Adithya Polymers',
-      address: '30 Al Jimi,\nAl Ain, Abu Dhabi,\nUAE',
+      address: '39, Al Muwaiji,\nAlAin, Abudhabi',
       color: 'teal',
       flag: '🇦🇪',
     },
@@ -77,7 +87,7 @@ export class ContactComponent {
     {
       icon: 'phone',
       label: 'Puducherry',
-      values: ['+91 7824966999'],
+      values: ['+91 7305993999'],
       type: 'phone',
     },
     {
@@ -114,17 +124,56 @@ export class ContactComponent {
     return 'Invalid input.';
   }
 
-  submit(): void {
+  async submit(): Promise<void> {
+    if (this.isSubmitting()) return;
+
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
+
+    const { website, ...inquiry } = this.form.getRawValue();
+    if (website) {
+      this.toastService.error('Message not sent', 'Please refresh the page and try again.');
+      return;
+    }
+
     this.isSubmitting.set(true);
-    setTimeout(() => {
-      this.isSubmitting.set(false);
+
+    try {
+      const response = await firstValueFrom(
+        this.http.post<FormSubmitResponse>(this.emailEndpoint, {
+          ...inquiry,
+          _subject: `Website inquiry: ${inquiry.subject}`,
+          _replyto: inquiry.email,
+          _template: 'table',
+          _honey: website,
+        }, {
+          headers: { Accept: 'application/json' },
+        }),
+      );
+
+      if (!response || (response.success !== true && response.success !== 'true')) {
+        throw new Error(response.message || 'The email service did not accept your message.');
+      }
+
       this.isSubmitted.set(true);
       this.toastService.success('Message Sent!', 'Our team will get back to you within 24 business hours.');
       this.form.reset({ inquiryType: 'general' });
-    }, 1500);
+    } catch (error: unknown) {
+      let message = 'Please try again later or contact us by email.';
+      if (error instanceof HttpErrorResponse) {
+        const body: unknown = error.error;
+        if (typeof body === 'object' && body !== null && 'message' in body && typeof body.message === 'string') {
+          message = body.message;
+        }
+      } else if (error instanceof Error) {
+        message = error.message;
+      }
+
+      this.toastService.error('Message not sent', message);
+    } finally {
+      this.isSubmitting.set(false);
+    }
   }
 }
