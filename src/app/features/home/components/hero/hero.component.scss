@@ -71,18 +71,30 @@
   inset: 0;
   z-index: 1;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba($color-dark, 0.45) 0%,
-      rgba($color-gold-deep, 0.25) 40%,
-      rgba($color-gold-deep, 0.12) 100%
-    ),
-    radial-gradient(
-      circle at top left,
-      rgba($color-gold, 0.12),
-      transparent 35%
-    );
+  // background:
+  //   linear-gradient(
+  //     90deg,
+  //     rgba($color-dark, 0.45) 0%,
+  //     rgba($color-gold-deep, 0.25) 40%,
+  //     rgba($color-gold-deep, 0.12) 100%
+  //   ),
+  //   radial-gradient(
+  //     circle at top left,
+  //     rgba($color-gold, 0.12),
+  //     transparent 35%
+  //   );
+//  background:
+//       linear-gradient(
+//         135deg,
+//         rgba(39, 62, 201, 0.45) 0%,
+//         rgba(39, 47, 201, 0.25) 40%,
+//         rgba(175, 232, 102, 0.12) 100%
+//       ),
+//       radial-gradient(
+//         circle at top left,
+//         rgba(220, 215, 233, 0.2),
+//         transparent 45%
+//       );
 }
 
   &__container {
