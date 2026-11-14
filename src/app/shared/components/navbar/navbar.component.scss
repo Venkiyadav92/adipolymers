@@ -41,8 +41,8 @@ $nav-h-sm: 64px;
       
     }
     .navbar__logo-frame{
-      width:95px;
-      height:60px;
+      width:105px;
+      height:95px;
     }
 
     // Nav items switch to dark
@@ -90,11 +90,11 @@ $nav-h-sm: 64px;
   }
 
 &__logo-frame {
-  width:95px;
-  height:60px;
+  width:105px;
+  height:95px;
   flex-shrink: 0;
   border-radius: 12px;
-  background: $color-bg-white;
+  // background: $color-bg-white;
   padding: 7px;
 
   display: flex;
@@ -103,9 +103,9 @@ $nav-h-sm: 64px;
 
   overflow: hidden;
 
-  box-shadow:
-    0 4px 15px rgba($color-dark, 0.15),
-    0 0 0 1px rgba($color-bg-white, 0.5);
+  // box-shadow:
+  //   0 4px 15px rgba($color-dark, 0.15),
+  //   0 0 0 1px rgba($color-bg-white, 0.5);
 
   transition: box-shadow 0.25s ease;
 
@@ -136,6 +136,7 @@ $nav-h-sm: 64px;
     flex: 1;
     display: flex;
     justify-content: center;
+   
     
 
     // Collapse to hamburger below lg breakpoint
@@ -149,6 +150,7 @@ $nav-h-sm: 64px;
     padding: 0;
     margin: 0;
     gap: 4px; // tight but sufficient; links have their own padding
+    
   }
 
   &__item { position: relative; }
@@ -166,12 +168,13 @@ $nav-h-sm: 64px;
     border-radius: 8px;
     font-family: $font-display;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 900;
     letter-spacing: 0.01em;
     white-space: nowrap;
     text-decoration: none;
-    color: $color-bg-white;
-    text-shadow: 0 1px 6px rgba($color-dark, 0.45);
+       color: #195206;
+    -webkit-text-fill-color: #195206;
+    // text-shadow: 0 1px 6px rgba($color-dark, 0.45);
     background: transparent;
     border: none;
     cursor: pointer;
