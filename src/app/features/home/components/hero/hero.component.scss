@@ -147,7 +147,7 @@ background:
 
   &__title {
     font-family: $font-display;
-    font-size: clamp(2.3rem, 5.6vw, 4.7rem);
+    font-size: clamp(2.3rem, 3.4vw, 4.7rem);
     font-weight: $font-weight-black;
     line-height: 1.06;
     letter-spacing: -0.03em;
@@ -267,6 +267,38 @@ background:
     &.active {
       width: 24px;
       background: $color-bg-white;
+    }
+  }
+}
+
+@include max-md {
+  .hero {
+    min-height: 100svh;
+
+    &__container {
+      width: 100%;
+      padding: 6rem 1.25rem 5rem;
+    }
+
+    &__content {
+      left: 0;
+      max-width: 100%;
+      margin-bottom: 0;
+    }
+
+    &__title {
+      font-size: clamp(2rem, 8vw, 2.8rem);
+      line-height: 1.1;
+      overflow-wrap: anywhere;
+    }
+
+    &__subtitle {
+      max-width: 100%;
+      line-height: 1.65;
+    }
+
+    &__indicators {
+      bottom: 1.5rem;
     }
   }
 }
